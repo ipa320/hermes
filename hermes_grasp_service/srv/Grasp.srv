@@ -1,0 +1,25 @@
+# Service for executing a grasp
+#
+# request message
+int32 hand			# 1 ->Left Hand 2 ->Right Hand
+int32 LEFTHAND=1
+int32 RIGHTHAND=2
+
+int32 grasp_type		# type of grasp: 'CYLINDER', 'TRIFINGER', 'BIFINGER', 'LATERAL', 'OPENALL', 'STOPALL', 'FIRSTCALIBRATION', 'FASTCALIBRATION'
+int32 CYLINDER=1
+int32 BIFINGER=2
+int32 BIFINGER2=3
+int32 TRIFINGER=4
+int32 TRIFINGER2=5
+int32 LATERAL=6
+int32 OPENALL=7
+int32 STOPALL=8
+int32 FIRSTCALIBRATION=9
+int32 FASTCALIBRATION=10
+int32 STRONGGRIP=11
+int32 PEINETA=12
+
+int32 grasp_force			# grasping force [0..100] (not applicable for OPENALL, STOPALL, FIRSTCALIBRATION, FASTCALIBRATION)
+---
+# response message
+string message			# response message commenting the outcome if necessary
