@@ -1,0 +1,7 @@
+# Service for getting the suitable arm position for a certain detected object
+#
+# request message
+cob_object_detection_msgs/Detection detection		# the detected object
+---
+# response message
+GraspConfiguration[] grasp_configurations			# a list of possible grasp configurations
