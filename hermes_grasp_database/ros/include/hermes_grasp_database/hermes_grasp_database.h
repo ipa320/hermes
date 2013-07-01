@@ -2,6 +2,9 @@
 
 #include "tf/tf.h"
 
+#include <map>
+#include <vector>
+
 // services - here you have to include the header file with exactly the same name as your message in the /srv folder (the Message.h is automatically generated from your Message.srv file during compilation)
 #include <hermes_grasp_database/GetGraspForDetection.h>
 
@@ -25,5 +28,6 @@ protected:
 	ros::NodeHandle node_;
 	ros::ServiceServer hermes_grasp_database_service_server_; ///< Service server which accepts requests
 
-
+	///      object label, vector of grasps
+	std::map<std::string, std::vector<GraspDatabaseEntry> > grasp_database_;
 };

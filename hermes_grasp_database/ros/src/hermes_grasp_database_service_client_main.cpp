@@ -47,16 +47,24 @@ int main(int argc, char **argv)
 	req.detection.pose.pose.position.x = 0.834;
 	req.detection.pose.pose.position.y = 0.328;
 	req.detection.pose.pose.position.z = 1.135;
+	req.detection.pose.pose.orientation.w = 1;
+	req.detection.pose.pose.orientation.x = 0;
+	req.detection.pose.pose.orientation.y = 0;
+	req.detection.pose.pose.orientation.z = 0;
 
 	// this calls the service server to process our request message and put the result into the response message
 	// this call is blocking, i.e. this program will not proceed until the service server sends the response
 	bool success = ros::service::call("hermes_get_grasp_for_detection", req, res);
 
 	if (success == true)
-		printf("Request successful, target arm position: (xyz)=(%f, %f, %f), (wabc)=(%f, %f, %f, %f) with grasp %i.\n",
-				res.goal_position.pose.position.x, res.goal_position.pose.position.y, res.goal_position.pose.position.z,
-				res.goal_position.pose.orientation.w, res.goal_position.pose.orientation.x, res.goal_position.pose.orientation.y, res.goal_position.pose.orientation.z,
-				res.grasp_type);
+	{
+		printf("Request successful, target arm positions:\n");
+		for (unsigned int i=0; i<res.grasp_configurations.size(); i++)
+			printf(" - (xyz)=(%f, %f, %f), (wabc)=(%f, %f, %f, %f) with grasp %i\n",
+				res.grasp_configurations[i].goal_position.pose.position.x, res.grasp_configurations[i].goal_position.pose.position.y, res.grasp_configurations[i].goal_position.pose.position.z,
+				res.grasp_configurations[i].goal_position.pose.orientation.w, res.grasp_configurations[i].goal_position.pose.orientation.x, res.grasp_configurations[i].goal_position.pose.orientation.y, res.grasp_configurations[i].goal_position.pose.orientation.z,
+				res.grasp_configurations[i].grasp_type);
+	}
 	else
 		std::cout << "The service call was not successful.\n" << std::endl;
 

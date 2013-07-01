@@ -21,7 +21,7 @@ INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/ros/include
 		    ${PROJECT_SOURCE_DIR}/common/include)
 
 #uncomment if you have defined messages
-#rosbuild_genmsg()
+rosbuild_genmsg()
 #uncomment if you have defined services
 rosbuild_gensrv()
 

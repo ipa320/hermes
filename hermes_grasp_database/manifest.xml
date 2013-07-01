@@ -10,6 +10,7 @@
   <url>http://ros.org/wiki/hermes_grasp_database</url>
 
   <depend package="roscpp"/>
+  <depend package="roslib"/>
   <depend package="geometry_msgs"/>
   <depend package="cob_object_detection_msgs"/>
 
