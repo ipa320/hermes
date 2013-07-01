@@ -1,0 +1,17 @@
+<package>
+  <description brief="hermes_grasp_service">
+
+     hermes_grasp_service is a package that implements a service providing a grasping component.
+
+  </description>
+  <author>Richard Bormann</author>
+  <license>LGPL</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/hermes_grasp_service</url>
+
+  <depend package="roscpp"/>
+  <depend package="std_msgs"/>
+
+</package>
+
+

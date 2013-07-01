@@ -1,0 +1,8 @@
+# Service for getting the suitable arm position for a certain detected object
+#
+# request message
+cob_object_detection_msgs/Detection detection		# the detected object
+---
+# response message
+geometry_msgs/PoseStamped goal_position		# the target position of the wrist of the robot arm
+int32 grasp_type							# one of the grasps defined in hermes_grasp_service/Grasp.srv
