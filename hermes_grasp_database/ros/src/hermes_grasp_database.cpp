@@ -125,19 +125,23 @@ bool HermesGraspDatabase::computeGraspForDetection(hermes_grasp_database::GetGra
 	// ...
 	//tf::Transform t;
 
+	res.grasp_configurations.clear();
 	std::string object_label = req.detection.label;
-	for (unsigned int i=0; i<grasp_database_[object_label].size(); i++)
+	if (grasp_database_.find(object_label) != grasp_database_.end())
 	{
-		tf::Transform offset = grasp_database_[object_label][i].grasp_offset;
-		tf::Transform object_pose;
-		tf::poseMsgToTF(req.detection.pose.pose, object_pose);
+		for (unsigned int i=0; i<grasp_database_[object_label].size(); i++)
+		{
+			tf::Transform offset = grasp_database_[object_label][i].grasp_offset;
+			tf::Transform object_pose;
+			tf::poseMsgToTF(req.detection.pose.pose, object_pose);
 
-		// todo: transform into the desired coordinate system ?
-		hermes_grasp_database::GraspConfiguration gc;
-		tf::poseTFToMsg(offset*object_pose, gc.goal_position.pose);
-		gc.goal_position.header = req.detection.pose.header;
-		gc.grasp_type = grasp_database_[object_label][i].grasp_type;
-		res.grasp_configurations.push_back(gc);
+			// todo: transform into the desired coordinate system ?
+			hermes_grasp_database::GraspConfiguration gc;
+			tf::poseTFToMsg(offset*object_pose, gc.goal_position.pose);
+			gc.goal_position.header = req.detection.pose.header;
+			gc.grasp_type = grasp_database_[object_label][i].grasp_type;
+			res.grasp_configurations.push_back(gc);
+		}
 	}
 
 	// if the procedure fails, use "return false;" to inform the caller of the service
