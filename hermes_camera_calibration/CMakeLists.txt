@@ -23,6 +23,9 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 
 INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/ros/include
 		    ${PROJECT_SOURCE_DIR}/common/include)
+		    
+rosbuild_add_executable(camera_calibration ros/src/camera_calibration.cpp)
+
 
 #common commands for building c++ executables and libraries
 #rosbuild_add_library(${PROJECT_NAME} src/example.cpp)

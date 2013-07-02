@@ -16,7 +16,16 @@ void CameraCalibration::inputCallback(const cob_object_detection_msgs::Detection
 {
 	std::cout << "Receiving detection of coordinate system..." << std::endl;
 
+	// search for marker No. 1
+	for (unsigned int i=0; i<input_marker_detections_msg->detections.size(); i++)
+	{
+		if (input_marker_detections_msg->detections[i].label.compare("1") == true)
+		{
+			// update average coordinate system of marker
 
+			// publish new coordinate transformation
+		}
+	}
 }
 
 
