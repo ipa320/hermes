@@ -1,0 +1,20 @@
+<package>
+  <description brief="hermes_camera_calibration">
+
+     hermes_camera_calibration
+
+  </description>
+  <author>Richard Bormann</author>
+  <license>LGPL</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/hermes_camera_calibration</url>
+
+  <depend package="roscpp"/>
+  <depend package="roslib"/>
+  <depend package="tf"/>
+  <depend package="dynamic_reconfigure"/>
+  <depend package="cob_object_detection_msgs"/>
+
+</package>
+
+
