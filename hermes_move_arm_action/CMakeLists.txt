@@ -39,8 +39,8 @@ rosbuild_genmsg()
 #target_link_libraries(example ${PROJECT_NAME})
 
 # add build commands for action server
-rosbuild_add_executable(hermes_move_arm_action_server ros/src/hermes_move_arm_action_server_main.cpp
-                                              ros/src/hermes_move_arm_action_server.cpp)
+rosbuild_add_executable(move_arm_action ros/src/hermes_move_arm_action_server_main.cpp
+                                        ros/src/hermes_move_arm_action_server.cpp)
 
 # add build commands for action client
 rosbuild_add_executable(hermes_move_arm_action_client ros/src/hermes_move_arm_action_client_main.cpp
