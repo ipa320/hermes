@@ -11,6 +11,8 @@
 
   <depend package="roscpp"/>
   <depend package="roslib"/>
+  <depend package="tf"/>
+  <depend package="dynamic_reconfigure"/>
   <depend package="cob_object_detection_msgs"/>
 
 </package>

@@ -23,7 +23,20 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 
 INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/ros/include
 		    ${PROJECT_SOURCE_DIR}/common/include)
-		    
+
+#add dynamic reconfigure api
+rosbuild_find_ros_package(dynamic_reconfigure)
+include(${dynamic_reconfigure_PACKAGE_PATH}/cmake/cfgbuild.cmake)
+gencfg()
+
+# catkin API
+#add dynamic reconfigure api
+#find_package(catkin REQUIRED dynamic_reconfigure)
+#generate_dynamic_reconfigure_options(cfg/CameraCalibration.cfg)
+# make sure configure headers are built before any node using them
+#add_dependencies(camera_calibration ${PROJECT_NAME}_gencfg) 
+
+
 rosbuild_add_executable(camera_calibration ros/src/camera_calibration.cpp)
 
 
