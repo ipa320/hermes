@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <node ns="hermes_move_arm_action" name="move_arm_action" pkg="hermes_move_arm_action" type="move_arm_action" output="screen">
+  </node>
+
+</launch>

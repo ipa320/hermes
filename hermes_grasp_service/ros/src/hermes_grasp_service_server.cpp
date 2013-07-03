@@ -12,7 +12,7 @@ void HermesGraspServiceServer::init()
 	* The advertiseService() function is how you tell ROS that you want to provide a service for other modules (software nodes).
 	*/
 
-	hermes_grasp_service_server_ = node_.advertiseService("hermes_grasp_service", &HermesGraspServiceServer::executeGrasp, this);
+	hermes_grasp_service_server_ = node_.advertiseService("grasp_service", &HermesGraspServiceServer::executeGrasp, this);
 
 	left_hand_.init(1);
 	right_hand_.init(2);

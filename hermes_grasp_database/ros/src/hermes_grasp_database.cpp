@@ -19,7 +19,7 @@ void HermesGraspDatabase::init(std::string databaseFile)
 	/**
 	* The advertiseService() function is how you tell ROS that you want to provide a service for other modules (software nodes).
 	*/
-	hermes_grasp_database_service_server_ = node_.advertiseService("hermes_get_grasp_for_detection", &HermesGraspDatabase::computeGraspForDetection, this);
+	hermes_grasp_database_service_server_ = node_.advertiseService("get_grasp_for_detection", &HermesGraspDatabase::computeGraspForDetection, this);
 }
 
 

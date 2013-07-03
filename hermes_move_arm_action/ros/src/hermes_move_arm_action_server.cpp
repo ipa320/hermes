@@ -1,7 +1,7 @@
 #include "hermes_move_arm_action/hermes_move_arm_action_server.h"
 
 HermesMoveArmActionServer::HermesMoveArmActionServer(ros::NodeHandle nh)
-: move_arm_action_server_(nh, "hermes_move_arm_action", boost::bind(&HermesMoveArmActionServer::moveArm, this, _1), false)	// this initializes the action server; important: always set the last parameter to false
+: move_arm_action_server_(nh, "move_arm_action", boost::bind(&HermesMoveArmActionServer::moveArm, this, _1), false)	// this initializes the action server; important: always set the last parameter to false
 {
 	node_ = nh;
 }
