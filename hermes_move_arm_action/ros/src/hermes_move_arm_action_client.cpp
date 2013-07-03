@@ -1,7 +1,7 @@
 #include "hermes_move_arm_action/hermes_move_arm_action_client.h"
 
 HermesMoveArmActionClient::HermesMoveArmActionClient(ros::NodeHandle nh)
-: move_arm_action_client_("hermes_move_arm_action", true)  // true -> don't need ros::spin()
+: move_arm_action_client_("/hermes_move_arm_action/move_arm_action", true)  // true -> don't need ros::spin()
 {
 	node_ = nh;
 }

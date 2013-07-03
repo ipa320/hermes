@@ -34,9 +34,9 @@ rosbuild_gensrv()
 #target_link_libraries(example ${PROJECT_NAME})
 
 # add build commands for service server
-rosbuild_add_executable(hermes_grasp_service_server ros/src/hermes_grasp_service_server_main.cpp
-                                               ros/src/hermes_grasp_service_server.cpp
-						common/src/graspHand.cpp)
+rosbuild_add_executable(grasp_service ros/src/hermes_grasp_service_server_main.cpp
+                                      ros/src/hermes_grasp_service_server.cpp
+                                      common/src/graspHand.cpp)
                                                
 # add build commands for service client
 rosbuild_add_executable(hermes_grasp_service_client ros/src/hermes_grasp_service_client_main.cpp)
