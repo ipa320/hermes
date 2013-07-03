@@ -27,7 +27,7 @@ int main(int argc, char **argv)
 	*/
 	ros::NodeHandle n;
 
-	std::string service_name = "/grasp_database/hermes_get_grasp_for_detection";
+	std::string service_name = "/hermes_grasp_database/get_grasp_for_detection";
 
 	// here we wait until the service is available; please use the same service name as the one in the server; you may define a timeout if the service does not show up
 	std::cout << "Waiting for service server to become available..." << std::endl;

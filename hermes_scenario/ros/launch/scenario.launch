@@ -10,6 +10,9 @@
   
   <!-- database for transferring object detections into valid grasp positions -->
   <include file="$(find hermes_grasp_database)/ros/launch/grasp_database_server.launch"/>
+
+  <!-- service for executing grasp commands -->
+  <include file="$(find hermes_grasp_service)/ros/launch/grasp_service_server.launch"/>
   
 
   <!--node ns="camera_calibration" name="camera_calibration" pkg="hermes_camera_calibration" type="camera_calibration" output="screen">
