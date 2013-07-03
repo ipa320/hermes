@@ -9,6 +9,9 @@
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/hermes_scenario</url>
 
+  <depend package="roscpp"/>
+  <depend package="cob_fiducials"/>
+
 </package>
 
 

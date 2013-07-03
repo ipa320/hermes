@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <include file="$(find hermes_scenario)/ros/launch/cob_fiducials/fiducials.launch"/>
+
+  <!--node ns="camera_calibration" name="camera_calibration" pkg="hermes_camera_calibration" type="camera_calibration" output="screen">
+    <remap from="input_marker_detections" to="/fiducials/detect_fiducials"/>
+  </node-->
+
+</launch>

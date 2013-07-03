@@ -16,6 +16,9 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 #set the default path for built libraries to the "lib" directory
 set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 
+INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/ros/include
+		    ${PROJECT_SOURCE_DIR}/common/include)
+
 #uncomment if you have defined messages
 #rosbuild_genmsg()
 #uncomment if you have defined services
