@@ -1,0 +1,14 @@
+<package>
+  <description brief="hermes_scenario">
+
+     hermes_scenario
+
+  </description>
+  <author>Richard Bormann</author>
+  <license>LGPL</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/hermes_scenario</url>
+
+</package>
+
+
