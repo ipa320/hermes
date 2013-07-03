@@ -27,9 +27,11 @@ int main(int argc, char **argv)
 	*/
 	ros::NodeHandle n;
 
+	std::string service_name = "/grasp_database/hermes_get_grasp_for_detection";
+
 	// here we wait until the service is available; please use the same service name as the one in the server; you may define a timeout if the service does not show up
 	std::cout << "Waiting for service server to become available..." << std::endl;
-	bool serviceAvailable = ros::service::waitForService("hermes_get_grasp_for_detection", 5000);
+	bool serviceAvailable = ros::service::waitForService(service_name, 5000);
 
 	// only proceed if the service is available
 	if (serviceAvailable == false)
@@ -54,7 +56,7 @@ int main(int argc, char **argv)
 
 	// this calls the service server to process our request message and put the result into the response message
 	// this call is blocking, i.e. this program will not proceed until the service server sends the response
-	bool success = ros::service::call("hermes_get_grasp_for_detection", req, res);
+	bool success = ros::service::call(service_name, req, res);
 
 	if (success == true)
 	{

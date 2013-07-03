@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <node ns="grasp_database" name="grasp_database" pkg="hermes_grasp_database" type="grasp_database" output="screen">
+  </node>
+
+</launch>

@@ -2,8 +2,14 @@
 
 <launch>
 
+  <!-- fiducial marker detection -->
   <include file="$(find hermes_scenario)/ros/launch/cob_fiducials/fiducials.launch"/>
+  
+  <!-- continuous camera registration in tf tree -->
   <include file="$(find hermes_camera_calibration)/ros/launch/camera_calibration.launch"/>
+  
+  <!-- database for transferring object detections into valid grasp positions -->
+  <include file="$(find hermes_grasp_database)/ros/launch/grasp_database_server.launch"/>
   
 
   <!--node ns="camera_calibration" name="camera_calibration" pkg="hermes_camera_calibration" type="camera_calibration" output="screen">
