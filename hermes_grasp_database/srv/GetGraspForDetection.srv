@@ -4,4 +4,4 @@
 cob_object_detection_msgs/Detection detection		# the detected object
 ---
 # response message
-GraspConfiguration[] grasp_configurations			# a list of possible grasp configurations
+GraspConfiguration[] grasp_configurations		# a list of possible grasp configurations

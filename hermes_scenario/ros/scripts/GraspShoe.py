@@ -7,87 +7,59 @@ import smach_ros
 
 from cob_object_detection_msgs.msg import *
 from cob_object_detection_msgs.srv import *
-#from sensor_msgs.msg import RegionOfInterest
-
-'''
-class DetectMarker(smach.State):
-	def __init__(self):
-		smach.State.__init__(self,
-			outcomes=['success', 'failed'],
-			input_keys=['detection'],
-			output_keys=['detection'])
-		/fiducials/get_fiducials
-		#self.client = actionlib.SimpleActionClient('/trigger_segmentation', TriggerAction)
-
-	def execute(self, userdata):
-		#stop mapping
-		# goal = TriggerGoal()
-		# goal.start = False
-		# if not self.client.wait_for_server(rospy.Duration.from_sec(3.0)):#rospy.Duration.from_sec(5.0)):
-		# rospy.logerr('Trigger action server not available')
-		# return 'failed'
-
-		rospy.wait_for_service('geometry_map/clear_map',2.0)
-		try:
-			clear_geom_map = rospy.ServiceProxy('geometry_map/clear_map', Trigger)
-			resp1 = clear_geom_map()
-		except rospy.ServiceException, e:
-			print "Service call failed: %s"%e
-
-		#start mapping
-		# goal.start = True
-		# if not self.client.wait_for_server(rospy.Duration.from_sec(1.0)):
-		# rospy.logerr('Trigger action server not available')
-		# return 'failed'
-		# self.client.send_goal(goal)
-		# if not self.client.wait_for_result():
-		# return 'failed'
-
-
-		#stop mapping
-		# goal = TriggerGoal()
-		# goal.start = False
-		# if not self.client.wait_for_server(rospy.Duration.from_sec(1.0)):#rospy.Duration.from_sec(5.0)):
-		# rospy.logerr('Trigger action server not available')
-		# return 'failed'
-		# self.client.send_goal(goal)
-		# if not self.client.wait_for_result():#rospy.Duration.from_sec(5.0)):
-		# return 'failed'
-
-		#trigger table extraction
-		rospy.wait_for_service('table_extraction/get_tables',3.0)
-		try:
-			extract_tables = rospy.ServiceProxy('table_extraction/get_tables', GetTables)
-			userdata.tables = extract_tables().tables
-		except rospy.ServiceException, e:
-			print "Service call failed: %s"%e
-		print "Found %d tables"%len(userdata.tables.shapes)
-		if len(userdata.tables.shapes) == 0:
-			return 'not_found'
-		return 'found'
-'''
+from hermes_grasp_database.msg import *
+from hermes_grasp_database.srv import *
 
 class DetectMarker(smach.State):
 	def __init__(self):
 		smach.State.__init__(self,
-			outcomes=['success', 'failed'],
-			input_keys=['detection'],
+			outcomes=['found', 'not_found', 'failed'],
+			input_keys=['object_label'],
 			output_keys=['detection'])
 
 	def execute(self, userdata):
+		print 'Searching for marker with label', userdata.object_label, '...'
 		rospy.wait_for_service('/fiducials/get_fiducials',3.0)
-		detections=[]
+		res = []
 		detect_objects = rospy.ServiceProxy('/fiducials/get_fiducials', DetectObjects)
 		try:
 			req = DetectObjectsRequest()
-			req.object_name.data = 'all'
-			detections = detect_objects(req).object_list
+			req.object_name.data = userdata.object_label
+			res = detect_objects(req)
 		except rospy.ServiceException, e:
-			print "Service call failed: %s"%e
+			print "Service call failed: %s"%e, ' Object', userdata.object_label, 'was not found.'
+			return 'not_found'
 
-		print detections
+		for detection in res.object_list.detections:
+			if detection.label == userdata.object_label:
+				userdata.detection = detection
+				#print detection
 
-		return 'success'
+		return 'found'
+
+
+class ComputeGrasp(smach.State):
+	def __init__(self):
+		smach.State.__init__(self,
+			outcomes=['found', 'not_found', 'failed'],
+			input_keys=['detection'],
+			output_keys=['grasp_configuration'])
+
+	def execute(self, userdata):
+		rospy.wait_for_service('/hermes_grasp_database/get_grasp_for_detection',3.0)
+		res = []
+		get_grasp_for_detection = rospy.ServiceProxy('/hermes_grasp_database/get_grasp_for_detection', GetGraspForDetection)
+		try:
+			req = GetGraspForDetectionRequest()
+			req.detection = userdata.detection
+			res = get_grasp_for_detection(req)
+		except rospy.ServiceException, e:
+			print "Service call failed: %s"%e, ' No grasp for object', userdata.detection.label, 'available.'
+			return 'not_found'
+
+		userdata.grasp_configuration = res.grasp_configurations[0]
+				
+		return 'found'
 
 
 class ShoePackaging(smach.StateMachine):
@@ -97,13 +69,15 @@ class ShoePackaging(smach.StateMachine):
 		with self:
 
 			smach.StateMachine.add('DETECT_SHOE', DetectMarker(),
-									transitions={'success':'finished',
-											'failed':'failed'})
-	'''
-			smach.StateMachine.add('COMPUTE_GRASP', ComputeGrasp(),
-									transitions={'success':'OPEN_HAND',
+									transitions={'found':'LOOKUP_GRASP',
+											'not_found':'DETECT_SHOE',
 											'failed':'failed'})
 
+			smach.StateMachine.add('LOOKUP_GRASP', ComputeGrasp(),
+									transitions={'found':'finished',#'OPEN_HAND',
+												'not_found':'failed',
+												'failed':'failed'})
+	'''
 			smach.StateMachine.add('OPEN_HAND', Grasp(),
 								transitions={'success':'MOVE_ARM_TO_SHOE',
 										'failed':'failed'})
@@ -119,6 +93,7 @@ class ShoePackaging(smach.StateMachine):
 
 if __name__ == '__main__':
 	rospy.init_node("shoe_packaging")
-	SM = ShoePackaging()
-	SM.execute()
+	sm = ShoePackaging()
+	sm.userdata.object_label='1'
+	sm.execute()
 	rospy.spin()

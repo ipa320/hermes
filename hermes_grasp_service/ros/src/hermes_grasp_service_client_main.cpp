@@ -1,7 +1,7 @@
 #include "ros/ros.h"
 
 // services - here you have to include the header file with exactly the same name as your message in the /srv folder (the Message.h is automatically generated from your Message.srv file during compilation)
-#include <hermes_grasp_service/Grasp.h>
+#include <hermes_grasp_service/HermesGrasp.h>
 #include <iostream>
 
 /**
@@ -43,17 +43,17 @@ int main(int argc, char **argv)
 	std::cout << "The service server is advertised.\n" << std::endl;
 
 	// prepare the request and response messages
-	hermes_grasp_service::Grasp::Request req;
-	hermes_grasp_service::Grasp::Response res;
+	hermes_grasp_service::HermesGrasp::Request req;
+	hermes_grasp_service::HermesGrasp::Response res;
 
 	while(1)
 	{
 		std::cout << "Enter hand (1=left, 2=right, 0=quit): ";
-		std::cin >> req.hand; // = hermes_grasp_service::Grasp::Request::LEFTHAND;
+		std::cin >> req.hand; // = hermes_grasp_service::HermesGrasp::Request::LEFTHAND;
 		if (req.hand == 0)
 			break;
 		std::cout << "Enter grasp type (1-12): ";
-		std::cin >> req.grasp_type; // = hermes_grasp_service::Grasp::Request::CYLINDER;
+		std::cin >> req.grasp_type; // = hermes_grasp_service::HermesGrasp::Request::CYLINDER;
 		req.grasp_force = 100;
 
 		// this calls the service server to process our request message and put the result into the response message
