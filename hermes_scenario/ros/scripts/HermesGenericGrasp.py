@@ -90,7 +90,9 @@ class MoveArm(smach.State):
 class HermesGenericGrasping(smach.StateMachine):
 	def __init__(self):
 		smach.StateMachine.__init__(self,
-			outcomes=['finished', 'failed'])
+			outcomes=['finished', 'failed'],
+			input_keys=['arm', 'hand', 'grasp_configuration'],
+			output_keys=[])
 		with self:
 
 			smach.StateMachine.add('OPEN_HAND', OpenHand(),
@@ -108,11 +110,20 @@ class HermesGenericGrasping(smach.StateMachine):
 if __name__ == '__main__':
 	rospy.init_node("generic_grasping")
 	sm = HermesGenericGrasping()
+	
+	# userdata
 	sm.userdata.hand = 1
 	sm.userdata.arm = 1
 	sm.userdata.grasp_configuration = GraspConfiguration()
 	sm.userdata.grasp_configuration.goal_position = PoseStamped()
 	sm.userdata.grasp_configuration.grasp_type = 12
-	sm.userdata.grasp_configuration.grasp_force = 80  
+	sm.userdata.grasp_configuration.grasp_force = 80
+	
+	# introspection -> smach_viewer
+	sis = smach_ros.IntrospectionServer('generic_grasping_introspection', sm, '/GENERIC_GRASPING')
+	sis.start()
+	
+	# start
 	sm.execute()
 	rospy.spin()
+	sis.stop()

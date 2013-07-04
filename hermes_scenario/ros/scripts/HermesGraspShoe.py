@@ -6,6 +6,7 @@ import smach
 import smach_ros
 
 from HermesCommon import *
+from HermesGenericGrasp import *
 
 from cob_object_detection_msgs.msg import *
 from cob_object_detection_msgs.srv import *
@@ -71,7 +72,9 @@ class ComputeGrasp(smach.State):
 class ShoePackaging(smach.StateMachine):
 	def __init__(self):
 		smach.StateMachine.__init__(self,
-			outcomes=['finished', 'failed'])
+			outcomes=['finished', 'failed'],
+			input_keys=['arm', 'hand', 'object_label'],
+			output_keys=[])
 		with self:
 
 			smach.StateMachine.add('DETECT_SHOE', DetectMarker(),
@@ -80,28 +83,34 @@ class ShoePackaging(smach.StateMachine):
 											'failed':'failed'})
 
 			smach.StateMachine.add('LOOKUP_GRASP', ComputeGrasp(),
-									transitions={'found':'finished',#'OPEN_HAND',
+									transitions={'found':'GRASP_SHOE',
 												'not_found':'failed',
 												'failed':'failed'})
 			
-			smach.StateMachine.add
-	'''
-			smach.StateMachine.add('OPEN_HAND', Grasp(),
-								transitions={'success':'MOVE_ARM_TO_SHOE',
-										'failed':'failed'})
-
-			smach.StateMachine.add('MOVE_ARM_TO_SHOE', MoveArm(),
-									transitions={'success':'GRASP_SHOE',
-											'failed':'failed'})
-
-			smach.StateMachine.add('GRASP_SHOE', Grasp(),
-								transitions={'success':'finished',
-										'failed':'failed'})
-	'''
+			# grasping
+			sm_generic_grasping = HermesGenericGrasping()
+			smach.StateMachine.add('GRASP_SHOE', sm_generic_grasping,
+                               transitions={'finished':'finished',
+											'failed':'failed'},
+                               remapping={'arm':'arm',
+										  'hand':'hand',
+										  'grasp_configuration':'grasp_configuration'})
+			
 
 if __name__ == '__main__':
 	rospy.init_node("shoe_packaging")
 	sm = ShoePackaging()
+	
+	# userdata
+	sm.userdata.arm = 1;
+	sm.userdata.hand = 1;
 	sm.userdata.object_label='1'
+	
+	# introspection -> smach_viewer
+	sis = smach_ros.IntrospectionServer('shoe_packaging_introspection', sm, '/SHOE_PACKAGING')
+	sis.start()
+	
+	# start
 	sm.execute()
 	rospy.spin()
+	sis.stop()
