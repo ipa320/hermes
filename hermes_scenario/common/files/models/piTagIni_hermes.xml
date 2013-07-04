@@ -50,7 +50,7 @@
 				
 		<!-- Offset for native tag corrdinates -->
 		<!-- e.g. position of tag in object centric ccordinate system -->
-		<!--Offset x="0.009" y="0.190" /-->
-		<Offset x="-0.05" y="0.05" />
+		<Offset x="0.009" y="0.190" />
+		<!--Offset x="-0.05" y="0.05" /-->
 	</PI>
 </FiducialDetector>
