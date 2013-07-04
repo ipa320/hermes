@@ -124,7 +124,7 @@ bool HermesGraspDatabase::computeGraspForDetection(hermes_grasp_database::GetGra
 	// this callback function is executed each time a request comes in for this service server
 	// here we just read the number from the request, square it and put the result into the response, the response is automatically sent back to the caller when this function returns
 
-	ROS_INFO("Service Server: Received a request for detected object %s at (x,y,z)=(%f, %f, %f), (wabc)=(%f, %f, %f, %f).",
+	ROS_INFO("GetGraspForDetection Service Server: Received a request for detected object %s at (x,y,z)=(%f, %f, %f), (wabc)=(%f, %f, %f, %f).",
 			req.detection.label.c_str(), req.detection.pose.pose.position.x, req.detection.pose.pose.position.y, req.detection.pose.pose.position.z,
 			req.detection.pose.pose.orientation.w, req.detection.pose.pose.orientation.x, req.detection.pose.pose.orientation.y, req.detection.pose.pose.orientation.z);
 

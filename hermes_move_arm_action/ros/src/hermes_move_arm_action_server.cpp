@@ -18,7 +18,7 @@ void HermesMoveArmActionServer::init()
 void HermesMoveArmActionServer::moveArm(const hermes_move_arm_action::MoveArmGoalConstPtr& goal)
 {
 	// this callback function is executed each time a request (= goal message) comes in for this service server
-	ROS_INFO("Action Server: Received a request for arm %i.", goal->arm);
+	ROS_INFO("MoveArm Action Server: Received a request for arm %i.", goal->arm);
 
 	// this command sends a feedback message to the caller, here we transfer that the task is completed 25%
 //	hermes_move_arm_action::MoveArmFeedback feedback;
