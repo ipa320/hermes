@@ -5,10 +5,14 @@ import rospy
 import smach
 import smach_ros
 
+from HermesCommon import *
+
 from cob_object_detection_msgs.msg import *
 from cob_object_detection_msgs.srv import *
 from hermes_grasp_database.msg import *
 from hermes_grasp_database.srv import *
+
+
 
 class DetectMarker(smach.State):
 	def __init__(self):
@@ -18,9 +22,10 @@ class DetectMarker(smach.State):
 			output_keys=['detection'])
 
 	def execute(self, userdata):
+		sf = ScreenFormat("DetectMarker")
 		print 'Searching for marker with label', userdata.object_label, '...'
 		rospy.wait_for_service('/fiducials/get_fiducials',3.0)
-		res = []
+		res = DetectObjectsResponse()
 		detect_objects = rospy.ServiceProxy('/fiducials/get_fiducials', DetectObjects)
 		try:
 			req = DetectObjectsRequest()
@@ -46,8 +51,9 @@ class ComputeGrasp(smach.State):
 			output_keys=['grasp_configuration'])
 
 	def execute(self, userdata):
+		sf = ScreenFormat("ComputeGrasp")
 		rospy.wait_for_service('/hermes_grasp_database/get_grasp_for_detection',3.0)
-		res = []
+		res = GetGraspForDetectionResponse()
 		get_grasp_for_detection = rospy.ServiceProxy('/hermes_grasp_database/get_grasp_for_detection', GetGraspForDetection)
 		try:
 			req = GetGraspForDetectionRequest()
@@ -77,6 +83,8 @@ class ShoePackaging(smach.StateMachine):
 									transitions={'found':'finished',#'OPEN_HAND',
 												'not_found':'failed',
 												'failed':'failed'})
+			
+			smach.StateMachine.add
 	'''
 			smach.StateMachine.add('OPEN_HAND', Grasp(),
 								transitions={'success':'MOVE_ARM_TO_SHOE',

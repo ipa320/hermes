@@ -13,6 +13,10 @@
   <depend package="roslib"/>
   <depend package="smach"/>
   <depend package="smach_ros"/>
+  <depend package="geometry_msgs"/>
+  <depend package="actionlib"/>
+  <depend package="actionlib_msgs"/>
+  <depend package="arm_navigation_msgs"/>
   <depend package="hermes_camera_calibration"/>
   <depend package="hermes_grasp_database"/>
   <depend package="hermes_grasp_service"/>
