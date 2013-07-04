@@ -46,6 +46,8 @@ int main(int argc, char **argv)
 	hermes_grasp_database::GetGraspForDetection::Response res;
 
 	req.detection.label = "test_object";
+	req.detection.pose.header.stamp = ros::Time::now();
+	req.detection.pose.header.frame_id = "/camera_rgb_optical_frame";
 	req.detection.pose.pose.position.x = 0.834;
 	req.detection.pose.pose.position.y = 0.328;
 	req.detection.pose.pose.position.z = 1.135;

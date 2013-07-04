@@ -39,7 +39,7 @@ class DetectMarker(smach.State):
 		for detection in res.object_list.detections:
 			if detection.label == userdata.object_label:
 				userdata.detection = detection
-				#print detection
+				print detection.pose
 
 		return 'found'
 

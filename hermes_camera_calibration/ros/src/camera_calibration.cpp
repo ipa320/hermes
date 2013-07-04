@@ -69,7 +69,7 @@ void CameraCalibration::dynamicReconfigureCallback(hermes_camera_calibration::Ca
 	update_rate_ = config.update_rate;
 	parent_frame_for_camera_ = config.parent_frame_for_camera;
 
-	std::cout << "Reconfigure request with\n  update_rate=" << update_rate_ << "\n  parent_frame_for_camera" << parent_frame_for_camera_ << "\n";
+	std::cout << "Reconfigure request with\n  update_rate=" << update_rate_ << "\n  parent_frame_for_camera=" << parent_frame_for_camera_ << "\n";
 }
 
 int main (int argc, char** argv)

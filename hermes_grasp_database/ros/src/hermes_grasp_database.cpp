@@ -9,12 +9,16 @@
 HermesGraspDatabase::HermesGraspDatabase(ros::NodeHandle nh)
 {
 	node_ = nh;
+	target_frame_id_ = "/camera_link";
 }
 
 
 void HermesGraspDatabase::init(std::string databaseFile)
 {
 	loadDatabase(databaseFile);
+
+	// dynamic reconfigure
+	dynamic_reconfigure_server_.setCallback(boost::bind(&HermesGraspDatabase::dynamicReconfigureCallback, this, _1, _2));
 
 	/**
 	* The advertiseService() function is how you tell ROS that you want to provide a service for other modules (software nodes).
@@ -119,6 +123,14 @@ void HermesGraspDatabase::loadDatabase(std::string databaseFile)
 }
 
 
+void HermesGraspDatabase::dynamicReconfigureCallback(hermes_grasp_database::HermesGraspDatabaseConfig &config, uint32_t level)
+{
+	target_frame_id_ = config.target_frame_id_for_pose_responses;
+
+	std::cout << "Reconfigure request with\n  target_frame_id_=" << target_frame_id_ << "\n";
+}
+
+
 bool HermesGraspDatabase::computeGraspForDetection(hermes_grasp_database::GetGraspForDetection::Request &req, hermes_grasp_database::GetGraspForDetection::Response &res)
 {
 	// this callback function is executed each time a request comes in for this service server
@@ -135,14 +147,28 @@ bool HermesGraspDatabase::computeGraspForDetection(hermes_grasp_database::GetGra
 	{
 		for (unsigned int i=0; i<grasp_database_[object_label].size(); i++)
 		{
+			// cast object_pose into the right format
 			tf::Transform offset = grasp_database_[object_label][i].grasp_offset;
 			tf::Transform object_pose;
 			tf::poseMsgToTF(req.detection.pose.pose, object_pose);
 
-			// todo: transform into the desired coordinate system ?
+			// get transform into the desired coordinate system
+			tf::StampedTransform transform_targetframe_to_captureframe;
+			try
+			{
+				transform_listener_.lookupTransform(target_frame_id_, req.detection.pose.header.frame_id, req.detection.pose.header.stamp, transform_targetframe_to_captureframe);
+			}
+			catch (tf::TransformException ex)
+			{
+				ROS_ERROR("%s",ex.what());
+				return false;
+			}
+
+			// respond with a list of suitable wrist poses in the desired target frame for grasping the requested object
 			hermes_grasp_database::GraspConfiguration gc;
-			tf::poseTFToMsg(offset*object_pose, gc.goal_position.pose);
+			tf::poseTFToMsg(transform_targetframe_to_captureframe*object_pose*offset, gc.goal_position.pose);
 			gc.goal_position.header = req.detection.pose.header;
+			gc.goal_position.header.frame_id = target_frame_id_;
 			gc.grasp_type = grasp_database_[object_label][i].grasp_type;
 			gc.grasp_force = grasp_database_[object_label][i].grasp_force;
 			res.grasp_configurations.push_back(gc);
