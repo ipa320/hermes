@@ -46,6 +46,8 @@ int main(int argc, char **argv)
 	hermes_grasp_database::GetGraspForDetection::Response res;
 
 	req.detection.label = "test_object";
+	req.detection.pose.header.stamp = ros::Time::now();
+	req.detection.pose.header.frame_id = "/camera_rgb_optical_frame";
 	req.detection.pose.pose.position.x = 0.834;
 	req.detection.pose.pose.position.y = 0.328;
 	req.detection.pose.pose.position.z = 1.135;
@@ -62,10 +64,10 @@ int main(int argc, char **argv)
 	{
 		printf("Request successful, target arm positions:\n");
 		for (unsigned int i=0; i<res.grasp_configurations.size(); i++)
-			printf(" - (xyz)=(%f, %f, %f), (wabc)=(%f, %f, %f, %f) with grasp %i\n",
+			printf(" - (xyz)=(%f, %f, %f), (wabc)=(%f, %f, %f, %f) with grasp %i and force %i\n",
 				res.grasp_configurations[i].goal_position.pose.position.x, res.grasp_configurations[i].goal_position.pose.position.y, res.grasp_configurations[i].goal_position.pose.position.z,
 				res.grasp_configurations[i].goal_position.pose.orientation.w, res.grasp_configurations[i].goal_position.pose.orientation.x, res.grasp_configurations[i].goal_position.pose.orientation.y, res.grasp_configurations[i].goal_position.pose.orientation.z,
-				res.grasp_configurations[i].grasp_type);
+				res.grasp_configurations[i].grasp_type, res.grasp_configurations[i].grasp_force);
 	}
 	else
 		std::cout << "The service call was not successful.\n" << std::endl;

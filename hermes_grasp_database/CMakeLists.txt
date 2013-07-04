@@ -25,6 +25,18 @@ rosbuild_genmsg()
 #uncomment if you have defined services
 rosbuild_gensrv()
 
+#add dynamic reconfigure api
+rosbuild_find_ros_package(dynamic_reconfigure)
+include(${dynamic_reconfigure_PACKAGE_PATH}/cmake/cfgbuild.cmake)
+gencfg()
+
+rosbuild_add_executable(grasp_database ros/src/hermes_grasp_database_main.cpp
+										ros/src/hermes_grasp_database.cpp)
+										
+# add build commands for service client
+rosbuild_add_executable(hermes_grasp_database_service_client ros/src/hermes_grasp_database_service_client_main.cpp)
+
+
 #common commands for building c++ executables and libraries
 #rosbuild_add_library(${PROJECT_NAME} src/example.cpp)
 #target_link_libraries(${PROJECT_NAME} another_library)
@@ -32,9 +44,3 @@ rosbuild_gensrv()
 #rosbuild_link_boost(${PROJECT_NAME} thread)
 #rosbuild_add_executable(example examples/example.cpp)
 #target_link_libraries(example ${PROJECT_NAME})
-
-rosbuild_add_executable(grasp_database ros/src/hermes_grasp_database_main.cpp
-										ros/src/hermes_grasp_database.cpp)
-										
-# add build commands for service client
-rosbuild_add_executable(hermes_grasp_database_service_client ros/src/hermes_grasp_database_service_client_main.cpp)
