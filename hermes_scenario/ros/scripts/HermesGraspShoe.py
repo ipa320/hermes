@@ -69,7 +69,7 @@ class ComputeGrasp(smach.State):
 		return 'found'
 
 
-class ShoePackaging(smach.StateMachine):
+class HermesGraspShoe(smach.StateMachine):
 	def __init__(self):
 		smach.StateMachine.__init__(self,
 			outcomes=['finished', 'failed'],
@@ -83,13 +83,13 @@ class ShoePackaging(smach.StateMachine):
 											'failed':'failed'})
 
 			smach.StateMachine.add('LOOKUP_GRASP', ComputeGrasp(),
-									transitions={'found':'GRASP_SHOE',
+									transitions={'found':'EXECUTE_GRASP',
 												'not_found':'failed',
 												'failed':'failed'})
 			
 			# grasping
-			sm_generic_grasping = HermesGenericGrasping()
-			smach.StateMachine.add('GRASP_SHOE', sm_generic_grasping,
+			sm_generic_grasp = HermesGenericGrasp()
+			smach.StateMachine.add('EXECUTE_GRASP', sm_generic_grasp,
                                transitions={'finished':'finished',
 											'failed':'failed'},
                                remapping={'arm':'arm',
@@ -98,8 +98,8 @@ class ShoePackaging(smach.StateMachine):
 			
 
 if __name__ == '__main__':
-	rospy.init_node("shoe_packaging")
-	sm = ShoePackaging()
+	rospy.init_node("hermes_grasp_shoe")
+	sm = HermesGraspShoe()
 	
 	# userdata
 	sm.userdata.arm = 1;
@@ -107,7 +107,7 @@ if __name__ == '__main__':
 	sm.userdata.object_label='1'
 	
 	# introspection -> smach_viewer
-	sis = smach_ros.IntrospectionServer('shoe_packaging_introspection', sm, '/SHOE_PACKAGING')
+	sis = smach_ros.IntrospectionServer('hermes_grasp_shoe_introspection', sm, '/HERMES_GRASP_SHOE')
 	sis.start()
 	
 	# start
