@@ -13,6 +13,7 @@ struct GraspDatabaseEntry
 	std::string label;			// object name
 	tf::Transform grasp_offset;	// offset of wrist joint to object center that is suitable for grasping
 	int grasp_type;				// type of best suited grasp for this object
+	int grasp_force;			// force applied to the grasp [0,..,100]
 };
 
 class HermesGraspDatabase

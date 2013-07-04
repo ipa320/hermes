@@ -34,7 +34,7 @@ void HermesGraspDatabase::loadDatabase(std::string databaseFile)
 	else
 		std::cout << "\nReading database...\n\n";
 
-	bool have_object_label = false, have_grasp_type = false, have_grasp_offset_position = false, have_grasp_offset_quaternion = false;
+	bool have_object_label = false, have_grasp_type = false, have_grasp_force = false, have_grasp_offset_position = false, have_grasp_offset_quaternion = false;
 	GraspDatabaseEntry gde;
 	tf::Quaternion q;
 	tf::Vector3 t;
@@ -55,6 +55,12 @@ void HermesGraspDatabase::loadDatabase(std::string databaseFile)
 			file >> gde.grasp_type;
 			std::cout << "gde.grasp_type=" << gde.grasp_type << std::endl;
 			have_grasp_type = true;
+		}
+		else if (tag.compare("grasp_force:") == 0)
+		{
+			file >> gde.grasp_force;
+			std::cout << "gde.grasp_force=" << gde.grasp_force << std::endl;
+			have_grasp_force = true;
 		}
 		else if (tag.compare("grasp_offset_position:") == 0)
 		{
@@ -93,7 +99,7 @@ void HermesGraspDatabase::loadDatabase(std::string databaseFile)
 		file.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
 		// add complete data set to database
-		if (have_object_label==true && have_grasp_type==true && have_grasp_offset_position==true && have_grasp_offset_quaternion==true)
+		if (have_object_label==true && have_grasp_type==true  && have_grasp_force==true && have_grasp_offset_position==true && have_grasp_offset_quaternion==true)
 		{
 			gde.grasp_offset = tf::Transform(q,t);
 			grasp_database_[gde.label].push_back(gde);
@@ -101,6 +107,7 @@ void HermesGraspDatabase::loadDatabase(std::string databaseFile)
 
 			have_object_label = false;
 			have_grasp_type = false;
+			have_grasp_force = false;
 			have_grasp_offset_position = false;
 			have_grasp_offset_quaternion = false;
 		}
@@ -122,9 +129,6 @@ bool HermesGraspDatabase::computeGraspForDetection(hermes_grasp_database::GetGra
 			req.detection.pose.pose.orientation.w, req.detection.pose.pose.orientation.x, req.detection.pose.pose.orientation.y, req.detection.pose.pose.orientation.z);
 
 	// code for grasp database lookup
-	// ...
-	//tf::Transform t;
-
 	res.grasp_configurations.clear();
 	std::string object_label = req.detection.label;
 	if (grasp_database_.find(object_label) != grasp_database_.end())
@@ -140,6 +144,7 @@ bool HermesGraspDatabase::computeGraspForDetection(hermes_grasp_database::GetGra
 			tf::poseTFToMsg(offset*object_pose, gc.goal_position.pose);
 			gc.goal_position.header = req.detection.pose.header;
 			gc.grasp_type = grasp_database_[object_label][i].grasp_type;
+			gc.grasp_force = grasp_database_[object_label][i].grasp_force;
 			res.grasp_configurations.push_back(gc);
 		}
 	}
