@@ -1,0 +1,3 @@
+<launch>
+   <node name="sampleFkine" pkg="hermesArmKDL" type="sampleFkine" args="$(find hermesArmKDL)/urdf/hermesArm.urdf" output="screen"/>
+</launch>

@@ -1,0 +1,8 @@
+# Service execute fkine on KDL
+#
+# request message
+int64 test
+---
+# response message
+int64  fkine			# response message commenting the outcome if necessary
+string message

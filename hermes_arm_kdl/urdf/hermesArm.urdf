@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<robot name="hermesArm">
+
+ <!-- **************************** BASE ***************************** -->
+  <link name="base" />
+  <link name="link1" />
+  <link name="link2" />
+  <link name="link3" />
+  <link name="link4" />
+  <link name="link5" />
+  <link name="link6" />
+  <link name="link7" />
+
+  <joint name="joint1" type="revolute">
+    <parent link="base"/>
+    <child link="link1"/>
+    <origin xyz="0 0 -0.3060" rpy="1.5708 0 0" />
+    <limit effort="100" velocity="100" lower="-3.14" upper="3.14" />
+    <axis xyz="0 0 1" />
+  </joint>
+
+  <joint name="joint2" type="revolute">
+    <parent link="link1"/>
+    <child link="link2"/>
+    <origin xyz="0 0 0" rpy="-1.5708 0 0" />
+    <axis xyz="0 0 1" />
+    <limit effort="100" velocity="100" lower="-1.83" upper="1.83" />
+  </joint>
+
+  <joint name="joint3" type="revolute">
+    <parent link="link2"/>
+    <child link="link3"/>
+    <origin xyz="0 0 -0.391" rpy="1.5708 0 0" />
+    <axis xyz="0 0 1" />
+    <limit effort="100" velocity="100" lower="-3.14" upper="3.14" />
+   </joint>
+
+  <joint name="joint4" type="revolute">
+    <parent link="link3"/>
+    <child link="link4"/>
+    <limit effort="100" velocity="100" lower="-1.83" upper="1.83" />
+    <origin xyz="0 0 0" rpy="-1.5708 0 0" />
+  </joint>
+
+  <joint name="joint5" type="revolute">
+    <parent link="link4"/>
+    <child link="link5"/>
+    <origin xyz="0 0 -0.2975" rpy="1.5708 0 0" />
+    <axis xyz="0 0 1" /> 
+    <limit effort="100" velocity="100" lower="-3.14" upper="3.14" />
+  </joint>
+
+  <joint name="joint6" type="revolute">
+    <parent link="link5"/>
+    <child link="link6"/>
+    <origin xyz="0 0 0" rpy="-1.5708 0 0" />
+
+    <limit effort="100" velocity="100" lower="-1.83" upper="1.83" />
+  </joint>
+
+  <joint name="joint7" type="revolute">
+    <parent link="link6"/>
+    <child link="link7"/>
+    <origin xyz="0 0 -0.3045" rpy="3.1416 0 0" />
+    <axis xyz="0 0 1" />
+    <limit effort="100" velocity="100" lower="-3.14" upper="3.14" />
+  </joint>
+
+</robot>
+
+
