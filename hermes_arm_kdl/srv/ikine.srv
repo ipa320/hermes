@@ -1,0 +1,11 @@
+# Service execute ikine on KDL
+#
+# request message
+float32[7]  jointAngles_init
+float32[9]  rotation			# response message commenting the outcome if necessary
+float32[3]  position
+
+---
+# response message
+float32[7] jointAngles
+string message
