@@ -38,10 +38,22 @@ rosbuild_genmsg()
 #rosbuild_add_executable(example examples/example.cpp)
 #target_link_libraries(example ${PROJECT_NAME})
 
+rosbuild_add_library(m5api common/src/Device/Device.cpp  common/src/Device/ProtocolDevice.cpp  common/src/Device/ESDDevice.cpp  common/src/Device/PCanDevice.cpp common/src/Device/ProtocolMessage.cpp  common/src/Device/RS232Device.cpp  common/src/Util/Random.cpp  common/src/Util/Message.cpp common/src/Util/StopWatch.cpp common/src/Util/IOFunctions.cpp  common/src/Util/Thread.cpp  common/src/M5apiw32/m5apiw32.cpp)
+
+rosbuild_add_compile_flags(m5api -D__LINUX__ -DUSE_PCAN -DUSE_ESD)
+
+
+
 # add build commands for action server
 rosbuild_add_executable(move_arm_action ros/src/hermes_move_arm_action_server_main.cpp
+										common/src/hermes_interface/hermesInterface.cpp
                                         ros/src/hermes_move_arm_action_server.cpp)
 
 # add build commands for action client
 rosbuild_add_executable(hermes_move_arm_action_client ros/src/hermes_move_arm_action_client_main.cpp
                                               ros/src/hermes_move_arm_action_client.cpp)
+
+#samples
+rosbuild_add_executable(leerModulosConectados common/src/samples/leerModulosConectados.cpp)
+target_link_libraries(leerModulosConectados m5api)
+target_link_libraries(move_arm_action m5api)

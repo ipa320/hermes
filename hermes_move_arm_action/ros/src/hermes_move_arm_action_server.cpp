@@ -12,6 +12,9 @@ void HermesMoveArmActionServer::init()
 	// by starting the action server, your action gets advertised to other software modules
 
 	move_arm_action_server_.start();
+
+	// todo:  bring-up robot modules
+
 }
 
 
@@ -28,6 +31,9 @@ void HermesMoveArmActionServer::moveArm(const hermes_move_arm_action::MoveArmGoa
 	// move the arm
 	// ...
 
+//goal->goal_position.pose.position.x  //(x,y,z) in meters?????
+//goal->goal_position.pose.orientation.w //(w,x,y,z) Quaternion in rad
+//goal->goal_position.header.frame_id // Reference frame
 
 	hermes_move_arm_action::MoveArmResult res;
 	res.return_value.val = arm_navigation_msgs::ArmNavigationErrorCodes::SUCCESS; 	// put in there some error code on errors
