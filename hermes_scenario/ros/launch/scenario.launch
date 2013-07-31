@@ -2,6 +2,9 @@
 
 <launch>
 
+  <!-- static transforms -->
+  <node pkg="tf" type="static_transform_publisher" name="link_world2marker_broadcaster" args="0.125 -0.0505 1.576 1.57079632679 0.0 1.57079632679 world marker_robot 100" />
+
   <!-- fiducial marker detection -->
   <include file="$(find hermes_scenario)/ros/launch/cob_fiducials/fiducials.launch"/>
   
