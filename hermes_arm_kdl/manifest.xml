@@ -9,6 +9,7 @@
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/hermesArmKDLtest</url>
   <depend package="roscpp"/>
+  <depend package="roslib"/>
   <depend package="rospy"/>
   <depend package="urdf"/>
   <depend package="kdl_parser"/>

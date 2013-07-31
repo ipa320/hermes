@@ -1,8 +1,9 @@
 # Service execute fkine on KDL
 #
 # request message
-int64 test
+float32[7] jointAngles
 ---
 # response message
-int64  fkine			# response message commenting the outcome if necessary
+float32[9]  rotation			# response message commenting the outcome if necessary
+float32[3]  position
 string message

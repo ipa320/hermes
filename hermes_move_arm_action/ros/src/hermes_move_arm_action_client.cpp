@@ -22,9 +22,16 @@ void HermesMoveArmActionClient::run()
 
 //	while(1)
 //	{
-		goal.arm = 2;
+		goal.arm = hermes_move_arm_action::MoveArmGoal::LEFTARM;
 		goal.goal_position = geometry_msgs::PoseStamped();
+		goal.goal_position.pose.position.x= 0.6;
+	    goal.goal_position.pose.position.y= 0.8;
+	    goal.goal_position.pose.position.z= 1.20;
 
+	    goal.goal_position.pose.orientation.w = 1;
+		goal.goal_position.pose.orientation.x = 0;
+		goal.goal_position.pose.orientation.y = 0;
+		goal.goal_position.pose.orientation.z = 0;
 		// this calls the action server to process our goal message and send result message which will cause the execution of the doneCb callback function
 		// this call is not blocking, i.e. this program can proceed immediately after the action call
 		move_arm_action_client_.sendGoal(goal, boost::bind(&HermesMoveArmActionClient::doneCb, this, _1, _2), boost::bind(&HermesMoveArmActionClient::activeCb, this), boost::bind(&HermesMoveArmActionClient::feedbackCb, this, _1));

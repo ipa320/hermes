@@ -28,9 +28,9 @@ int main()
 		ret=PCube_homeAll(dev);
 		cout << "Code:   " <<  ret <<endl;
 		ret=PCube_haltAll(dev);
-		PCube_resetModule(dev,7);
+		PCube_resetModule(dev,6);
 		cout << "Code:   " <<  ret <<endl;
-		ret=PCube_moveRamp(dev,7,1,0.2,0.2);
+		ret=PCube_moveRamp(dev,6,0,0.1,0.1);
 		cout << "Code:   " <<  ret <<endl;
 		PCube_closeDevice(dev);
 		

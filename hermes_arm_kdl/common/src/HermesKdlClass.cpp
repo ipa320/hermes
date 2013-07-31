@@ -66,7 +66,8 @@ void HermesKdlClass::computeFkine(KDL::JntArray q, KDL::Frame &cartPos)
 void HermesKdlClass::computeikine( KDL::JntArray  q_init, KDL::Frame cartPos, KDL::JntArray  &q)
 {
 	bool kinematics_status;
-		kinematics_status = iksolver->CartToJnt(q_init,cartPos,q);
+	kinematics_status = iksolver->CartToJnt(q_init,cartPos,q);
+
 
 }
 

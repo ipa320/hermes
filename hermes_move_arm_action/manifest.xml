@@ -16,6 +16,8 @@
   <depend package="arm_navigation_msgs"/>
   <depend package="libpcan"/>
   <depend package="libntcan"/>
+  <depend package="hermes_arm_kdl"/>
+  <depend package="hermes_reference_frames_service"/>
 
 
 </package>

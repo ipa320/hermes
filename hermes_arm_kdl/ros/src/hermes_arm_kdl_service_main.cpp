@@ -1,4 +1,5 @@
 #include "ros/ros.h"
+#include "ros/package.h"
 
 #include "hermes_arm_kdl/hermes_arm_kdl_service_server.h"
 

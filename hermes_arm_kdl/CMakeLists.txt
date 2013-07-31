@@ -39,6 +39,6 @@ rosbuild_add_executable(sampleFkine common/src/sampleFkine.cpp)
 rosbuild_add_executable(sampleikine common/src/sampleikine.cpp)
 
 
-rosbuild_add_executable(arm_kdl_service_server ros/src/hermes_arm_kdl_service_main.cpp
-					       ros/src/hermes_arm_kdl_service_server.cpp)
+rosbuild_add_executable(arm_kdl_service_server ros/src/hermes_arm_kdl_service_main.cpp common/src/HermesKdlClass.cpp
+					      ros/src/hermes_arm_kdl_service_server.cpp)
 
