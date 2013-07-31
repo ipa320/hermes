@@ -12,9 +12,9 @@
   <include file="$(find hermes_grasp_database)/ros/launch/grasp_database_server.launch"/>
 
   <!-- service for executing grasp commands -->
-  <include file="$(find hermes_grasp_service)/ros/launch/grasp_service_server.launch"/>
+  <!--include file="$(find hermes_grasp_service)/ros/launch/grasp_service_server.launch"/-->
 
   <!-- service for executing arm movement commands -->
-  <include file="$(find hermes_move_arm_action)/ros/launch/move_arm_action_server.launch"/>
+  <!--include file="$(find hermes_move_arm_action)/ros/launch/move_arm_action_server.launch"/-->
   
 </launch>
