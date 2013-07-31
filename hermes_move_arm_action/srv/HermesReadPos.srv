@@ -1,0 +1,12 @@
+# Service for read real wrist position
+#
+# request message
+int32 arm			# 1 ->Left Arm 2 ->Right Arm
+int32 LEFTARM=1
+int32 RIGHTARM=2
+
+
+---
+# response message
+geometry_msgs/Transform wristPose
+string message			# response message commenting the outcome if necessary
