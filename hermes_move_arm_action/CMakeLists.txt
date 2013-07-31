@@ -28,7 +28,7 @@ INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/ros/include
 #uncomment if you have defined messages (also activate if you have defined own action messages!)
 rosbuild_genmsg()
 #uncomment if you have defined services
-#rosbuild_gensrv()
+rosbuild_gensrv()
 
 #common commands for building c++ executables and libraries
 #rosbuild_add_library(${PROJECT_NAME} src/example.cpp)
@@ -46,14 +46,16 @@ rosbuild_add_compile_flags(m5api -D__LINUX__ -DUSE_PCAN -DUSE_ESD)
 
 # add build commands for action server
 rosbuild_add_executable(move_arm_action ros/src/hermes_move_arm_action_server_main.cpp
-										common/src/hermes_interface/hermesInterface.cpp
+					common/src/hermes_interface/hermesInterface.cpp
                                         ros/src/hermes_move_arm_action_server.cpp)
 
 # add build commands for action client
 rosbuild_add_executable(hermes_move_arm_action_client ros/src/hermes_move_arm_action_client_main.cpp
                                               ros/src/hermes_move_arm_action_client.cpp)
 
+
 #samples
 rosbuild_add_executable(leerModulosConectados common/src/samples/leerModulosConectados.cpp)
 target_link_libraries(leerModulosConectados m5api)
 target_link_libraries(move_arm_action m5api)
+

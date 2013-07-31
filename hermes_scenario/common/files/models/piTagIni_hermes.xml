@@ -10,7 +10,11 @@
 				
 		<!-- Offset for native tag corrdinates -->
 		<!-- e.g. position of tag in object centric ccordinate system -->
-		<Offset x="-0.125" y="0.175" />
+		<!--Offset x="-0.125" y="0.175" /-->
+		<Offset x="0.0" y="0.0" />
+		
+		<!-- Rectangle describing the area for sharpness computation in 2d coordinates within the marker plane with respect to the marker origin -->
+		<SharpnessArea x="-0.01" y="-0.01" width="0.12" height="0.12"/>
 	</PI>
 	<PI>
 		<ID value="1" />
@@ -24,7 +28,10 @@
 		<!-- Offset for native tag corrdinates -->
 		<!-- e.g. position of tag in object centric ccordinate system -->
 		<!--Offset x="0.025" y="-0.075" /-->
-		<Offset x="-0.05" y="0.05" />
+		<Offset x="0.0" y="0.0" />
+		
+		<!-- Rectangle describing the area for sharpness computation in 2d coordinates within the marker plane with respect to the marker origin -->
+		<SharpnessArea x="-0.01" y="-0.01" width="0.12" height="0.12"/>
 	</PI>
 	<PI>
 		<ID value="2" />
@@ -37,7 +44,11 @@
 				
 		<!-- Offset for native tag corrdinates -->
 		<!-- e.g. position of tag in object centric ccordinate system -->
-		<Offset x="-0.109" y="-0.090" />
+		<!--Offset x="-0.109" y="-0.090" /-->
+		<Offset x="0.0" y="0.0" />
+		
+		<!-- Rectangle describing the area for sharpness computation in 2d coordinates within the marker plane with respect to the marker origin -->
+		<SharpnessArea x="-0.01" y="-0.01" width="0.12" height="0.12"/>
 	</PI>
 	<PI>
 		<ID value="3" />
@@ -50,7 +61,10 @@
 				
 		<!-- Offset for native tag corrdinates -->
 		<!-- e.g. position of tag in object centric ccordinate system -->
-		<Offset x="0.009" y="0.190" />
-		<!--Offset x="-0.05" y="0.05" /-->
+		<!--Offset x="0.009" y="0.190" /-->
+		<Offset x="0.0" y="0.0" />
+		
+		<!-- Rectangle describing the area for sharpness computation in 2d coordinates within the marker plane with respect to the marker origin -->
+		<SharpnessArea x="-0.01" y="-0.01" width="0.12" height="0.12"/>
 	</PI>
 </FiducialDetector>

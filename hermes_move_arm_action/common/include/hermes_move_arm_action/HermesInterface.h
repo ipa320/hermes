@@ -1,7 +1,12 @@
+#ifndef HERMES_INTERFACE_H_
+#define HERMES_INTERFACE_H_
+
 #include "m5apiw32.h"
 #include <string>
 #include <iostream>
 #include <vector>
+
+
 
 
 class HermesInterface
@@ -28,3 +33,4 @@ class HermesInterface
 
 
 };
+#endif

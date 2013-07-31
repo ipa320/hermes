@@ -28,12 +28,14 @@ bool HermesArmKdlServiceServer::fkine(hermes_arm_kdl::Fkine::Request &req, herme
 {
 
 	
-	KDL::JntArray q;
+	KDL::JntArray q = KDL::JntArray(7);
 	KDL::Frame cartPos;
+
 
 	//Convert data from request to KDL
 	for (int i=0;i<7;i++)
 		q(i)=req.jointAngles[i];
+
 
 	hermes_kdl.computeFkine(q, cartPos);
 
@@ -59,7 +61,7 @@ bool HermesArmKdlServiceServer::ikine(hermes_arm_kdl::ikine::Request &req, herme
 {
 
 
-	KDL::JntArray q;
+	KDL::JntArray q = KDL::JntArray(7);
 	KDL::JntArray q_init = KDL::JntArray(7);
 
 	KDL::Vector pos(req.position[0],req.position[1],req.position[2]);

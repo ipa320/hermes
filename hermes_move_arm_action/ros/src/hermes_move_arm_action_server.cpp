@@ -1,5 +1,6 @@
 #include "hermes_move_arm_action/hermes_move_arm_action_server.h"
 #include "hermes_arm_kdl/ikine.h"
+#include "hermes_arm_kdl/Fkine.h"
 #include "hermes_reference_frames_service/HermesFrame.h"
 
 
@@ -27,6 +28,9 @@ void HermesMoveArmActionServer::init()
 	// by starting the action server, your action gets advertised to other software modules
 
 	move_arm_action_server_.start();
+
+	hermes_read_real_position_service_server_ = node_.advertiseService("hermes_read_real_pos", &HermesMoveArmActionServer::executeRead, this);
+
 
 	// todo:  bring-up robot modules
 	hermesinterface.init();
@@ -156,3 +160,60 @@ void HermesMoveArmActionServer::moveArm(const hermes_move_arm_action::MoveArmGoa
 
 	// if failed, use: move_arm_action_server_.setAborted(res);
 }
+
+bool HermesMoveArmActionServer::executeRead(hermes_move_arm_action::HermesReadPos::Request &req, hermes_move_arm_action::HermesReadPos::Response &res)
+{
+	// this callback function is executed each time a request comes in for this service server
+	// here we just read the number from the request, square it and put the result into the response, the response is automatically sent back to the caller when this function returns
+
+	//ROS_INFO("HermesGrasp Service Server: Received a request with hand %i grasp type %i and grasp force %i.",req.hand, req.grasp_type, req.grasp_force);
+
+	std::vector<float> q;
+	// code for read robot real position
+	if (req.arm ==hermes_move_arm_action::HermesReadPos::Request::LEFTARM)
+		hermesinterface.get_leftJoints(q);
+	else if (req.arm ==hermes_move_arm_action::HermesReadPos::Request::RIGHTARM)
+		hermesinterface.get_rightJoints(q);
+	else
+	{
+		res.message = "wrong arm specified.";
+		return false;
+	}
+
+
+	hermes_reference_frames_service::HermesFrame::Request req_frames;
+	hermes_reference_frames_service::HermesFrame::Response res_frames;
+
+	if(req.arm ==hermes_move_arm_action::HermesReadPos::Request::LEFTARM) // Depends of arm
+		req_frames.frame = hermes_reference_frames_service::HermesFrame::Request::WORLDTLEFTARM;
+
+	else if(req.arm ==hermes_move_arm_action::HermesReadPos::Request::RIGHTARM) // Depends of arm
+		req_frames.frame = hermes_reference_frames_service::HermesFrame::Request::WORLDTRIGHTARM;
+
+	ros::service::call("/reference_frames_service", req_frames, res_frames);
+
+	// Transform world to base robot
+	tf::Quaternion qua_wTr(res_frames.quaternion[0],res_frames.quaternion[1],res_frames.quaternion[2],res_frames.quaternion[3]);
+	tf::Transform wTr(qua_wTr, tf::Vector3(res_frames.position[0],res_frames.position[1],res_frames.position[2]));
+
+	// todo: call hermes_arm_kdl ikine service
+	hermes_arm_kdl::Fkine::Request  req_kdl;
+	hermes_arm_kdl::Fkine::Response res_kdl;
+	for (int i=0; i<7; i++)
+		req_kdl.jointAngles[i] = q[i];
+
+	ros::service::call("/arm_kdl_service_fkine_server", req_kdl, res_kdl);
+
+	// Transform w to Robot base
+	tf::Transform rTobj(tf::Matrix3x3(res_kdl.rotation[0],res_kdl.rotation[1],res_kdl.rotation[2],res_kdl.rotation[3],res_kdl.rotation[4],res_kdl.rotation[5],res_kdl.rotation[6],res_kdl.rotation[7],res_kdl.rotation[8]), tf::Vector3(res_kdl.position[0],res_kdl.position[1],res_kdl.position[2]));
+	// Make conversion
+	tf::Transform wTobj;
+	wTobj = wTr * rTobj;
+
+	tf::transformTFToMsg(wTobj,res.wristPose);
+
+	// if the procedure fails, use "return false;" to inform the caller of the service
+	res.message = "success";
+	return true;	// tell the caller that the method was successfully executed
+}
+
