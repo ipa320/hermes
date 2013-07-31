@@ -11,7 +11,7 @@ grasp_offset_position: [1 -3 0]
 grasp_offset_quaternion: [0.5 0.5 0.5 0.5]
 
 object_label: 1
-grasp_type: 12
+grasp_type: 11
 grasp_force: 100
-grasp_offset_position: [0 0 0.14]
+grasp_offset_position: [0 0 0]
 grasp_offset_quaternion: [1 0 0 0]

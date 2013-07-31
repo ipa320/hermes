@@ -28,9 +28,9 @@ int GraspHand::open_port(int port)
 	int fd;	// file description for the serial port
 
 	if(port==1)	
-		fd = open("/dev/ttyUSB0", O_RDWR | O_NOCTTY | O_NDELAY);
-	else if(port==2)
 		fd = open("/dev/ttyUSB1", O_RDWR | O_NOCTTY | O_NDELAY);
+	else if(port==2)
+		fd = open("/dev/ttyUSB0", O_RDWR | O_NOCTTY | O_NDELAY);
 	else
 		fd=-1;
 	if(fd == -1) // if open is unsucessful

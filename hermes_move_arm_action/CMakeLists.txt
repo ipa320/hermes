@@ -59,3 +59,6 @@ rosbuild_add_executable(leerModulosConectados common/src/samples/leerModulosCone
 target_link_libraries(leerModulosConectados m5api)
 target_link_libraries(move_arm_action m5api)
 
+rosbuild_add_executable(moveManually_client common/src/samples/moveManually_client.cpp)
+target_link_libraries(moveManually_client m5api)
+

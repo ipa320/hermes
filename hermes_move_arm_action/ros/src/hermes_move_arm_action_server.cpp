@@ -49,9 +49,9 @@ void HermesMoveArmActionServer::moveArm(const hermes_move_arm_action::MoveArmGoa
 	// this callback function is executed each time a request (= goal message) comes in for this service server
 	ROS_INFO("MoveArm Action Server: Received a request for arm %i.", goal->arm);
 
-	if (goal->goal_position.header.frame_id.compare("world") != 0)
+	if (goal->goal_position.header.frame_id.compare("/world") != 0)
 	{
-		ROS_ERROR("The goal position coordinates are not provided in the correct frame. The required frame is 'world' but '%s' was provided.", goal->goal_position.header.frame_id.c_str());
+		ROS_ERROR("The goal position coordinates are not provided in the correct frame. The required frame is '/world' but '%s' was provided.", goal->goal_position.header.frame_id.c_str());
 		return;
 	}
 

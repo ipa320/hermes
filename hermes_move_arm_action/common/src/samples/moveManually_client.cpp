@@ -28,10 +28,24 @@ int main()
 		ret=PCube_homeAll(dev);
 		cout << "Code:   " <<  ret <<endl;
 		ret=PCube_haltAll(dev);
-		PCube_resetModule(dev,4);
-		cout << "Code:   " <<  ret <<endl;
-		ret=PCube_moveRamp(dev,4,0,0.1,0.1);
-		cout << "Code:   " <<  ret <<endl;
+		int number_joint = -1;
+		while (true)
+		{
+			std::cout << "enter joint number: ";
+			std::cin >> number_joint;
+
+			if (number_joint == 0)
+				break;
+
+			float value = 0.f;
+			std::cout << "enter the value for joint " << number_joint << ": ";
+			std::cin >> value;
+
+			PCube_resetModule(dev,number_joint);
+			cout << "Code:   " <<  ret <<endl;
+			ret=PCube_moveRamp(dev,number_joint,value,0.1,0.1);
+			cout << "Code:   " <<  ret <<endl;
+		}
 		PCube_closeDevice(dev);
 		
 	}	
