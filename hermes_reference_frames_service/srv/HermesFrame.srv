@@ -1,4 +1,4 @@
-# Service for executing a grasp
+# Service for obtaining a reference transformation wTr
 #
 # request message
 int32 frame			# 1 ->Left Hand 2 ->Right Hand

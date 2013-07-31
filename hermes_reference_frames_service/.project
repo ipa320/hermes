@@ -124,77 +124,82 @@
 			<locationURI>virtual:/virtual</locationURI>
 		</link>
 		<link>
-			<name>[Targets]/[exe] add_two_ints_client</name>
+			<name>[Targets]/[exe] hermes_reference_frames_service_client_main</name>
 			<type>2</type>
 			<locationURI>virtual:/virtual</locationURI>
 		</link>
 		<link>
-			<name>[Targets]/[exe] add_two_ints_client/</name>
+			<name>[Targets]/[exe] hermes_reference_frames_service_client_main/</name>
 			<type>2</type>
 			<locationURI>virtual:/virtual</locationURI>
 		</link>
 		<link>
-			<name>[Targets]/[exe] add_two_ints_client/Source Files</name>
+			<name>[Targets]/[exe] hermes_reference_frames_service_client_main/Source Files</name>
 			<type>2</type>
 			<locationURI>virtual:/virtual</locationURI>
 		</link>
 		<link>
-			<name>[Targets]/[exe] add_two_ints_client/Source Files/add_two_ints_client.cpp</name>
+			<name>[Targets]/[exe] hermes_reference_frames_service_client_main/Source Files/hermes_reference_frames_service_client_main.cpp</name>
 			<type>1</type>
-			<location>/home/vr2user/groovy_workspace/sandbox/hermes/hermes_reference_frames_service/ros/src/add_two_ints_client.cpp</location>
+			<location>/home/vr2user/groovy_workspace/sandbox/hermes/hermes_reference_frames_service/ros/src/hermes_reference_frames_service_client_main.cpp</location>
 		</link>
 		<link>
-			<name>[Targets]/[exe] add_two_ints_client/Header Files</name>
+			<name>[Targets]/[exe] hermes_reference_frames_service_client_main/Header Files</name>
 			<type>2</type>
 			<locationURI>virtual:/virtual</locationURI>
 		</link>
 		<link>
-			<name>[Targets]/[exe] add_two_ints_client/CMake Rules</name>
+			<name>[Targets]/[exe] hermes_reference_frames_service_client_main/CMake Rules</name>
 			<type>2</type>
 			<locationURI>virtual:/virtual</locationURI>
 		</link>
 		<link>
-			<name>[Targets]/[exe] add_two_ints_client/Resources</name>
+			<name>[Targets]/[exe] hermes_reference_frames_service_client_main/Resources</name>
 			<type>2</type>
 			<locationURI>virtual:/virtual</locationURI>
 		</link>
 		<link>
-			<name>[Targets]/[exe] add_two_ints_server</name>
+			<name>[Targets]/[exe] hermes_reference_frames_service_server_main</name>
 			<type>2</type>
 			<locationURI>virtual:/virtual</locationURI>
 		</link>
 		<link>
-			<name>[Targets]/[exe] add_two_ints_server/</name>
+			<name>[Targets]/[exe] hermes_reference_frames_service_server_main/</name>
 			<type>2</type>
 			<locationURI>virtual:/virtual</locationURI>
 		</link>
 		<link>
-			<name>[Targets]/[exe] add_two_ints_server/Source Files</name>
+			<name>[Targets]/[exe] hermes_reference_frames_service_server_main/Source Files</name>
 			<type>2</type>
 			<locationURI>virtual:/virtual</locationURI>
 		</link>
 		<link>
-			<name>[Targets]/[exe] add_two_ints_server/Source Files/HermesReferencesFrames.cpp</name>
+			<name>[Targets]/[exe] hermes_reference_frames_service_server_main/Source Files/HermesReferenceFrames.cpp</name>
 			<type>1</type>
-			<location>/home/vr2user/groovy_workspace/sandbox/hermes/hermes_reference_frames_service/common/src/HermesReferencesFrames.cpp</location>
+			<location>/home/vr2user/groovy_workspace/sandbox/hermes/hermes_reference_frames_service/common/src/HermesReferenceFrames.cpp</location>
 		</link>
 		<link>
-			<name>[Targets]/[exe] add_two_ints_server/Source Files/add_two_ints_server.cpp</name>
+			<name>[Targets]/[exe] hermes_reference_frames_service_server_main/Source Files/hermes_reference_frames_service_server.cpp</name>
 			<type>1</type>
-			<location>/home/vr2user/groovy_workspace/sandbox/hermes/hermes_reference_frames_service/ros/src/add_two_ints_server.cpp</location>
+			<location>/home/vr2user/groovy_workspace/sandbox/hermes/hermes_reference_frames_service/ros/src/hermes_reference_frames_service_server.cpp</location>
 		</link>
 		<link>
-			<name>[Targets]/[exe] add_two_ints_server/Header Files</name>
+			<name>[Targets]/[exe] hermes_reference_frames_service_server_main/Source Files/hermes_reference_frames_service_server_main.cpp</name>
+			<type>1</type>
+			<location>/home/vr2user/groovy_workspace/sandbox/hermes/hermes_reference_frames_service/ros/src/hermes_reference_frames_service_server_main.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] hermes_reference_frames_service_server_main/Header Files</name>
 			<type>2</type>
 			<locationURI>virtual:/virtual</locationURI>
 		</link>
 		<link>
-			<name>[Targets]/[exe] add_two_ints_server/CMake Rules</name>
+			<name>[Targets]/[exe] hermes_reference_frames_service_server_main/CMake Rules</name>
 			<type>2</type>
 			<locationURI>virtual:/virtual</locationURI>
 		</link>
 		<link>
-			<name>[Targets]/[exe] add_two_ints_server/Resources</name>
+			<name>[Targets]/[exe] hermes_reference_frames_service_server_main/Resources</name>
 			<type>2</type>
 			<locationURI>virtual:/virtual</locationURI>
 		</link>

@@ -25,7 +25,11 @@ class DetectMarker(smach.State):
 	def execute(self, userdata):
 		sf = ScreenFormat("DetectMarker")
 		print 'Searching for marker with label', userdata.object_label, '...'
-		rospy.wait_for_service('/fiducials/get_fiducials',3.0)
+#		try:
+		rospy.wait_for_service('/fiducials/get_fiducials')  #,3.0)
+#		except rospy.ServiceException, e:
+#			print "Service call failed: %s"%e, ' Service not available.'
+#			return 'failed'
 		res = DetectObjectsResponse()
 		detect_objects = rospy.ServiceProxy('/fiducials/get_fiducials', DetectObjects)
 		try:
@@ -53,7 +57,7 @@ class ComputeGrasp(smach.State):
 
 	def execute(self, userdata):
 		sf = ScreenFormat("ComputeGrasp")
-		rospy.wait_for_service('/hermes_grasp_database/get_grasp_for_detection',3.0)
+		rospy.wait_for_service('/hermes_grasp_database/get_grasp_for_detection') #,3.0)
 		res = GetGraspForDetectionResponse()
 		get_grasp_for_detection = rospy.ServiceProxy('/hermes_grasp_database/get_grasp_for_detection', GetGraspForDetection)
 		try:

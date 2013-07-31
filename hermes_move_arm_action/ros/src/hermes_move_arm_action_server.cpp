@@ -15,7 +15,10 @@ HermesMoveArmActionServer::HermesMoveArmActionServer(ros::NodeHandle nh)
 void HermesMoveArmActionServer::init()
 {
 	std::cout << "Waiting for service server to become available..." << std::endl;
-	bool serviceAvailable = ros::service::waitForService("/arm_kdl_service_ikine_server", 5000);
+	bool serviceAvailable = true;
+	serviceAvailable &= ros::service::waitForService("arm_kdl_service_ikine_server", 5000);
+	serviceAvailable &= ros::service::waitForService("arm_kdl_service_fkine_server", 5000);
+	serviceAvailable &= ros::service::waitForService("reference_frames_service", 5000);
 
 	// only proceed if the service is available
 	if (serviceAvailable == false)
@@ -46,6 +49,12 @@ void HermesMoveArmActionServer::moveArm(const hermes_move_arm_action::MoveArmGoa
 	// this callback function is executed each time a request (= goal message) comes in for this service server
 	ROS_INFO("MoveArm Action Server: Received a request for arm %i.", goal->arm);
 
+	if (goal->goal_position.header.frame_id.compare("world") != 0)
+	{
+		ROS_ERROR("The goal position coordinates are not provided in the correct frame. The required frame is 'world' but '%s' was provided.", goal->goal_position.header.frame_id.c_str());
+		return;
+	}
+
 	// this command sends a feedback message to the caller, here we transfer that the task is completed 25%
 //	hermes_move_arm_action::MoveArmFeedback feedback;
 //	feedback.percentageDone = 25;
@@ -72,7 +81,7 @@ void HermesMoveArmActionServer::moveArm(const hermes_move_arm_action::MoveArmGoa
 	else if(goal->arm == hermes_move_arm_action::MoveArmGoal::RIGHTARM) // Depends of arm
 		req_frames.frame = hermes_reference_frames_service::HermesFrame::Request::WORLDTRIGHTARM;
 
-	ros::service::call("/reference_frames_service", req_frames, res_frames);
+	ros::service::call("reference_frames_service", req_frames, res_frames);
 
 	// Transform world to base robot
 	tf::Quaternion qua_wTr(res_frames.quaternion[0],res_frames.quaternion[1],res_frames.quaternion[2],res_frames.quaternion[3]);
@@ -133,7 +142,7 @@ void HermesMoveArmActionServer::moveArm(const hermes_move_arm_action::MoveArmGoa
 		req_kdl.rotation[3*i+1] = rTobj.getBasis()[i].getY();
 		req_kdl.rotation[3*i+2] = rTobj.getBasis()[i].getZ();
 	}
-	ros::service::call("/arm_kdl_service_ikine_server", req_kdl, res_kdl);
+	ros::service::call("arm_kdl_service_ikine_server", req_kdl, res_kdl);
 
 	// Move the arm with res_kdl
 	std::vector<float> jointAngles(7);
@@ -190,7 +199,7 @@ bool HermesMoveArmActionServer::executeRead(hermes_move_arm_action::HermesReadPo
 	else if(req.arm ==hermes_move_arm_action::HermesReadPos::Request::RIGHTARM) // Depends of arm
 		req_frames.frame = hermes_reference_frames_service::HermesFrame::Request::WORLDTRIGHTARM;
 
-	ros::service::call("/reference_frames_service", req_frames, res_frames);
+	ros::service::call("reference_frames_service", req_frames, res_frames);
 
 	// Transform world to base robot
 	tf::Quaternion qua_wTr(res_frames.quaternion[0],res_frames.quaternion[1],res_frames.quaternion[2],res_frames.quaternion[3]);
@@ -202,7 +211,7 @@ bool HermesMoveArmActionServer::executeRead(hermes_move_arm_action::HermesReadPo
 	for (int i=0; i<7; i++)
 		req_kdl.jointAngles[i] = q[i];
 
-	ros::service::call("/arm_kdl_service_fkine_server", req_kdl, res_kdl);
+	ros::service::call("arm_kdl_service_fkine_server", req_kdl, res_kdl);
 
 	// Transform w to Robot base
 	tf::Transform rTobj(tf::Matrix3x3(res_kdl.rotation[0],res_kdl.rotation[1],res_kdl.rotation[2],res_kdl.rotation[3],res_kdl.rotation[4],res_kdl.rotation[5],res_kdl.rotation[6],res_kdl.rotation[7],res_kdl.rotation[8]), tf::Vector3(res_kdl.position[0],res_kdl.position[1],res_kdl.position[2]));

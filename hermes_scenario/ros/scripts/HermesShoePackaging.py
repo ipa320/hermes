@@ -18,7 +18,7 @@ class HermesShoePackaging(smach.StateMachine):
 			output_keys=[])
 		with self:
 
-			self.userdata.arm = 1;
+			self.userdata.arm = 1;		# 1=left. 2=right
 			self.userdata.hand = 1;
 			self.userdata.object_label='1'
 			
