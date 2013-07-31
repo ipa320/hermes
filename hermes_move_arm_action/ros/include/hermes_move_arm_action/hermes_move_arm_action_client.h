@@ -1,4 +1,5 @@
 #include "ros/ros.h"
+#include "tf/tf.h"
 
 // actions
 #include <actionlib/client/simple_action_client.h>

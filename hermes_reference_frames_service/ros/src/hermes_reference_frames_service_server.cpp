@@ -59,10 +59,11 @@ bool HermesReferenceFramesServiceServer::returnFrame(hermes_reference_frames_ser
 	res.position[1] = tf->getOrigin().getY();
 	res.position[2] = tf->getOrigin().getZ();
 
-	res.quaternion[0] = tf->getRotation().getW();
-	res.quaternion[1] = tf->getRotation().getX();
-	res.quaternion[2] = tf->getRotation().getY();
-	res.quaternion[3] = tf->getRotation().getZ();
+
+	res.quaternion[0] = tf->getRotation().getX();
+	res.quaternion[1] = tf->getRotation().getY();
+	res.quaternion[2] = tf->getRotation().getZ();
+	res.quaternion[3] = tf->getRotation().getW();
 
 
 	delete tf;

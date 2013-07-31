@@ -2,8 +2,9 @@
 
 HermesReferenceFrames::HermesReferenceFrames()
 {
-	worldTleftarm = new tf::Transform(tf::Quaternion(0.7071,-0.7071,0,0),tf::Vector3(0,0.075,1.51)); // World to left Robot
-	worldTrightarm = new tf::Transform(tf::Quaternion(0.7071,0.7071,0,0),tf::Vector3(0,-0.075,1.51)); // World to right Robot
+	worldTleftarm = new tf::Transform(tf::Matrix3x3(1,0,0,0,0,-1,0,1,0),tf::Vector3(0,0.075,1.51)); // World to left Robot
+	worldTrightarm = new tf::Transform(tf::Matrix3x3(1,0,0,0,0,1,0,-1,0),tf::Vector3(0,-0.075,1.51)); // World to right Robot
+
 
 
 }

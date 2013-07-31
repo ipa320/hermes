@@ -78,12 +78,12 @@ bool HermesArmKdlServiceServer::ikine(hermes_arm_kdl::ikine::Request &req, herme
 
 	for (int i=0;i<7;i++)
 	{
-			while(q(i) > 3.1416){
-				q(i) -= 2*3.1416;
+			while(q(i) > KDL::PI){
+				q(i) -= 2*KDL::PI;
 			}
 
-			while(q(i) < -3.1416){
-				q(i) += 2*3.1416;
+			while(q(i) < -KDL::PI){
+				q(i) += 2*KDL::PI;
 			}
 
 
