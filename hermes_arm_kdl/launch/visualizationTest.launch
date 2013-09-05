@@ -1,0 +1,10 @@
+<launch>
+    <param name="robot_description" command="cat $(find hermes_arm_kdl)/urdf/hermesArmTest.urdf" />
+    <node pkg="tf" type="static_transform_publisher" name="world_base" args="0 0 0 0 0 0 base world 100" />
+    <node pkg="tf" type="static_transform_publisher" name="base_base" args="0 0 0 0 0 0 base base_motor 100" />
+    <node pkg="tf" type="static_transform_publisher" name="base_link1" args="0 0 -.306 1.5708 0 1.5708 base_motor link1_motor 100" />
+    <node pkg="tf" type="static_transform_publisher" name="link1_fixed1" args="0 0 0 0 0 0 link1_motor link1_link 100" />
+    <node pkg="tf" type="static_transform_publisher" name="link1_fixed2" args="0 0 0 0 0 0 link1_link link1_tapa 100" />
+    <node pkg="tf" type="static_transform_publisher" name="link1_fixed3" args="0 0 0 0 0 0 link1_tapa link1_nbio 100" />
+    <node pkg="tf" type="static_transform_publisher" name="link1_fixed4" args="0 0 0 0 0 0 link1_nbio link1_motor2 100" />
+</launch>
