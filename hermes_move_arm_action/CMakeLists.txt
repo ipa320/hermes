@@ -62,3 +62,7 @@ target_link_libraries(move_arm_action m5api)
 rosbuild_add_executable(moveManually_client common/src/samples/moveManually_client.cpp)
 target_link_libraries(moveManually_client m5api)
 
+rosbuild_add_executable(hermes_state_publisher ros/src/hermes_state_publisher_main.cpp
+						common/src/hermes_interface/hermesInterface.cpp)
+target_link_libraries(hermes_state_publisher m5api)
+

@@ -24,14 +24,14 @@ int main()
 		nModulos=PCube_getModuleCount(dev);
 		cout << "Módulos conectados:  " <<  nModulos <<endl;
 		ret=PCube_getPos(dev,1,&posicion);
-		cout << "Posición modulo 1:   " <<  posicion <<endl;
+		cout << "Posición modulo 1:   " <<  posicion << "   Error code: "<< ret <<endl;
 		ret=PCube_homeAll(dev);
 		cout << "Code:   " <<  ret <<endl;
 		ret=PCube_haltAll(dev);
 		PCube_resetModule(dev,4);
 		cout << "Code:   " <<  ret <<endl;
-		ret=PCube_moveRamp(dev,4,0,0.1,0.1);
-		cout << "Code:   " <<  ret <<endl;
+		//ret=PCube_moveRamp(dev,4,0,0.1,0.1);
+		//cout << "Code:   " <<  ret <<endl;
 		PCube_closeDevice(dev);
 		
 	}	
