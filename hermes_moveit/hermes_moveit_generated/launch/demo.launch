@@ -11,9 +11,10 @@
   </node -->
   
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" />
+  <node name="hermes_state_publisher" pkg="hermes_move_arm_action" type="hermes_state_publisher" respawn="true" output="screen" /> 
 
   <include file="$(find hermes_moveit_generated)/launch/move_group.launch">
-    <arg name="allow_trajectory_execution" value="false"/>
+    <arg name="allow_trajectory_execution" value="true"/>
   </include>
 
   <include file="$(find hermes_moveit_generated)/launch/moveit_rviz.launch">

@@ -6,6 +6,7 @@
   <arg name="moveit_manage_controllers" default="true"/>
   <param name="moveit_manage_controllers" value="$(arg moveit_manage_controllers)"/>
   
+ 
   <!-- Load the robot specific controller manager; this sets the moveit_controller_manager ROS parameter -->
   <arg name="moveit_controller_manager" default="hermesArm" />
   <include file="$(find hermes_moveit_generated)/launch/$(arg moveit_controller_manager)_moveit_controller_manager.launch" />
