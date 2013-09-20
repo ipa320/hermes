@@ -118,3 +118,15 @@ void HermesInterface::get_rightJoints(std::vector<float> &q)
 	readPositionRightArm();
 	q=this->q_right;
 }
+
+
+void HermesInterface::moveRightArmVel(std::vector<float> &q_Vel)
+{
+
+
+	for(int i=11;i<=17;i++)
+			PCube_moveVel(dev,i,(float)q_Vel[i-1-10]);
+
+
+
+}

@@ -18,6 +18,8 @@
   <depend package="libntcan"/>
   <depend package="hermes_arm_kdl"/>
   <depend package="hermes_reference_frames_service"/>
+  <depend package="control_msgs"/>
+  <depend package="trajectory_msgs"/>
 
 
 </package>

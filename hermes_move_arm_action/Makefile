@@ -602,6 +602,19 @@ tests/fast:
 .PHONY : tests/fast
 
 #=============================================================================
+# Target rules for targets named traj_action_server
+
+# Build rule for target.
+traj_action_server: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 traj_action_server
+.PHONY : traj_action_server
+
+# fast build rule for target.
+traj_action_server/fast:
+	$(MAKE) -f CMakeFiles/traj_action_server.dir/build.make CMakeFiles/traj_action_server.dir/build
+.PHONY : traj_action_server/fast
+
+#=============================================================================
 # Target rules for targets named gtest
 
 # Build rule for target.
@@ -922,6 +935,7 @@ common/src/hermes_interface/hermesInterface.o: common/src/hermes_interface/herme
 common/src/hermes_interface/hermesInterface.cpp.o:
 	$(MAKE) -f CMakeFiles/hermes_state_publisher.dir/build.make CMakeFiles/hermes_state_publisher.dir/common/src/hermes_interface/hermesInterface.cpp.o
 	$(MAKE) -f CMakeFiles/move_arm_action.dir/build.make CMakeFiles/move_arm_action.dir/common/src/hermes_interface/hermesInterface.cpp.o
+	$(MAKE) -f CMakeFiles/traj_action_server.dir/build.make CMakeFiles/traj_action_server.dir/common/src/hermes_interface/hermesInterface.cpp.o
 .PHONY : common/src/hermes_interface/hermesInterface.cpp.o
 
 common/src/hermes_interface/hermesInterface.i: common/src/hermes_interface/hermesInterface.cpp.i
@@ -931,6 +945,7 @@ common/src/hermes_interface/hermesInterface.i: common/src/hermes_interface/herme
 common/src/hermes_interface/hermesInterface.cpp.i:
 	$(MAKE) -f CMakeFiles/hermes_state_publisher.dir/build.make CMakeFiles/hermes_state_publisher.dir/common/src/hermes_interface/hermesInterface.cpp.i
 	$(MAKE) -f CMakeFiles/move_arm_action.dir/build.make CMakeFiles/move_arm_action.dir/common/src/hermes_interface/hermesInterface.cpp.i
+	$(MAKE) -f CMakeFiles/traj_action_server.dir/build.make CMakeFiles/traj_action_server.dir/common/src/hermes_interface/hermesInterface.cpp.i
 .PHONY : common/src/hermes_interface/hermesInterface.cpp.i
 
 common/src/hermes_interface/hermesInterface.s: common/src/hermes_interface/hermesInterface.cpp.s
@@ -940,6 +955,7 @@ common/src/hermes_interface/hermesInterface.s: common/src/hermes_interface/herme
 common/src/hermes_interface/hermesInterface.cpp.s:
 	$(MAKE) -f CMakeFiles/hermes_state_publisher.dir/build.make CMakeFiles/hermes_state_publisher.dir/common/src/hermes_interface/hermesInterface.cpp.s
 	$(MAKE) -f CMakeFiles/move_arm_action.dir/build.make CMakeFiles/move_arm_action.dir/common/src/hermes_interface/hermesInterface.cpp.s
+	$(MAKE) -f CMakeFiles/traj_action_server.dir/build.make CMakeFiles/traj_action_server.dir/common/src/hermes_interface/hermesInterface.cpp.s
 .PHONY : common/src/hermes_interface/hermesInterface.cpp.s
 
 common/src/samples/leerModulosConectados.o: common/src/samples/leerModulosConectados.cpp.o
@@ -1110,6 +1126,54 @@ ros/src/hermes_state_publisher_main.cpp.s:
 	$(MAKE) -f CMakeFiles/hermes_state_publisher.dir/build.make CMakeFiles/hermes_state_publisher.dir/ros/src/hermes_state_publisher_main.cpp.s
 .PHONY : ros/src/hermes_state_publisher_main.cpp.s
 
+ros/src/traj_action_server.o: ros/src/traj_action_server.cpp.o
+.PHONY : ros/src/traj_action_server.o
+
+# target to build an object file
+ros/src/traj_action_server.cpp.o:
+	$(MAKE) -f CMakeFiles/traj_action_server.dir/build.make CMakeFiles/traj_action_server.dir/ros/src/traj_action_server.cpp.o
+.PHONY : ros/src/traj_action_server.cpp.o
+
+ros/src/traj_action_server.i: ros/src/traj_action_server.cpp.i
+.PHONY : ros/src/traj_action_server.i
+
+# target to preprocess a source file
+ros/src/traj_action_server.cpp.i:
+	$(MAKE) -f CMakeFiles/traj_action_server.dir/build.make CMakeFiles/traj_action_server.dir/ros/src/traj_action_server.cpp.i
+.PHONY : ros/src/traj_action_server.cpp.i
+
+ros/src/traj_action_server.s: ros/src/traj_action_server.cpp.s
+.PHONY : ros/src/traj_action_server.s
+
+# target to generate assembly for a file
+ros/src/traj_action_server.cpp.s:
+	$(MAKE) -f CMakeFiles/traj_action_server.dir/build.make CMakeFiles/traj_action_server.dir/ros/src/traj_action_server.cpp.s
+.PHONY : ros/src/traj_action_server.cpp.s
+
+ros/src/traj_action_server_main.o: ros/src/traj_action_server_main.cpp.o
+.PHONY : ros/src/traj_action_server_main.o
+
+# target to build an object file
+ros/src/traj_action_server_main.cpp.o:
+	$(MAKE) -f CMakeFiles/traj_action_server.dir/build.make CMakeFiles/traj_action_server.dir/ros/src/traj_action_server_main.cpp.o
+.PHONY : ros/src/traj_action_server_main.cpp.o
+
+ros/src/traj_action_server_main.i: ros/src/traj_action_server_main.cpp.i
+.PHONY : ros/src/traj_action_server_main.i
+
+# target to preprocess a source file
+ros/src/traj_action_server_main.cpp.i:
+	$(MAKE) -f CMakeFiles/traj_action_server.dir/build.make CMakeFiles/traj_action_server.dir/ros/src/traj_action_server_main.cpp.i
+.PHONY : ros/src/traj_action_server_main.cpp.i
+
+ros/src/traj_action_server_main.s: ros/src/traj_action_server_main.cpp.s
+.PHONY : ros/src/traj_action_server_main.s
+
+# target to generate assembly for a file
+ros/src/traj_action_server_main.cpp.s:
+	$(MAKE) -f CMakeFiles/traj_action_server.dir/build.make CMakeFiles/traj_action_server.dir/ros/src/traj_action_server_main.cpp.s
+.PHONY : ros/src/traj_action_server_main.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1158,6 +1222,7 @@ help:
 	@echo "... test-results"
 	@echo "... test-results-run"
 	@echo "... tests"
+	@echo "... traj_action_server"
 	@echo "... gtest"
 	@echo "... gtest_main"
 	@echo "... common/src/Device/Device.o"
@@ -1220,6 +1285,12 @@ help:
 	@echo "... ros/src/hermes_state_publisher_main.o"
 	@echo "... ros/src/hermes_state_publisher_main.i"
 	@echo "... ros/src/hermes_state_publisher_main.s"
+	@echo "... ros/src/traj_action_server.o"
+	@echo "... ros/src/traj_action_server.i"
+	@echo "... ros/src/traj_action_server.s"
+	@echo "... ros/src/traj_action_server_main.o"
+	@echo "... ros/src/traj_action_server_main.i"
+	@echo "... ros/src/traj_action_server_main.s"
 .PHONY : help
 
 

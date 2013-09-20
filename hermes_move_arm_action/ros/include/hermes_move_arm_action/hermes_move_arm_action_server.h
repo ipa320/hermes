@@ -4,6 +4,7 @@
 #include "ros/ros.h"
 #include "hermes_move_arm_action/HermesInterface.h"
 
+
 // actions
 #include <actionlib/server/simple_action_server.h>
 #include <hermes_move_arm_action/MoveArmAction.h> // here you have to include the header file with exactly the same name as your message in the /action folder (the MessageAction.h is automatically generated from your Message.action file during compilation)
@@ -23,6 +24,8 @@ typedef actionlib::SimpleActionServer<hermes_move_arm_action::MoveArmAction> Mov
 
 class HermesMoveArmActionServer
 {
+
+
 public:
 	HermesMoveArmActionServer(ros::NodeHandle nh);
 	void init();

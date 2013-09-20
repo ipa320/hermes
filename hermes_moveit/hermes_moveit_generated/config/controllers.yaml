@@ -1,6 +1,6 @@
 controller_list:
- - name: r_arm_controller
-   action_ns: joint_trajectory_action
+ - name: ""
+   action_ns: traj_action
    default: true
    joints:
      - r_joint1

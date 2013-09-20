@@ -66,3 +66,7 @@ rosbuild_add_executable(hermes_state_publisher ros/src/hermes_state_publisher_ma
 						common/src/hermes_interface/hermesInterface.cpp)
 target_link_libraries(hermes_state_publisher m5api)
 
+rosbuild_add_executable(traj_action_server ros/src/traj_action_server.cpp
+										ros/src/traj_action_server_main.cpp
+										common/src/hermes_interface/hermesInterface.cpp)
+target_link_libraries(traj_action_server m5api)
