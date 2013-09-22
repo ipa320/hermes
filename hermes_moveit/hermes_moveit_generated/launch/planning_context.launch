@@ -3,7 +3,7 @@
   <arg name="load_robot_description" default="false"/>
 
   <!-- Load universal robotic description format (URDF) -->
-  <param if="$(arg load_robot_description)" name="robot_description" textfile="/home/vr2user/groovy_workspace/sandbox/hermes/hermes_moveit/ros/urdf/hermes.urdf"/>
+  <param if="$(arg load_robot_description)" name="robot_description" textfile="$(find hermes_moveit_generated)/../ros/urdf/hermes.urdf"/>
 
   <!-- The semantic description that corresponds to the URDF -->
   <param name="robot_description_semantic" textfile="$(find hermes_moveit_generated)/config/hermesArm.srdf" />

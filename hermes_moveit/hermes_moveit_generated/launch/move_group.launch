@@ -19,9 +19,8 @@
     <arg name="pipeline" value="ompl" />
   </include>
 
+ 
   <include ns="move_group" file="$(find hermes_moveit_generated)/launch/trajectory_execution.launch" if="$(arg allow_trajectory_execution)">
-    <arg name="moveit_controller_manager" value="hermesArm" /> 
-    <arg name="moveit_manage_controllers" value="true" />
   </include>
 
   <!-- include ns="move_group" file="$(find hermes_moveit_generated)/launch/sensor_manager.launch" if="$(arg allow_trajectory_execution)">
