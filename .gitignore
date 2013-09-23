@@ -4,6 +4,10 @@
 build/
 hermes_robot_interface/lib/
 hermes_robot_interface/bin/
+hermes_robot_interface/build/
+hermes_robot_kdl/lib/
+hermes_robot_kdl/bin/
+hermes_robot_kdl/build/
 hermes_arm_kdl/bin/
 hermes_arm_kdl/src/
 hermes_arm_kdl/srv_gen/
