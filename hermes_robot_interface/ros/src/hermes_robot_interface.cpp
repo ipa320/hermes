@@ -115,10 +115,12 @@ void HermesRobotInterface::executeTrajCB(GoalHandle gh)
 		}
 		hermesinterface.moveRightArmVel(dq_right);
 		//std::cout << current_traj_.points[i].time_from_start << std::endl;
+		ros::spinOnce();
 		if(i>1)
 			ros::Duration(current_traj_.points[i].time_from_start-current_traj_.points[i-1].time_from_start).sleep();
 		else
 			ros::Duration(current_traj_.points[i].time_from_start).sleep();
+		
 	}
 	JTAS::Result result;
 	result.error_code = JTAS::Result::SUCCESSFUL;

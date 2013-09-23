@@ -15,7 +15,7 @@ int main(int argc, char **argv)
 	ros::init(argc, argv, "hermes_robot_interface");
 	ros::NodeHandle n;
 
-	ros::Publisher joint_state_pub = n.advertise<sensor_msgs::JointState>("joint_states", 1000);
+	ros::Publisher joint_state_pub = n.advertise<sensor_msgs::JointState>("joint_states", 1);
 
 
 	HermesRobotInterface hermes(n);
@@ -28,7 +28,7 @@ int main(int argc, char **argv)
 	joint_msg.effort.resize(36);
 
 
-	ros::Rate loop_rate(100);
+	ros::Rate loop_rate(10);
 
 
 

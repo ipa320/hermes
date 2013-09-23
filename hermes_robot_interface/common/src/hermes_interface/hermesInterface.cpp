@@ -134,5 +134,10 @@ void HermesInterface::moveRightArmVel(std::vector<float> &q_Vel)
 void HermesInterface::softStopAll()
 {
 	PCube_haltAll(dev);
+	for(int i=1;i<=7;i++)
+			PCube_resetModule(dev,i); // Reset leftArm
+	for(int i=10;i<=17;i++)
+			PCube_resetModule(dev,i);// Reset rightArm
+
 }
 
