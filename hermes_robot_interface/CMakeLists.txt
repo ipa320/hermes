@@ -26,9 +26,9 @@ INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/ros/include
 		    ${PROJECT_SOURCE_DIR}/common/include)
 
 
-rosbuild_add_library(m5api common/src/Device/Device.cpp  common/src/Device/ProtocolDevice.cpp  common/src/Device/ESDDevice.cpp  common/src/Device/PCanDevice.cpp common/src/Device/ProtocolMessage.cpp  common/src/Device/RS232Device.cpp  common/src/Util/Random.cpp  common/src/Util/Message.cpp common/src/Util/StopWatch.cpp common/src/Util/IOFunctions.cpp  common/src/Util/Thread.cpp  common/src/M5apiw32/m5apiw32.cpp)
+rosbuild_add_library(m5api common/src/Device/Device.cpp  common/src/Device/ProtocolDevice.cpp   common/src/Device/PCanDevice.cpp common/src/Device/ProtocolMessage.cpp  common/src/Device/RS232Device.cpp  common/src/Util/Random.cpp  common/src/Util/Message.cpp common/src/Util/StopWatch.cpp common/src/Util/IOFunctions.cpp  common/src/Util/Thread.cpp  common/src/M5apiw32/m5apiw32.cpp)
 
-rosbuild_add_compile_flags(m5api -D__LINUX__ -DUSE_PCAN -DUSE_ESD)
+rosbuild_add_compile_flags(m5api -D__LINUX__ -DUSE_PCAN )
 
 
 #uncomment if you have defined messages
@@ -47,6 +47,6 @@ rosbuild_gensrv()
 rosbuild_add_executable(hermes_robot_interface_node ros/src/hermes_robot_interface_main.cpp
 													ros/src/hermes_robot_interface.cpp
 										            common/src/hermes_interface/hermesInterface.cpp)
-target_link_libraries(hermes_robot_interface_node m5api  pcan libntcan.a)
+target_link_libraries(hermes_robot_interface_node m5api  pcan )
 
 
