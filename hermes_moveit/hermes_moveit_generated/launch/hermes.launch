@@ -9,14 +9,9 @@
     <arg name="load_robot_description" value="true"/>
   </include>
 
-  
+ 
 
-  <!-- node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
-    <param name="/use_gui" value="false"/>
-  </node -->
-
-
-  <include file="$(find hermes_moveit_generated)/launch/move_group.launch">
+  <include file="$(find hermes_moveit_generated)/launch/hermes_move_group.launch">
     <arg name="allow_trajectory_execution" value="true"/>
   </include>
 
@@ -24,6 +19,5 @@
     <arg name="config" value="true"/>
   </include>
 
-  <!-- include file="$(find hermes_moveit_generated)/launch/default_warehouse_db.launch" /-->
-
+ 
 </launch>

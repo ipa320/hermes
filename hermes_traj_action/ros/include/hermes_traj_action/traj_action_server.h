@@ -17,7 +17,7 @@ private:
 	JTAS action_server_;
 	GoalHandle active_goal_;
 	ros::Publisher pub_controller_command_;
-	 trajectory_msgs::JointTrajectory current_traj_;
+	trajectory_msgs::JointTrajectory current_traj_;
 
 public:
 	TrajActionServer(ros::NodeHandle &n);

@@ -24,7 +24,7 @@ TrajActionServer::~TrajActionServer()
 
 void TrajActionServer::executeTrajCB(GoalHandle gh)
 {
-	std::cout << "EJECUTANDO executeTrajCB	" << std::endl;
+	std::cout << "EJECUTANDO executeTrajCB	holaaaaa" << std::endl;
 	gh.setAccepted();
 			active_goal_ = gh;
 	current_traj_ = active_goal_.getGoal()->trajectory;

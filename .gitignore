@@ -2,6 +2,8 @@
 *~
 .*
 build/
+hermes_robot_interface/lib/
+hermes_robot_interface/bin/
 hermes_arm_kdl/bin/
 hermes_arm_kdl/src/
 hermes_arm_kdl/srv_gen/
