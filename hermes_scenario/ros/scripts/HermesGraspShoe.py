@@ -68,6 +68,7 @@ class ComputeGrasp(smach.State):
 			print "Service call failed: %s"%e, ' No grasp for object', userdata.detection.label, 'available.'
 			return 'not_found'
 
+		print 'grasp goal:', res
 		userdata.grasp_configuration = res.grasp_configurations[0]
 				
 		return 'found'
@@ -106,9 +107,9 @@ if __name__ == '__main__':
 	sm = HermesGraspShoe()
 	
 	# userdata
-	sm.userdata.arm = 1;
-	sm.userdata.hand = 1;
-	sm.userdata.object_label='1'
+	sm.userdata.arm = 2;
+	sm.userdata.hand = 2;
+	sm.userdata.object_label='tag_1'
 	
 	# introspection -> smach_viewer
 	sis = smach_ros.IntrospectionServer('hermes_grasp_shoe_introspection', sm, '/HERMES_GRASP_SHOE')

@@ -2,15 +2,15 @@
 
 
 HermesRobotInterface::HermesRobotInterface(ros::NodeHandle &nh): node_(nh), action_server_(nh, "traj_action",
-       boost::bind(&HermesRobotInterface::executeTrajCB, this, _1),
-       //boost::bind(&HermesRobotInterface::cancelCB, this, _1),
-       false)
+       boost::bind(&HermesRobotInterface::executeTrajCB, this, _1),false),
+       move_arm_action_server_(nh, "move_arm_action", boost::bind(&HermesRobotInterface::moveArmCB, this, _1),false)
 {
 
 	pub_controller_command_ =
 	    	      node_.advertise<trajectory_msgs::JointTrajectory>("command", 1);
 
 	action_server_.start();
+	move_arm_action_server_.start();
 }
 
 void HermesRobotInterface::init()
@@ -114,7 +114,7 @@ void HermesRobotInterface::executeTrajCB(GoalHandle gh)
 			dq_right[j] = current_traj_.points[i].velocities[j];
 		}
 		hermesinterface.moveRightArmVel(dq_right);
-		//std::cout << current_traj_.points[i].time_from_start << std::endl;
+		//std::cout << current_traj_.points[i].positions[6] << std::endl;
 		ros::spinOnce();
 		if(i>1)
 			ros::Duration(current_traj_.points[i].time_from_start-current_traj_.points[i-1].time_from_start).sleep();
@@ -127,6 +127,38 @@ void HermesRobotInterface::executeTrajCB(GoalHandle gh)
 	gh.setSucceeded(result);
 
 	hermesinterface.softStopAll();
+
+}
+
+void HermesRobotInterface::moveArmCB(const hermes_robot_interface::MoveArmGoalConstPtr& goal)
+{
+	// this callback function is executed each time a request (= goal message) comes in for this service server
+	ROS_INFO("MoveArm Action Server: Received a request for arm %i.", goal->arm);
+
+//	if (goal->goal_position.header.frame_id.compare("/world") != 0)
+//	{
+//		ROS_ERROR("The goal position coordinates are not provided in the correct frame. The required frame is '/world' but '%s' was provided.", goal->goal_position.header.frame_id.c_str());
+//		return;
+//	}
+
+	if(goal->arm == hermes_robot_interface::MoveArmGoal::RIGHTARM)
+	{
+		// this connecs to a running instance of the move_group node
+		move_group_interface::MoveGroup group("r_arm");
+		// specify that our target will be a random one
+		group.setPoseTarget(goal->goal_position,"r_eef");
+
+		// plan the motion and then move the group to the sampled target4.0
+		group.move();
+	}
+
+	hermes_robot_interface::MoveArmResult res;
+	res.return_value.val = arm_navigation_msgs::ArmNavigationErrorCodes::SUCCESS; 	// put in there some error code on errors
+
+
+	// this sends the response back to the caller
+	move_arm_action_server_.setSucceeded(res);
+
 
 }
 

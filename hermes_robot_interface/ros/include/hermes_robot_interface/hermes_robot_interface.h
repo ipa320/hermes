@@ -12,10 +12,14 @@
 #include "hermes_robot_interface/HermesInterface.h"
 #include "sensor_msgs/JointState.h"
 #include <actionlib/server/action_server.h>
+#include <actionlib/server/simple_action_server.h>
 #include <trajectory_msgs/JointTrajectory.h>
 #include <control_msgs/FollowJointTrajectoryAction.h>
+#include <hermes_robot_interface/MoveArmAction.h>
+#include <moveit/move_group_interface/move_group.h>
 
 
+typedef actionlib::SimpleActionServer<hermes_robot_interface::MoveArmAction> MoveArmActionServerType;
 class HermesRobotInterface
 {
 
@@ -32,6 +36,7 @@ public:
 	HermesRobotInterface(ros::NodeHandle &nh);
 	void init();
 	void getJointState(sensor_msgs::JointState &jointState);
+	void moveArmCB(const hermes_robot_interface::MoveArmGoalConstPtr& goal);
 
 private:
 	void executeTrajCB(GoalHandle gh);
@@ -41,6 +46,7 @@ private:
 protected:
 	HermesInterface hermesinterface;
 	ros::NodeHandle node_;
+	MoveArmActionServerType move_arm_action_server_;
 
 
 

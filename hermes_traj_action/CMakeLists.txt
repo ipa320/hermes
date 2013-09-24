@@ -33,4 +33,8 @@ INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/ros/include
 #rosbuild_add_executable(example examples/example.cpp)
 #target_link_libraries(example ${PROJECT_NAME})
 rosbuild_add_executable(traj_action_server ros/src/traj_action_server.cpp
-										ros/src/traj_action_server_main.cpp)
+										   ros/src/traj_action_server_main.cpp)
+										   
+rosbuild_add_executable(execute_planning_main ros/src/execute_planning_main.cpp)
+target_link_libraries(execute_planning_main moveit_move_group_interface)
+										      

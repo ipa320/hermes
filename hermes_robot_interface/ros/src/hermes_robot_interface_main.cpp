@@ -36,6 +36,7 @@ int main(int argc, char **argv)
 	while (ros::ok)
 	{
 		hermes.getJointState(joint_msg);
+		joint_msg.header.stamp = ros::Time::now();
 		joint_state_pub.publish(joint_msg);
 		ros::spinOnce();
 		loop_rate.sleep();
