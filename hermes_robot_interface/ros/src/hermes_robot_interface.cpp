@@ -108,20 +108,37 @@ void HermesRobotInterface::executeTrajCB(GoalHandle gh)
 
 	std::vector <float> dq_right;
 	dq_right.resize(7);
+	ros::Duration spendTime;
+	ros::Time beginTime;
+	ros::Time endTime;
 
 	for(int i=0;i<=nPoints;i++){
+		beginTime = ros::Time::now();
 		for(int j=0;j<7;j++){
-			dq_right[j] = current_traj_.points[i].velocities[j];
+			if(i==0)
+				dq_right[j] = current_traj_.points[i+1].velocities[j];
+			else if(i==nPoints)
+				dq_right[j] = current_traj_.points[i-1].velocities[j];
+			else
+				dq_right[j] = current_traj_.points[i].velocities[j];
+
 		}
 		hermesinterface.moveRightArmVel(dq_right);
-		//std::cout << current_traj_.points[i].positions[6] << std::endl;
-		ros::spinOnce();
-		if(i>1)
-			ros::Duration(current_traj_.points[i].time_from_start-current_traj_.points[i-1].time_from_start).sleep();
-		else
-			ros::Duration(current_traj_.points[i].time_from_start).sleep();
+
+		endTime = ros::Time::now();
+		if(i>=1){
+			 spendTime = (current_traj_.points[i].time_from_start - current_traj_.points[i-1].time_from_start)-(endTime-beginTime);
+		}
+		else{
+			 spendTime = (current_traj_.points[i].time_from_start);
+		}
+		if(spendTime.toSec()>0)
+			spendTime.sleep();
 		
+
 	}
+
+
 	JTAS::Result result;
 	result.error_code = JTAS::Result::SUCCESSFUL;
 	gh.setSucceeded(result);
