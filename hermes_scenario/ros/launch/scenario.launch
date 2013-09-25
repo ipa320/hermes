@@ -7,9 +7,6 @@
 
   <node pkg="tf" type="static_transform_publisher" name="link_world2pillar_broadcaster" args="0 0 0 0 0 0 world pillar 10" />
 
-  <!-- upload obstacles -->
-  <node pkg="hermes_scenario" name="add_obstacles" type="MoveItAddObstacles.py"/>
-
   <!-- fiducial marker detection -->
   <include file="$(find hermes_scenario)/ros/launch/cob_fiducials/fiducials.launch"/>
   
@@ -22,7 +19,16 @@
   <!-- service for executing grasp commands -->
   <include file="$(find hermes_grasp_service)/ros/launch/grasp_service_server.launch"/>
 
-  <!-- service for executing arm movement commands -->
-  <!-- include file="$(find hermes_move_arm_action)/ros/launch/move_arm_action_server.launch"/ -->
+  <!-- segmentation for shoe detection -->
+  <include file="$(find cob_object_categorization)/ros/launch/object_segmentation.launch"/>
+
+  <!-- shoe detection -->
+  <include file="$(find cob_object_categorization)/ros/launch/object_categorization.launch"/>
+
+  <!-- arm planning + moveit -->
+  <include file="$(find hermes_moveit_generated)/launch/hermes.launch"/>
+
+  <!-- upload obstacles -->
+  <node pkg="hermes_scenario" name="add_obstacles" type="MoveItAddObstacles.py"/>
   
 </launch>

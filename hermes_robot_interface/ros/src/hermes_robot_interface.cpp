@@ -100,6 +100,8 @@ void HermesRobotInterface::executeTrajCB(GoalHandle gh)
 			active_goal_ = gh;
 
 
+    std::cout << "GoalID: " << gh.getGoalID().id <<std::endl;
+
 
 	current_traj_ = active_goal_.getGoal()->trajectory;
 	pub_controller_command_.publish(current_traj_);
@@ -174,6 +176,9 @@ void HermesRobotInterface::moveArmCB(const hermes_robot_interface::MoveArmGoalCo
 			group.execute(plan);
 		else
 			ROS_WARN("No valid plan found for arm movement.");
+	}
+	if(goal->arm == hermes_robot_interface::MoveArmGoal::LEFTARM){
+		ROS_WARN("Try to Move left Arm but it is not implement yet. Sorry!");
 	}
 
 	hermes_robot_interface::MoveArmResult res;

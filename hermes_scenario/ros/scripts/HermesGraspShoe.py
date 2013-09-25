@@ -114,6 +114,28 @@ class ComputeGrasp(smach.State):
 		return 'found'
 
 
+class SetPostGraspPosition(smach.State):
+	def __init__(self):
+		smach.State.__init__(self,
+			outcomes=['success', 'failed'],
+			input_keys=[],
+			output_keys=['goal_position'])
+
+	def execute(self, userdata):
+		sf = ScreenFormat("SetPostGraspPosition")
+		goal_position = PoseStamped()
+		goal_position.pose.position.x = 0.51075
+		goal_position.pose.position.y = -0.318258
+		goal_position.pose.position.z = 1.37531
+		goal_position.pose.orientation.w = 0.58329
+		goal_position.pose.orientation.x = -0.746924
+		goal_position.pose.orientation.y = 0.297375
+		goal_position.pose.orientation.z = 0.115951
+		goal_position.header.frame_id = '/pillar'
+		userdata.goal_position = goal_position
+		return 'success'
+
+
 class HermesGraspShoe(smach.StateMachine):
 	def __init__(self):
 		smach.StateMachine.__init__(self,
@@ -135,12 +157,21 @@ class HermesGraspShoe(smach.StateMachine):
 			# grasping
 			sm_generic_grasp = HermesGenericGrasp()
 			smach.StateMachine.add('EXECUTE_GRASP', sm_generic_grasp,
-                               transitions={'finished':'finished',
-											'failed':'failed'},
-                               remapping={'arm':'arm',
+                               transitions={'finished':'SET_POST_GRASP_POSITION',
+						'failed':'failed'},
+					                               remapping={'arm':'arm',
 										  'hand':'hand',
 										  'grasp_configuration':'grasp_configuration'})
+
+
+			smach.StateMachine.add('SET_POST_GRASP_POSITION', SetPostGraspPosition(),
+									transitions={'success':'MOVE_ARM_UP_POST_GRASP',
+											'failed':'failed'})
 			
+
+			smach.StateMachine.add('MOVE_ARM_UP_POST_GRASP', MoveArm(),
+									transitions={'success':'finished',
+											'failed':'failed'})
 
 if __name__ == '__main__':
 	try:

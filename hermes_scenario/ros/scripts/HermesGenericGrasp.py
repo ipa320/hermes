@@ -12,7 +12,7 @@ from hermes_grasp_database.msg import *
 from hermes_grasp_database.srv import *
 from hermes_grasp_service.srv import *
 from geometry_msgs.msg import *
-from hermes_move_arm_action.msg import *
+#from hermes_move_arm_action.msg import *
 from hermes_robot_interface.msg import *
 
 
@@ -38,14 +38,14 @@ class OpenHand(smach.State):
 	def __init__(self):
 		smach.State.__init__(self,
 			outcomes=['success', 'failed'],
-			input_keys=['hand'],
-			output_keys=[])
+			input_keys=['hand', 'grasp_configuration'],
+			output_keys=['goal_position'])
 
 	def execute(self, userdata):
 		sf = ScreenFormat("OpenHand")
 		grasp_type = 7
 		grasp_force = 100
-		
+		userdata.goal_position = userdata.grasp_configuration.goal_position
 		return Grasp(userdata.hand, grasp_type, grasp_force)
 
 
@@ -65,13 +65,13 @@ class MoveArm(smach.State):
 	def __init__(self):
 		smach.State.__init__(self,
 			outcomes=['success', 'failed'],
-			input_keys=['arm', 'grasp_configuration'],
+			input_keys=['arm', 'goal_position'],
 			output_keys=[])
 		self.client = actionlib.SimpleActionClient('/move_arm_action', MoveArmAction)
 
 	def execute(self, userdata):
 		sf = ScreenFormat("MoveArm")
-		print 'Moving arm', userdata.arm, 'to position', userdata.grasp_configuration.goal_position, '...'
+		print 'Moving arm', userdata.arm, 'to position', userdata.goal_position, '...'
 		
 		if not self.client.wait_for_server(rospy.Duration.from_sec(3.0)):
 			print '/move_arm_action action server not available'
@@ -79,7 +79,7 @@ class MoveArm(smach.State):
 		
 		goal = MoveArmGoal()
 		goal.arm = userdata.arm
-		goal.goal_position = userdata.grasp_configuration.goal_position
+		goal.goal_position = userdata.goal_position
 
 		self.client.send_goal(goal)
 		if not self.client.wait_for_result():#rospy.Duration.from_sec(5.0)):

@@ -15,3 +15,9 @@ grasp_type: 11
 grasp_force: 100
 grasp_offset_position: [0 0.25 0]
 grasp_offset_quaternion: [0.7071 0.7071 0 0]
+
+object_label: shoe_black
+grasp_type: 11
+grasp_force: 100
+grasp_offset_position: [0.1050 0.0262 0.1161]
+grasp_offset_quaternion: [0.6142 -0.61786 -0.29308 0.39384]
