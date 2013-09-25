@@ -108,22 +108,27 @@ class HermesGenericGrasp(smach.StateMachine):
 										'failed':'failed'})
 
 if __name__ == '__main__':
-	rospy.init_node("hermes_generic_grasp")
-	sm = HermesGenericGrasp()
-	
-	# userdata
-	sm.userdata.hand = 1
-	sm.userdata.arm = 1
-	sm.userdata.grasp_configuration = GraspConfiguration()
-	sm.userdata.grasp_configuration.goal_position = PoseStamped()
-	sm.userdata.grasp_configuration.grasp_type = 12
-	sm.userdata.grasp_configuration.grasp_force = 80
-	
-	# introspection -> smach_viewer
-	sis = smach_ros.IntrospectionServer('hermes_generic_grasp_introspection', sm, '/HERMES_GENERIC_GRASP')
-	sis.start()
-	
-	# start
-	sm.execute()
-	rospy.spin()
-	sis.stop()
+	try:
+		rospy.init_node("hermes_generic_grasp")
+		sm = HermesGenericGrasp()
+		
+		# userdata
+		sm.userdata.hand = 1
+		sm.userdata.arm = 1
+		sm.userdata.grasp_configuration = GraspConfiguration()
+		sm.userdata.grasp_configuration.goal_position = PoseStamped()
+		sm.userdata.grasp_configuration.grasp_type = 12
+		sm.userdata.grasp_configuration.grasp_force = 80
+		
+		# introspection -> smach_viewer
+		sis = smach_ros.IntrospectionServer('hermes_generic_grasp_introspection', sm, '/HERMES_GENERIC_GRASP')
+		sis.start()
+		
+		# start
+		sm.execute()
+		rospy.spin()
+		sis.stop()
+	except:
+		print('EXCEPTION THROWN')
+		print('Aborting cleanly')
+		os._exit(1)
