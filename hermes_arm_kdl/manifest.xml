@@ -1,0 +1,21 @@
+<package>
+  <description brief="hermes_arm_kdl">
+
+     hermes_arm_kdl
+
+  </description>
+  <author>ricardo</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/hermesArmKDLtest</url>
+  <depend package="roscpp"/>
+  <depend package="roslib"/>
+  <depend package="rospy"/>
+  <depend package="urdf"/>
+  <depend package="kdl_parser"/>
+  <depend package="kdl"/>
+  <depend package="std_msgs"/>
+
+</package>
+
+

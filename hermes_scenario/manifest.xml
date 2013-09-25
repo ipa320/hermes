@@ -20,10 +20,19 @@
   <depend package="hermes_camera_calibration"/>
   <depend package="hermes_grasp_database"/>
   <depend package="hermes_grasp_service"/>
-  <depend package="hermes_move_arm_action"/>
+  <depend package="hermes_robot_interface"/>
   <depend package="cob_fiducials"/>
   <depend package="cob_object_detection_msgs"/>
 
+
+  <depend package="moveit_ros_planning"/>
+  <depend package="moveit_ros_planning_interface"/>
+  <depend package="moveit_ros_warehouse"/>
+  <depend package="moveit_ros_manipulation"/>
+  <depend package="roscpp"/>
+  <depend package="rosconsole"/>
+  <depend package="tf"/>
+  <depend package="eigen_conversions"/>
 </package>
 
 

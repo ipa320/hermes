@@ -5,6 +5,7 @@
 #include "ros/ros.h"
 #include "tf/tf.h"
 #include <tf/transform_listener.h>
+#include <tf/transform_broadcaster.h>
 #include <dynamic_reconfigure/server.h>
 #include <hermes_grasp_database/HermesGraspDatabaseConfig.h>
 
@@ -41,6 +42,7 @@ protected:
 	dynamic_reconfigure::Server<hermes_grasp_database::HermesGraspDatabaseConfig> dynamic_reconfigure_server_;
 
 	tf::TransformListener transform_listener_;
+	tf::TransformBroadcaster transform_broadcaster_;
 
 	///     object label, vector of grasps
 	std::map<std::string, std::vector<GraspDatabaseEntry> > grasp_database_;

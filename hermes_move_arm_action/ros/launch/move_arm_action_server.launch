@@ -2,7 +2,16 @@
 
 <launch>
 
+  <!-- reference frames -->
+  <include file="$(find hermes_reference_frames_service)/ros/launch/reference_frames_service.launch"/>
+  
+  <!-- arm_kdl -->
+  <include file="$(find hermes_arm_kdl)/ros/launch/arm_kdl.launch"/>
+
   <node ns="hermes_move_arm_action" name="move_arm_action" pkg="hermes_move_arm_action" type="move_arm_action" output="screen">
+  	<remap from="reference_frames_service" to="/hermes_reference_frames_service/reference_frames_service"/>
+  	<remap from="arm_kdl_service_ikine_server" to="/hermes_arm_kdl/arm_kdl_service_ikine_server"/>
+  	<remap from="arm_kdl_service_fkine_server" to="/hermes_arm_kdl/arm_kdl_service_fkine_server"/>
   </node>
 
 </launch>

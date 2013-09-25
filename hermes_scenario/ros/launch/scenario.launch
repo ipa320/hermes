@@ -3,7 +3,12 @@
 <launch>
 
   <!-- static transforms -->
-  <node pkg="tf" type="static_transform_publisher" name="link_world2marker_broadcaster" args="0.125 -0.0505 1.576 1.57079632679 0.0 1.57079632679 world marker_robot 100" />
+  <node pkg="tf" type="static_transform_publisher" name="link_world2marker_broadcaster" args="0.125 -0.0505 1.596 1.57079632679 0.0 1.57079632679 world marker_robot 10" />
+
+  <node pkg="tf" type="static_transform_publisher" name="link_world2pillar_broadcaster" args="0 0 0 0 0 0 world pillar 10" />
+
+  <!-- upload obstacles -->
+  <node pkg="hermes_scenario" name="add_obstacles" type="MoveItAddObstacles.py"/>
 
   <!-- fiducial marker detection -->
   <include file="$(find hermes_scenario)/ros/launch/cob_fiducials/fiducials.launch"/>
@@ -18,6 +23,6 @@
   <include file="$(find hermes_grasp_service)/ros/launch/grasp_service_server.launch"/>
 
   <!-- service for executing arm movement commands -->
-  <include file="$(find hermes_move_arm_action)/ros/launch/move_arm_action_server.launch"/>
+  <!-- include file="$(find hermes_move_arm_action)/ros/launch/move_arm_action_server.launch"/ -->
   
 </launch>

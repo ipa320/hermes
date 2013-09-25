@@ -6,7 +6,7 @@
 #include <fstream>
 
 
-HermesGraspDatabase::HermesGraspDatabase(ros::NodeHandle nh)
+HermesGraspDatabase::HermesGraspDatabase(ros::NodeHandle nh) : transform_listener_(ros::Duration(40))
 {
 	node_ = nh;
 	target_frame_id_ = "/camera_link";
@@ -166,7 +166,9 @@ bool HermesGraspDatabase::computeGraspForDetection(hermes_grasp_database::GetGra
 
 			// respond with a list of suitable wrist poses in the desired target frame for grasping the requested object
 			hermes_grasp_database::GraspConfiguration gc;
-			tf::poseTFToMsg(transform_targetframe_to_captureframe*object_pose*offset, gc.goal_position.pose);
+			tf::Transform goalPose = transform_targetframe_to_captureframe*object_pose*offset.inverse();
+			transform_broadcaster_.sendTransform(tf::StampedTransform(goalPose, ros::Time::now(), "marker_robot", "grasp_goal"));
+			tf::poseTFToMsg(goalPose, gc.goal_position.pose);
 			gc.goal_position.header = req.detection.pose.header;
 			gc.goal_position.header.frame_id = target_frame_id_;
 			gc.grasp_type = grasp_database_[object_label][i].grasp_type;

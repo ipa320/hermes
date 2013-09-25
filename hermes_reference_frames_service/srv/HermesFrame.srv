@@ -1,0 +1,13 @@
+# Service for obtaining a reference transformation wTr
+#
+# request message
+int32 frame			# 1 ->Left Hand 2 ->Right Hand
+int32 WORLDTLEFTARM=1
+int32 WORLDTRIGHTARM=2
+
+
+---
+float32[4] quaternion
+float32[3] position
+# response message
+string message			# response message commenting the outcome if necessary

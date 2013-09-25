@@ -1,0 +1,9 @@
+# Service execute fkine on KDL
+#
+# request message
+float32[7] jointAngles
+---
+# response message
+float32[9]  rotation			# response message commenting the outcome if necessary
+float32[3]  position
+string message

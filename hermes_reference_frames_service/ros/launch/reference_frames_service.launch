@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <node ns="hermes_reference_frames_service" name="reference_frames_service" pkg="hermes_reference_frames_service" type="hermes_reference_frames_service_server_main" output="screen">
+  </node>
+
+</launch>
