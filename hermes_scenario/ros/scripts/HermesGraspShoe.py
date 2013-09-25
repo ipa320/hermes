@@ -4,6 +4,7 @@ roslib.load_manifest('hermes_scenario')
 import rospy
 import smach
 import smach_ros
+import actionlib
 
 from HermesCommon import *
 from HermesGenericGrasp import *
@@ -12,7 +13,7 @@ from cob_object_detection_msgs.msg import *
 from cob_object_detection_msgs.srv import *
 from hermes_grasp_database.msg import *
 from hermes_grasp_database.srv import *
-
+from cob_object_detection_msgs.msg import * 
 
 
 class DetectMarker(smach.State):
@@ -47,6 +48,45 @@ class DetectMarker(smach.State):
 
 		return 'found'
 
+class DetectShoe(smach.State):
+	def __init__(self):
+		smach.State.__init__(self,
+			outcomes=['found', 'not_found', 'failed'],
+			input_keys=['object_label'],
+			output_keys=['detection'])
+		self.client = actionlib.SimpleActionClient('/object_categorization/categorize_object', DetectObjectsAction)
+
+	def execute(self, userdata):
+		sf = ScreenFormat("DetectShoe")
+		print 'Searching for shoe with label', userdata.object_label, '...'
+		
+		if not self.client.wait_for_server(rospy.Duration.from_sec(3.0)):
+			print '/object_categorization/categorize_object action server not available'
+			return 'failed'
+		
+		goal = DetectObjectsGoal()
+		goal.object_name.data = "shoe_black"
+
+		self.client.send_goal(goal)
+		if not self.client.wait_for_result():#rospy.Duration.from_sec(5.0)):
+			return 'failed'
+
+		res = self.client.get_result()
+		print res
+		found_object = False
+		for detection in res.object_list.detections:
+			if detection.label == userdata.object_label:
+				found_object = True
+				userdata.detection = detection
+				print detection.pose
+
+		if found_object == True:
+			print 'found shoe:'
+			print detection
+			return 'found'
+		else:
+			print 'did not find a shoe'
+			return 'not_found'
 
 class ComputeGrasp(smach.State):
 	def __init__(self):
@@ -82,7 +122,7 @@ class HermesGraspShoe(smach.StateMachine):
 			output_keys=[])
 		with self:
 
-			smach.StateMachine.add('DETECT_SHOE', DetectMarker(),
+			smach.StateMachine.add('DETECT_SHOE', DetectShoe(),
 									transitions={'found':'LOOKUP_GRASP',
 											'not_found':'DETECT_SHOE',
 											'failed':'failed'})
@@ -103,19 +143,24 @@ class HermesGraspShoe(smach.StateMachine):
 			
 
 if __name__ == '__main__':
-	rospy.init_node("hermes_grasp_shoe")
-	sm = HermesGraspShoe()
-	
-	# userdata
-	sm.userdata.arm = 2;
-	sm.userdata.hand = 2;
-	sm.userdata.object_label='tag_1'
-	
-	# introspection -> smach_viewer
-	sis = smach_ros.IntrospectionServer('hermes_grasp_shoe_introspection', sm, '/HERMES_GRASP_SHOE')
-	sis.start()
-	
-	# start
-	sm.execute()
-	rospy.spin()
-	sis.stop()
+	try:
+		rospy.init_node("hermes_grasp_shoe")
+		sm = HermesGraspShoe()
+		
+		# userdata
+		sm.userdata.arm = 2;
+		sm.userdata.hand = 2;
+		sm.userdata.object_label='shoe_black'
+		
+		# introspection -> smach_viewer
+		sis = smach_ros.IntrospectionServer('hermes_grasp_shoe_introspection', sm, '/HERMES_GRASP_SHOE')
+		sis.start()
+		
+		# start
+		sm.execute()
+		rospy.spin()
+		sis.stop()
+	except:
+		print('EXCEPTION THROWN')
+		print('Aborting cleanly')
+		os._exit(1)

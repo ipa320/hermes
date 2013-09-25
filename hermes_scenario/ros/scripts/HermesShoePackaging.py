@@ -33,19 +33,24 @@ class HermesShoePackaging(smach.StateMachine):
 			
 
 if __name__ == '__main__':
-	rospy.init_node("hermes_shoe_packaging")
-	sm = HermesShoePackaging()
-	
-	# userdata
-# 	sm.userdata.arm = 1;
-# 	sm.userdata.hand = 1;
-# 	sm.userdata.object_label='1'
-	
-	# introspection -> smach_viewer
-	sis = smach_ros.IntrospectionServer('hermes_shoe_packaging_introspection', sm, '/HERMES_SHOE_PACKAGING')
-	sis.start()
-	
-	# start
-	sm.execute()
-	rospy.spin()
-	sis.stop()
+	try:
+		rospy.init_node("hermes_shoe_packaging")
+		sm = HermesShoePackaging()
+		
+		# userdata
+	# 	sm.userdata.arm = 1;
+	# 	sm.userdata.hand = 1;
+	# 	sm.userdata.object_label='1'
+		
+		# introspection -> smach_viewer
+		sis = smach_ros.IntrospectionServer('hermes_shoe_packaging_introspection', sm, '/HERMES_SHOE_PACKAGING')
+		sis.start()
+		
+		# start
+		sm.execute()
+		rospy.spin()
+		sis.stop()
+	except:
+		print('EXCEPTION THROWN')
+		print('Aborting cleanly')
+		os._exit(1)
