@@ -148,8 +148,15 @@ void HermesRobotInterface::moveArmCB(const hermes_robot_interface::MoveArmGoalCo
 		// specify that our target will be a random one
 		group.setPoseTarget(goal->goal_position,"r_eef");
 
-		// plan the motion and then move the group to the sampled target4.0
-		group.move();
+		// plan the motion and then move the group to the sampled target
+		bool have_plan = false;
+		moveit::planning_interface::MoveGroup::Plan plan;
+		for (int trial=0; have_plan==false && trial<5; ++trial)
+			have_plan = group.plan(plan);
+		if (have_plan==true)
+			group.execute(plan);
+		else
+			ROS_WARN("No valid plan found for arm movement.");
 	}
 
 	hermes_robot_interface::MoveArmResult res;

@@ -1,6 +1,9 @@
 *.[oa]
 *~
 .*
+*.pyc
+
+
 build/
 msg_gen/
 hermes_traj_action/lib/
@@ -51,7 +54,11 @@ hermes_move_arm_action/lib/
 hermes_reference_frames_service/bin/
 hermes_reference_frames_service/src/
 hermes_reference_frames_service/srv_gen/
-hermes_scenario/
+hermes_scenario/lib/
+hermes_scenario/bin/
+hermes_scenario/build/
+hermes_scenario/src/
+hermes_scenario/common/files/models/piTagIni_hermes.xml.orig
 hermes_moveit/left_hand_moveit_generated/default_warehouse_mongo_db
 hermes_moveit/right_hand_moveit_generated/default_warehouse_mongo_db
 hermes_moveit/hermes_arm_moveit_generated/default_warehouse_mongo_db
