@@ -1,6 +1,6 @@
 controller_list:
  - name: ""
-   action_ns: traj_action
+   action_ns: traj_action_
    default: true
    joints:
      - r_joint1

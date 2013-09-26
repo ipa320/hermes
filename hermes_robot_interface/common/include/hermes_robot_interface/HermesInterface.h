@@ -24,6 +24,7 @@ class HermesInterface
 		void moveLeftArm(std::vector<float> &q_in);
 		void moveRightArm(std::vector<float> &q_in);
 		void moveRightArmVel(std::vector<float> &q_Vel);
+		void moveLeftArmVel(std::vector<float> &q_Vel);
 		void readPositionLeftArm();
 		void readPositionRightArm();
 		void get_leftJoints(std::vector<float> &q);

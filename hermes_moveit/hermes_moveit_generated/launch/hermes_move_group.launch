@@ -22,10 +22,7 @@
  
   <include ns="move_group" file="$(find hermes_moveit_generated)/launch/trajectory_execution.launch" if="$(arg allow_trajectory_execution)">
   </include>
-
-  <!-- include ns="move_group" file="$(find hermes_moveit_generated)/launch/sensor_manager.launch" if="$(arg allow_trajectory_execution)">
-    <arg name="moveit_sensor_manager" value="hermesArm" /> 
-  </include -->
+  
 
   <node name="move_group" launch-prefix="$(arg launch_prefix)" pkg="moveit_ros_move_group" type="move_group" respawn="false" output="screen" args="$(arg command_args)">
    

@@ -2,6 +2,7 @@
 
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="rob_st_pub"/>
 
+
   <node name="hermes_robot_interface" pkg="hermes_robot_interface" type="hermes_robot_interface_node" respawn="true" output="screen" />
 
 
@@ -20,6 +21,7 @@
   <include file="$(find hermes_moveit_generated)/launch/hermes_move_group.launch">
     <arg name="allow_trajectory_execution" value="true"/>
   </include>
+
 
   <include file="$(find hermes_moveit_generated)/launch/moveit_rviz.launch">
     <arg name="config" value="true"/>

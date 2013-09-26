@@ -1,13 +1,14 @@
 #include "hermes_robot_interface/hermes_robot_interface.h"
 
 
-HermesRobotInterface::HermesRobotInterface(ros::NodeHandle &nh): node_(nh), action_server_(nh, "traj_action",
-       boost::bind(&HermesRobotInterface::executeTrajCB, this, _1),false),
+HermesRobotInterface::HermesRobotInterface(ros::NodeHandle &nh): node_(nh),
+	   action_server_(nh, "traj_action_",boost::bind(&HermesRobotInterface::executeTrajCB, this, _1),false),
        move_arm_action_server_(nh, "move_arm_action", boost::bind(&HermesRobotInterface::moveArmCB, this, _1),false)
 {
 
 	pub_controller_command_ =
 	    	      node_.advertise<trajectory_msgs::JointTrajectory>("command", 1);
+
 
 	action_server_.start();
 	move_arm_action_server_.start();
@@ -100,16 +101,17 @@ void HermesRobotInterface::executeTrajCB(GoalHandle gh)
 			active_goal_ = gh;
 
 
-    std::cout << "GoalID: " << gh.getGoalID().id <<std::endl;
-
-
 	current_traj_ = active_goal_.getGoal()->trajectory;
 	pub_controller_command_.publish(current_traj_);
 
+
+
+
+
 	int nPoints = current_traj_.points.size() - 1;
 
-	std::vector <float> dq_right;
-	dq_right.resize(7);
+	std::vector <float> dq;
+	dq.resize(7);
 	ros::Duration spendTime;
 	ros::Time beginTime;
 	ros::Time endTime;
@@ -118,14 +120,22 @@ void HermesRobotInterface::executeTrajCB(GoalHandle gh)
 		beginTime = ros::Time::now();
 		for(int j=0;j<7;j++){
 			if(i==0)
-				dq_right[j] = current_traj_.points[i+1].velocities[j];
+				dq[j] = current_traj_.points[i+1].velocities[j];
 			else if(i==nPoints)
-				dq_right[j] = current_traj_.points[i-1].velocities[j];
+				dq[j] = current_traj_.points[i-1].velocities[j];
 			else
-				dq_right[j] = current_traj_.points[i].velocities[j];
+				dq[j] = current_traj_.points[i].velocities[j];
 
 		}
-		hermesinterface.moveRightArmVel(dq_right);
+		// Case RIGHT ARM
+		if (current_traj_.joint_names[0].compare("r_joint1")==0)
+		{
+			hermesinterface.moveRightArmVel(dq);
+		}
+		if (current_traj_.joint_names[0].compare("l_joint1")==0)
+		{
+			hermesinterface.moveLeftArmVel(dq);
+		}
 
 		endTime = ros::Time::now();
 		if(i>=1){
@@ -148,6 +158,8 @@ void HermesRobotInterface::executeTrajCB(GoalHandle gh)
 	hermesinterface.softStopAll();
 
 }
+
+
 
 void HermesRobotInterface::moveArmCB(const hermes_robot_interface::MoveArmGoalConstPtr& goal)
 {
@@ -177,9 +189,24 @@ void HermesRobotInterface::moveArmCB(const hermes_robot_interface::MoveArmGoalCo
 		else
 			ROS_WARN("No valid plan found for arm movement.");
 	}
-	if(goal->arm == hermes_robot_interface::MoveArmGoal::LEFTARM){
-		ROS_WARN("Try to Move left Arm but it is not implement yet. Sorry!");
+	else if(goal->arm == hermes_robot_interface::MoveArmGoal::LEFTARM){
+		// this connecs to a running instance of the move_group node
+		move_group_interface::MoveGroup group("l_arm");
+		// specify that our target will be a random one
+		group.setPoseTarget(goal->goal_position,"l_eef");
+
+		// plan the motion and then move the group to the sampled target
+		bool have_plan = false;
+		moveit::planning_interface::MoveGroup::Plan plan;
+		for (int trial=0; have_plan==false && trial<5; ++trial)
+			have_plan = group.plan(plan);
+		if (have_plan==true)
+			group.execute(plan);
+		else
+			ROS_WARN("No valid plan found for arm movement.");
 	}
+
+
 
 	hermes_robot_interface::MoveArmResult res;
 	res.return_value.val = arm_navigation_msgs::ArmNavigationErrorCodes::SUCCESS; 	// put in there some error code on errors
