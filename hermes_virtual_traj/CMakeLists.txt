@@ -16,6 +16,10 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 #set the default path for built libraries to the "lib" directory
 set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 
+# add include search paths
+INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/ros/include
+		    ${PROJECT_SOURCE_DIR}/common/include)
+
 #uncomment if you have defined messages
 #rosbuild_genmsg()
 #uncomment if you have defined services
@@ -28,4 +32,7 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 #rosbuild_link_boost(${PROJECT_NAME} thread)
 #rosbuild_add_executable(example examples/example.cpp)
 #target_link_libraries(example ${PROJECT_NAME})
-rosbuild_add_executable(fixed_points_generated ros/src/fixed_points_generated.cpp)
+rosbuild_add_executable(hermes_virtual_robot   ros/src/hermes_virtual_robot_main.cpp
+ 											   ros/src/hermes_virtual_robot.cpp)
+ 											   
+rosbuild_add_executable(fixed_points_generated   ros/src/fixed_points_generated.cpp)

@@ -51,6 +51,7 @@ hermes_move_arm_action/msg_gen/
 hermes_move_arm_action/src/
 hermes_move_arm_action/srv_gen/
 hermes_move_arm_action/lib/
+hermes_move_arm_action/msg/
 hermes_reference_frames_service/bin/
 hermes_reference_frames_service/src/
 hermes_reference_frames_service/srv_gen/
