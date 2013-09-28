@@ -10,6 +10,7 @@
 #include <kdl/trajectory_composite.hpp>
 #include <kdl/trajectory_composite.hpp>
 #include <kdl/velocityprofile_trap.hpp>
+#include <kdl/velocityprofile_spline.hpp>
 #include <kdl/path_roundedcomposite.hpp>
 #include <kdl/path_line.hpp>
 #include <kdl/rotational_interpolation_sa.hpp>
@@ -34,12 +35,17 @@ int main(int argc,char* argv[]) {
 
 
 	// Creación de Frame Inicial (de q_rightIni matlab)
-	KDL::Frame initFrame(KDL::Rotation::Quaternion(-0.4104,0.5206,-0.6023,-0.4448),KDL::Vector(0.5277,-0.9699,1.6358));
-	KDL::Frame targetFrame(KDL::Rotation::Quaternion(-0.8212,0.3258,-0.1386,-0.4475),KDL::Vector(0.7342,-0.2238,1.3370));
+	KDL::Frame initFrame(KDL::Rotation::Quaternion(-0.4104,0.5206,-0.6023,0.44479),KDL::Vector(0.5277,-0.9699,1.6358));
+	KDL::Frame targetFrame(KDL::Rotation::Quaternion(-0.8212,0.3258,-0.1386,0.4475),KDL::Vector(0.7342,-0.2238,1.3370));
 	KDL::Frame tmpFrame;
 
 	KDL::Path_Line* path = new KDL::Path_Line(initFrame,targetFrame,new KDL::RotationalInterpolation_SingleAxis(),1.0,true);
+
+
+
 	double s;
+
+
 	s = path->PathLength();
 
 	geometry_msgs::Pose tmpPose;
@@ -48,20 +54,29 @@ int main(int argc,char* argv[]) {
 
 
 
+		for(double i=0;i<=s;i+=0.1){
+			tf::PoseKDLToMsg(path->Pos(i),tmpPose);
+			vecPose.push_back(tmpPose);
+	}
+
+
+
+    std::cout << "Tamaño de la trayectoria: "  << vecPose[vecPose.size()-1] << std::endl;
+
 	// todo: Pasar de KDL::Frames a geometry_msgs::Pose
-	int points = 5;
+	/*int points = 5;
 	for(double i=0;i<=points;i+=s/points){
 		tf::PoseKDLToMsg(path->Pos(i),tmpPose);
 		vecPose.push_back(tmpPose);
-	}
-
+	}*/
+	//tf::PoseKDLToMsg(path->Pos(0),tmpPosetf);
 
 
 	// Confirmado tenemos el path perfectamente definido para pasar lo a ROS moveit
 	move_group_interface::MoveGroup group("r_arm");
 	moveit_msgs::RobotTrajectory traj;
 	double pathPrecision = 0.0;
-	pathPrecision = group.computeCartesianPath(vecPose,0.1,4,traj,false);
+	pathPrecision = group.computeCartesianPath(vecPose,0.01,10,traj,false);
 	std::cout << "Precision de la trayectoria: " << pathPrecision << std::endl;
 
 
@@ -91,9 +106,9 @@ int main(int argc,char* argv[]) {
 		tf::Transform initFrame_tf;
 		tf::TransformKDLToTF(initFrame,initFrame_tf);
 
-		//initFrame_broad
+
 		//initFrame_broad.sendTransform(tf::StampedTransform(initFrame_tf,ros::Time::now(),"pillar","init_frame"));
-		tf::TransformKDLToTF(targetFrame,initFrame_tf);
+		//tf::TransformKDLToTF(targetFrame,initFrame_tf);
 		//initFrame_broad.sendTransform(tf::StampedTransform(initFrame_tf,ros::Time::now(),"pillar","target_frame"));
 
 
@@ -102,6 +117,8 @@ int main(int argc,char* argv[]) {
 
 
 		tf::Transform transform_auxiliar;
+
+
 		transform_auxiliar.setOrigin(tf::Vector3(vecPose[0].position.x, vecPose[0].position.y, vecPose[0].position.z));
 		transform_auxiliar.setRotation(tf::Quaternion( vecPose[0].position.x, vecPose[0].orientation.y, vecPose[0].orientation.z, vecPose[0].orientation.w));
 		initFrame_broad.sendTransform(tf::StampedTransform(transform_auxiliar,ros::Time::now(),"pillar","init_frame"));
@@ -109,6 +126,13 @@ int main(int argc,char* argv[]) {
 		transform_auxiliar.setOrigin(tf::Vector3(vecPose[vecPose.size()-1].position.x, vecPose[vecPose.size()-1].position.y, vecPose[vecPose.size()-1].position.z));
 		transform_auxiliar.setRotation(tf::Quaternion( vecPose[vecPose.size()-1].position.x, vecPose[vecPose.size()-1].orientation.y, vecPose[vecPose.size()-1].orientation.z, vecPose[vecPose.size()-1].orientation.w));
 		initFrame_broad.sendTransform(tf::StampedTransform(transform_auxiliar,ros::Time::now(),"pillar","target_frame"));
+
+		//transform_auxiliar.setOrigin(tf::Vector3(tmpPosetf.position.x, tmpPosetf.position.y, tmpPosetf.position.z));
+		//transform_auxiliar.setRotation(tf::Quaternion(tmpPosetf.position.x, tmpPosetf.orientation.y, tmpPosetf.orientation.z, tmpPosetf.orientation.w));
+
+		//transform_auxiliar.setOrigin(tf::Vector3(tmpPosetf.position.x, tmpPosetf.position.y, tmpPosetf.position.z));
+		//transform_auxiliar.setRotation(tf::Quaternion(tmpPosetf.position.x, tmpPosetf.orientation.y, tmpPosetf.orientation.z, tmpPosetf.orientation.w));
+		//initFrame_broad.sendTransform(tf::StampedTransform(transform_auxiliar,ros::Time::now(),"pillar","init_frame"));
 
 		ros::spinOnce();
 		loop_rate.sleep();
