@@ -61,7 +61,6 @@ int main(int argc,char* argv[]) {
 
 
 
-    std::cout << "Tamaño de la trayectoria: "  << vecPose[vecPose.size()-1] << std::endl;
 
 	// todo: Pasar de KDL::Frames a geometry_msgs::Pose
 	/*int points = 5;
@@ -120,11 +119,14 @@ int main(int argc,char* argv[]) {
 
 
 		transform_auxiliar.setOrigin(tf::Vector3(vecPose[0].position.x, vecPose[0].position.y, vecPose[0].position.z));
-		transform_auxiliar.setRotation(tf::Quaternion( vecPose[0].position.x, vecPose[0].orientation.y, vecPose[0].orientation.z, vecPose[0].orientation.w));
+		transform_auxiliar.setRotation(tf::Quaternion( vecPose[0].orientation.x, vecPose[0].orientation.y, vecPose[0].orientation.z, vecPose[0].orientation.w));
 		initFrame_broad.sendTransform(tf::StampedTransform(transform_auxiliar,ros::Time::now(),"pillar","init_frame"));
 
+
+
+
 		transform_auxiliar.setOrigin(tf::Vector3(vecPose[vecPose.size()-1].position.x, vecPose[vecPose.size()-1].position.y, vecPose[vecPose.size()-1].position.z));
-		transform_auxiliar.setRotation(tf::Quaternion( vecPose[vecPose.size()-1].position.x, vecPose[vecPose.size()-1].orientation.y, vecPose[vecPose.size()-1].orientation.z, vecPose[vecPose.size()-1].orientation.w));
+		transform_auxiliar.setRotation(tf::Quaternion( vecPose[vecPose.size()-1].orientation.x, vecPose[vecPose.size()-1].orientation.y, vecPose[vecPose.size()-1].orientation.z, vecPose[vecPose.size()-1].orientation.w));
 		initFrame_broad.sendTransform(tf::StampedTransform(transform_auxiliar,ros::Time::now(),"pillar","target_frame"));
 
 		//transform_auxiliar.setOrigin(tf::Vector3(tmpPosetf.position.x, tmpPosetf.position.y, tmpPosetf.position.z));
