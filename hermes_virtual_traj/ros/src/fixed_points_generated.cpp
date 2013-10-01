@@ -19,6 +19,7 @@
 #include <moveit/move_group_interface/move_group.h>
 #include "tf_conversions/tf_kdl.h"
 #include <tf/transform_broadcaster.h>
+#include <moveit/planning_scene_monitor/planning_scene_monitor.h>
 
 
 int main(int argc,char* argv[]) {
@@ -37,6 +38,7 @@ int main(int argc,char* argv[]) {
 	// Creación de Frame Inicial (de q_rightIni matlab)
 	KDL::Frame initFrame(KDL::Rotation::Quaternion(-0.4104,0.5206,-0.6023,0.44479),KDL::Vector(0.5277,-0.9699,1.6358));
 	KDL::Frame targetFrame(KDL::Rotation::Quaternion(-0.8212,0.3258,-0.1386,0.4475),KDL::Vector(0.7342,-0.2238,1.3370));
+	//KDL::Frame targetFrame(KDL::Rotation::Quaternion(-0.8212,0.3258,-0.1386,0.4475),KDL::Vector(0.7342,0.0238,1.1370));
 	KDL::Frame tmpFrame;
 
 	KDL::Path_Line* path = new KDL::Path_Line(initFrame,targetFrame,new KDL::RotationalInterpolation_SingleAxis(),1.0,true);
@@ -47,6 +49,59 @@ int main(int argc,char* argv[]) {
 
 
 	s = path->PathLength();
+
+
+
+	//todo: attach object to robot for collisions
+	    boost::shared_ptr<tf::TransformListener> tf(new tf::TransformListener(ros::Duration(2.0)));
+	    planning_scene_monitor::PlanningSceneMonitorPtr planning_scene_monitor(new planning_scene_monitor::PlanningSceneMonitor("robot_description", tf));
+
+	    ros::Publisher attached_object_publisher = n.advertise<moveit_msgs::AttachedCollisionObject>("attached_collision_object", 1);
+	    while(attached_object_publisher.getNumSubscribers() < 1)
+	    {
+	      ros::WallDuration sleep_t(0.5);
+	      sleep_t.sleep();
+	    }
+
+	    //todo: create object
+	  /*  moveit_msgs::AttachedCollisionObject attached_robot_object;
+	    attached_robot_object.link_name = "r_base_hand";
+	    attached_robot_object.object.header.frame_id = "r_eef";
+	    attached_robot_object.object.id = "box";
+	    geometry_msgs::Pose pose_robot_object;
+	    pose_robot_object.orientation.w = 1.0;
+	    pose_robot_object.position.x = 0.0;
+	    pose_robot_object.position.y = 0.15;
+	    pose_robot_object.position.z = 0.05;
+	    shape_msgs::SolidPrimitive primitive_robot;
+	    primitive_robot.type = primitive_robot.BOX;
+	    primitive_robot.dimensions.resize(3);
+	    primitive_robot.dimensions[0] = 0.1;
+	    primitive_robot.dimensions[1] = 0.1;
+	    primitive_robot.dimensions[2] = 0.1;
+	    attached_robot_object.object.primitives.push_back(primitive_robot);
+	    attached_robot_object.object.primitive_poses.push_back(pose_robot_object);
+	    attached_robot_object.object.operation = attached_robot_object.object.ADD;
+	    attached_object_publisher.publish(attached_robot_object);*/
+
+	    moveit_msgs::AttachedCollisionObject detach_object;
+	    detach_object.object.id = "box";
+	    detach_object.link_name = "r_base_hand";
+	    detach_object.object.operation = detach_object.object.REMOVE;
+	    attached_object_publisher.publish(detach_object);
+
+	    ros::Publisher collision_object_publisher = n.advertise<moveit_msgs::CollisionObject>("collision_object", 1);
+	    while(collision_object_publisher.getNumSubscribers() < 1)
+	    {
+	      ros::WallDuration sleep_t(0.5);
+	      sleep_t.sleep();
+	    }
+
+	    moveit_msgs::CollisionObject remove_object;
+	    remove_object.id = "box";
+	    remove_object.header.frame_id = "r_base_hand";
+	    remove_object.operation = remove_object.REMOVE;
+	    collision_object_publisher.publish(remove_object);
 
 	geometry_msgs::Pose tmpPose;
 	std::vector<geometry_msgs::Pose> vecPose;
@@ -75,7 +130,7 @@ int main(int argc,char* argv[]) {
 	move_group_interface::MoveGroup group("r_arm");
 	moveit_msgs::RobotTrajectory traj;
 	double pathPrecision = 0.0;
-	pathPrecision = group.computeCartesianPath(vecPose,0.01,10,traj,false);
+	pathPrecision = group.computeCartesianPath(vecPose,0.01,10,traj,true);
 	std::cout << "Precision de la trayectoria: " << pathPrecision << std::endl;
 
 

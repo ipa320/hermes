@@ -1167,7 +1167,7 @@ Visualization Manager:
         Show Scene Robot: true
       Value: true
     - Class: rviz/TF
-      Enabled: true
+      Enabled: false
       Frame Timeout: 1500
       Frames:
         All Enabled: true
@@ -1179,7 +1179,7 @@ Visualization Manager:
       Tree:
         {}
       Update Interval: 0
-      Value: true
+      Value: false
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48

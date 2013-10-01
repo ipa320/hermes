@@ -40,5 +40,6 @@ if __name__ == '__main__':
 	pose.pose.orientation.x = 0
 	pose.pose.orientation.y = 0
 	pose.pose.orientation.z = 0
-	psi.add_box("table_box", pose, size = (0.6, 0.8, 0.25))
+	#psi.add_box("table_box", pose, size = (0.6, 0.8, 0.25))
+	psi.add_box("table_box", pose, size = (1.2, 0.8, 0.75))
 

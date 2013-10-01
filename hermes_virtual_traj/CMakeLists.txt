@@ -36,6 +36,8 @@ rosbuild_add_executable(hermes_virtual_robot   ros/src/hermes_virtual_robot_main
  											   ros/src/hermes_virtual_robot.cpp)
  											   
 rosbuild_add_executable(fixed_points_generated   ros/src/fixed_points_generated.cpp )
+rosbuild_add_executable(obstacle_fixed_points_generated   ros/src/obstacle_fixed_points_generated.cpp )
 
 target_link_libraries(fixed_points_generated moveit_move_group_interface kdl_conversions tf_conversions)
+target_link_libraries(obstacle_fixed_points_generated moveit_move_group_interface kdl_conversions tf_conversions)
 target_link_libraries(hermes_virtual_robot moveit_move_group_interface kdl_conversions)
