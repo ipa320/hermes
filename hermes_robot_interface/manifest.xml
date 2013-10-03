@@ -16,6 +16,7 @@
   <depend package="trajectory_msgs"/>
   <depend package="arm_navigation_msgs"/>
   <depend package="moveit_ros_move_group"/>
+  <depend package="kdl"/>
   
   
 

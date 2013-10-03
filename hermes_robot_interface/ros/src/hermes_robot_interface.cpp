@@ -132,6 +132,7 @@ void HermesRobotInterface::executeTrajCB(GoalHandle gh)
 		{
 			hermesinterface.moveRightArmVel(dq);
 		}
+		// Case LEFT ARM
 		if (current_traj_.joint_names[0].compare("l_joint1")==0)
 		{
 			hermesinterface.moveLeftArmVel(dq);
@@ -174,7 +175,7 @@ void HermesRobotInterface::moveArmCB(const hermes_robot_interface::MoveArmGoalCo
 
 	if(goal->arm == hermes_robot_interface::MoveArmGoal::RIGHTARM)
 	{
-		// this connecs to a running instance of the move_group node
+		/*// this connecs to a running instance of the move_group node
 		move_group_interface::MoveGroup group("r_arm");
 		// specify that our target will be a random one
 		group.setPoseTarget(goal->goal_position,"r_eef");
@@ -187,7 +188,32 @@ void HermesRobotInterface::moveArmCB(const hermes_robot_interface::MoveArmGoalCo
 		if (have_plan==true)
 			group.execute(plan);
 		else
-			ROS_WARN("No valid plan found for arm movement.");
+			ROS_WARN("No valid plan found for arm movement.");*/
+
+		// Linear trajectory
+
+		//initFrame tiene que ser la posición real del robot
+		// targetFrame viene del request goal->position
+
+		KDL::Frame initFrame(KDL::Rotation::Quaternion(-0.4104,0.5206,-0.6023,0.44479),KDL::Vector(0.5277,-0.9699,1.6358));
+		KDL::Frame targetFrame(KDL::Rotation::Quaternion(-0.8212,0.3258,-0.1386,0.4475),KDL::Vector(0.7342,-0.2238,1.3370));
+		KDL::Path_Line* path = new KDL::Path_Line(initFrame,targetFrame,new KDL::RotationalInterpolation_SingleAxis(),1.0,true);
+		double s = path->PathLength();
+
+		std::vector<geometry_msgs::Pose> vecPose;
+		geometry_msgs::Pose tmpPose;
+		for(double i=0;i<=s;i+=0.1){
+					tf::PoseKDLToMsg(path->Pos(i),tmpPose);
+					vecPose.push_back(tmpPose);
+		}
+
+		move_group_interface::MoveGroup group("r_arm");
+		moveit_msgs::RobotTrajectory traj;
+		double pathPrecision = 0.0;
+		pathPrecision = group.computeCartesianPath(vecPose,0.01,10,traj,true);
+		std::cout << "Precision de la trayectoria: " << pathPrecision << std::endl;
+
+
 	}
 	else if(goal->arm == hermes_robot_interface::MoveArmGoal::LEFTARM){
 		// this connecs to a running instance of the move_group node

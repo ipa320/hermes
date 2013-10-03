@@ -47,6 +47,10 @@ rosbuild_gensrv()
 rosbuild_add_executable(hermes_robot_interface_node ros/src/hermes_robot_interface_main.cpp
 													ros/src/hermes_robot_interface.cpp
 										            common/src/hermes_interface/hermesInterface.cpp)
-target_link_libraries(hermes_robot_interface_node m5api  pcan moveit_move_group_interface)
+										            
+rosbuild_add_executable(call_move_arm_action_client_main ros/src/call_move_arm_action_client_main.cpp)
+
+
+target_link_libraries(hermes_robot_interface_node m5api  pcan moveit_move_group_interface kdl_conversions tf_conversions)
 
 
