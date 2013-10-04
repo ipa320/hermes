@@ -110,6 +110,8 @@ void HermesRobotInterface::executeTrajCB(GoalHandle gh)
 
 	int nPoints = current_traj_.points.size() - 1;
 
+	std::cout << "Puntos de trajectory: " << nPoints << std::endl;
+
 	std::vector <float> dq;
 	dq.resize(7);
 	ros::Duration spendTime;
@@ -195,9 +197,27 @@ void HermesRobotInterface::moveArmCB(const hermes_robot_interface::MoveArmGoalCo
 		//initFrame tiene que ser la posición real del robot
 		// targetFrame viene del request goal->position
 
-		KDL::Frame initFrame(KDL::Rotation::Quaternion(-0.4104,0.5206,-0.6023,0.44479),KDL::Vector(0.5277,-0.9699,1.6358));
+		// Recogida del init Frame que viene de la posición actual del robot;
+		move_group_interface::MoveGroup group_group("r_arm");
+		hermesinterface.readPositionRightArm();
+		geometry_msgs::PoseStamped currentPos;
+		currentPos=group_group.getCurrentPose("r_eef");
+
+
+
+		KDL::Frame initFrame(KDL::Rotation::Quaternion(currentPos.pose.orientation.x,
+				currentPos.pose.orientation.y,currentPos.pose.orientation.z,currentPos.pose.orientation.w),
+				KDL::Vector(currentPos.pose.position.x,currentPos.pose.position.y,currentPos.pose.position.z));
+
+
+
+		//KDL::Frame initFrame(KDL::Rotation::Quaternion(-0.4104,0.5206,-0.6023,0.44479),KDL::Vector(0.5277,-0.9699,1.6358));
 		KDL::Frame targetFrame(KDL::Rotation::Quaternion(-0.8212,0.3258,-0.1386,0.4475),KDL::Vector(0.7342,-0.2238,1.3370));
-		KDL::Path_Line* path = new KDL::Path_Line(initFrame,targetFrame,new KDL::RotationalInterpolation_SingleAxis(),1.0,true);
+
+
+
+
+		KDL::Path_Line* path = new KDL::Path_Line(initFrame,targetFrame,new KDL::RotationalInterpolation_SingleAxis(),1.0,false);
 		double s = path->PathLength();
 
 		std::vector<geometry_msgs::Pose> vecPose;
@@ -207,11 +227,39 @@ void HermesRobotInterface::moveArmCB(const hermes_robot_interface::MoveArmGoalCo
 					vecPose.push_back(tmpPose);
 		}
 
-		move_group_interface::MoveGroup group("r_arm");
-		moveit_msgs::RobotTrajectory traj;
+
+
+
+
+		moveit_msgs::RobotTrajectory trajectory;
+		trajectory_msgs::JointTrajectory joinTraj;
+		move_group_interface::MoveGroup::Plan plan;
+
 		double pathPrecision = 0.0;
-		pathPrecision = group.computeCartesianPath(vecPose,0.01,10,traj,true);
-		std::cout << "Precision de la trayectoria: " << pathPrecision << std::endl;
+		pathPrecision = group_group.computeCartesianPath(vecPose,0.01,10,trajectory,true);
+
+
+    	std::cout << "Precision de la trayectoria: " << pathPrecision << std::endl;
+
+
+    	//plan.trajectory_=trajectory;
+    	//group_group.plan(plan);
+
+
+/*    	for(int i=1;i<trajectory.joint_trajectory.points.size()-1;++i)
+    	{
+    		for (int j=0;j<7;++j){
+
+    			joinTraj.points[i].velocities[j] =
+    					(joinTraj.points[i].positions[j]-joinTraj.points[i-1].positions[j])/
+    					(joinTraj.points[i].time_from_start-joinTraj.points[i-1].time_from_start);
+    		}
+    	}*/
+
+
+
+
+		//group_group.execute(plan);
 
 
 	}

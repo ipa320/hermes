@@ -33,6 +33,7 @@ int main(int argc, char **argv)
 	goal.goal_position = geometry_msgs::PoseStamped();
 	tf::Transform goalPose(tf::Matrix3x3(-0.7881, -0.2110, 0.5782, 0.5811, 0.0544, 0.8120, -0.2028, 0.9760, 0.0798), tf::Vector3(0.8193, -0.2148, 1.6487));
 
+	goal.goal_position.header.frame_id = "/pillar";
 	goal.goal_position.pose.position.x = goalPose.getOrigin().getX();
 	goal.goal_position.pose.position.y = goalPose.getOrigin().getY();
 	goal.goal_position.pose.position.z = goalPose.getOrigin().getZ();

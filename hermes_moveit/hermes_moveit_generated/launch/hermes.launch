@@ -3,7 +3,7 @@
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="rob_st_pub"/>
 
 
-  <node name="hermes_robot_interface" pkg="hermes_robot_interface" type="hermes_robot_interface_node" respawn="true" output="screen" />
+  <!-- node name="hermes_robot_interface" pkg="hermes_robot_interface" type="hermes_robot_interface_node" respawn="true" output="screen" / -->
 
 
   <include file="$(find hermes_moveit_generated)/launch/planning_context.launch">
