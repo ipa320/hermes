@@ -1,0 +1,19 @@
+<package>
+  <description brief="hermes_virtual_robot">
+
+     hermes_virtual_robot
+
+  </description>
+  <author>ricardo</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/hermes_virtual_robot</url>
+  <depend package="std_msgs"/>
+  <depend package="roscpp"/>
+  <depend package="rospy"/>
+  <depend package="urdf"/>
+  <depend package="roslib"/>
+
+</package>
+
+

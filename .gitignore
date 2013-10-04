@@ -6,6 +6,10 @@
 
 build/
 msg_gen/
+hermes_virtual_robot/lib/
+hermes_virtual_robot/bin/
+hermes_virtual_robot/build/
+hermes_virtual_robot/src/
 hermes_traj_action/lib/
 hermes_traj_action/bin/
 hermes_traj_action/build/
