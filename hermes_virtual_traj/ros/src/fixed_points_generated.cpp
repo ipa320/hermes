@@ -20,6 +20,8 @@
 #include "tf_conversions/tf_kdl.h"
 #include <tf/transform_broadcaster.h>
 #include <moveit/planning_scene_monitor/planning_scene_monitor.h>
+#include <moveit/trajectory_processing/trajectory_tools.h> // for plan_execution
+#include <moveit/trajectory_processing/iterative_time_parameterization.h>
 
 
 int main(int argc,char* argv[]) {
@@ -129,9 +131,46 @@ int main(int argc,char* argv[]) {
 	// Confirmado tenemos el path perfectamente definido para pasar lo a ROS moveit
 	move_group_interface::MoveGroup group("r_arm");
 	moveit_msgs::RobotTrajectory traj;
+
 	double pathPrecision = 0.0;
+	group.setEndEffectorLink("r_eef");
+	group.setStartStateToCurrentState();
 	pathPrecision = group.computeCartesianPath(vecPose,0.01,10,traj,true);
 	std::cout << "Precision de la trayectoria: " << pathPrecision << std::endl;
+	trajectory_processing::IterativeParabolicTimeParameterization iterative_smoother;
+
+	static const std::string ROBOT_DESCRIPTION="robot_description";
+	static const std::string PLANNING_GROUP_NAME = "r_arm";
+	 boost::shared_ptr<tf::TransformListener> tf_;
+	planning_scene_monitor::PlanningSceneMonitorPtr planning_scene_monitor_;
+	tf_.reset(new tf::TransformListener());
+	planning_scene_monitor_.reset(new planning_scene_monitor::PlanningSceneMonitor(ROBOT_DESCRIPTION, tf_));
+
+    if (planning_scene_monitor_->getPlanningScene())
+    {
+      planning_scene_monitor_->startWorldGeometryMonitor();
+      planning_scene_monitor_->startSceneMonitor("/move_group/monitored_planning_scene");
+      planning_scene_monitor_->startStateMonitor("/joint_states", "/attached_collision_object");
+    }
+    else
+    {
+      ROS_ERROR_STREAM_NAMED("pick_place","Planning scene not configured");
+    }
+	const planning_scene::PlanningScenePtr planning_scene = planning_scene_monitor_->getPlanningScene();
+	robot_trajectory::RobotTrajectoryPtr approach_traj(new robot_trajectory::RobotTrajectory(planning_scene->getRobotModel(), PLANNING_GROUP_NAME));
+	iterative_smoother.computeTimeStamps(*approach_traj);
+	robot_state::RobotState approach_state = planning_scene->getCurrentState();
+	 approach_traj->setRobotTrajectoryMsg(approach_state,traj);
+	 std::cout << "FUERA: " << traj.joint_trajectory.points.size() << std::endl;
+	approach_traj->getRobotTrajectoryMsg(traj);
+
+	std::cout << "FUERA: " << traj.joint_trajectory.points.size() << std::endl;
+
+	for(int i=0;i<traj.joint_trajectory.points.size();++i)
+	{
+		std::cout << "DENTRO" << std::endl;
+		std::cout << traj.joint_trajectory.points[i].time_from_start << std::endl;
+	}
 
 
 
