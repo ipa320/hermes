@@ -8,8 +8,12 @@ int main(int argc, char** argv){
 
 
 	  ros::init(argc, argv, "hermes_virtual_robot");
+	  ros::NodeHandle n;
+	  ros::Rate loop_rate(30);
 
-	  HermesVirtualRobot hermes_virtual;
+	  ros::Publisher joint_pub = n.advertise<sensor_msgs::JointState>("joint_states", 1);
+
+	  HermesVirtualRobot hermes_virtual(n);
 
 	  if(!hermes_virtual.getHermesCorrect())
 	  {
@@ -18,8 +22,15 @@ int main(int argc, char** argv){
 	  }
 
 
+	  while (ros::ok()) {
+
+		  hermes_virtual.publish_robot_state();
+		  ros::spinOnce();
+		  loop_rate.sleep();
+	  }
 
 	  return 0;
+
 
 
 }

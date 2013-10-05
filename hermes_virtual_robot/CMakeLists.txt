@@ -34,5 +34,5 @@ INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/ros/include
 #rosbuild_link_boost(${PROJECT_NAME} thread)
 #rosbuild_add_executable(example examples/example.cpp)
 #target_link_libraries(example ${PROJECT_NAME})
-rosbuild_add_executable(hermes_virtual_robot_main common/src/HermesVirtualRobot.cpp
+rosbuild_add_executable(hermes_virtual_robot_main ros/src/HermesVirtualRobot.cpp
 												  ros/src/hermes_virtual_robot_main.cpp)
