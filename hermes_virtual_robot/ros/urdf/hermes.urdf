@@ -6,7 +6,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/pillar.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/pillar.stl" />
       </geometry>
       <material name="link">
         <color rgba="0.4706 0.5451 0.5647 1"/>
@@ -15,7 +15,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/pillar.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/pillar.stl" />
       </geometry>
     </collision>	
   </link>
@@ -29,7 +29,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_base1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_base1.stl" />
       </geometry>
       <material name="link">
         <color rgba="0.4706 0.5451 0.5647 1"/>
@@ -38,7 +38,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_base1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_base1.stl" />
       </geometry>
     </collision>	
   </link>
@@ -52,7 +52,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_base2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_base2.stl" />
       </geometry>
       <material name="motor">
         <color rgba="0.3922 0.3922 0.2118 1"/>
@@ -61,7 +61,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_base2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_base2.stl" />
       </geometry>
     </collision>	
   </link>
@@ -75,7 +75,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link1_1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link1_1.stl" />
       </geometry>
       <material name="motor">
         <color rgba="0.3922 0.3922 0.2118 1"/>
@@ -84,7 +84,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link1_1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link1_1.stl" />
       </geometry>
     </collision>	
   </link>
@@ -98,7 +98,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link1_2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link1_2.stl" />
       </geometry>
       <material name="link">
         <color rgba="0.4706 0.5451 0.5647 1"/>
@@ -107,7 +107,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link1_2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link1_2.stl" />
       </geometry>
     </collision>	
   </link>
@@ -122,7 +122,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link1_3.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link1_3.stl" />
       </geometry>
       <material name="tapa">
         <color rgba="0.0100 0.0100 0.0100 1"/>
@@ -131,7 +131,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link1_3.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link1_3.stl" />
       </geometry>
     </collision>	
   </link>
@@ -145,7 +145,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link1_4.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link1_4.stl" />
       </geometry>
       <material name="nbio">
         <color rgba="0.5100 0.9100 0.5100 1"/>
@@ -154,7 +154,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link1_4.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link1_4.stl" />
       </geometry>
     </collision>	
   </link>
@@ -169,7 +169,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link1_5.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link1_5.stl" />
       </geometry>
       <material name="motor">
         <color rgba="0.3922 0.3922 0.2118 1"/>
@@ -178,7 +178,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link1_5.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link1_5.stl" />
       </geometry>
     </collision>	
   </link>
@@ -192,7 +192,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link2_1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link2_1.stl" />
       </geometry>
       <material name="motor">
         <color rgba="0.3922 0.3922 0.2118 1"/>
@@ -201,7 +201,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link2_1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link2_1.stl" />
       </geometry>
     </collision>	
   </link>
@@ -215,7 +215,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link2_2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link2_2.stl" />
       </geometry>
       <material name="link">
         <color rgba="0.4706 0.5451 0.5647 1"/>
@@ -224,7 +224,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link2_2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link2_2.stl" />
       </geometry>
     </collision>	
   </link>
@@ -238,7 +238,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link2_3.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link2_3.stl" />
       </geometry>
       <material name="tapa">
         <color rgba="0.0100 0.0100 0.0100 1"/>
@@ -247,7 +247,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link2_3.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link2_3.stl" />
       </geometry>
     </collision>	
   </link>
@@ -261,7 +261,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link2_4.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link2_4.stl" />
       </geometry>
       <material name="nbio">
         <color rgba="0.5100 0.9100 0.5100 1"/>
@@ -270,7 +270,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link2_4.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link2_4.stl" />
       </geometry>
     </collision>	
   </link>
@@ -284,7 +284,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link2_5.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link2_5.stl" />
       </geometry>
       <material name="motor">
         <color rgba="0.3922 0.3922 0.2118 1"/>
@@ -293,7 +293,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link2_5.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link2_5.stl" />
       </geometry>
     </collision>	
   </link>
@@ -307,7 +307,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link3_1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link3_1.stl" />
       </geometry>
       <material name="motor">
         <color rgba="0.3922 0.3922 0.2118 1"/>
@@ -316,7 +316,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link3_1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link3_1.stl" />
       </geometry>
     </collision>	
   </link>
@@ -330,7 +330,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link3_2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link3_2.stl" />
       </geometry>
       <material name="link">
         <color rgba="0.4706 0.5451 0.5647 1"/>
@@ -339,7 +339,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link3_2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link3_2.stl" />
       </geometry>
     </collision>	
   </link>
@@ -353,7 +353,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link3_3.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link3_3.stl" />
       </geometry>
       <material name="tapa">
         <color rgba="0.0100 0.0100 0.0100 1"/>
@@ -362,7 +362,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link3_3.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link3_3.stl" />
       </geometry>
     </collision>	
   </link>
@@ -376,7 +376,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link3_4.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link3_4.stl" />
       </geometry>
       <material name="nbio">
         <color rgba="0.5100 0.9100 0.5100 1"/>
@@ -385,7 +385,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link3_4.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link3_4.stl" />
       </geometry>
     </collision>	
   </link>
@@ -399,7 +399,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link3_5.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link3_5.stl" />
       </geometry>
       <material name="motor">
         <color rgba="0.3922 0.3922 0.2118 1"/>
@@ -408,7 +408,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link3_5.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link3_5.stl" />
       </geometry>
     </collision>	
   </link>
@@ -422,7 +422,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link4_1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link4_1.stl" />
       </geometry>
       <material name="motor">
         <color rgba="0.3922 0.3922 0.2118 1"/>
@@ -431,7 +431,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link4_1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link4_1.stl" />
       </geometry>
     </collision>	
   </link>
@@ -445,7 +445,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link4_2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link4_2.stl" />
       </geometry>
       <material name="link">
         <color rgba="0.4706 0.5451 0.5647 1"/>
@@ -454,7 +454,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link4_2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link4_2.stl" />
       </geometry>
     </collision>	
   </link>
@@ -468,7 +468,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link4_3.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link4_3.stl" />
       </geometry>
       <material name="tapa">
         <color rgba="0.0100 0.0100 0.0100 1"/>
@@ -477,7 +477,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link4_3.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link4_3.stl" />
       </geometry>
     </collision>	
   </link>
@@ -491,7 +491,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link4_4.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link4_4.stl" />
       </geometry>
       <material name="nbio">
         <color rgba="0.5100 0.9100 0.5100 1"/>
@@ -500,7 +500,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link4_4.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link4_4.stl" />
       </geometry>
     </collision>	
   </link>
@@ -514,7 +514,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link4_5.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link4_5.stl" />
       </geometry>
       <material name="motor">
         <color rgba="0.3922 0.3922 0.2118 1"/>
@@ -523,7 +523,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link4_5.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link4_5.stl" />
       </geometry>
     </collision>	
   </link>
@@ -537,7 +537,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link5_1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link5_1.stl" />
       </geometry>
       <material name="motor">
         <color rgba="0.3922 0.3922 0.2118 1"/>
@@ -546,7 +546,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link5_1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link5_1.stl" />
       </geometry>
     </collision>	
   </link>
@@ -560,7 +560,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link5_2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link5_2.stl" />
       </geometry>
       <material name="link">
         <color rgba="0.4706 0.5451 0.5647 1"/>
@@ -569,7 +569,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link5_2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link5_2.stl" />
       </geometry>
     </collision>	
   </link>
@@ -583,7 +583,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link5_3.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link5_3.stl" />
       </geometry>
       <material name="tapa">
         <color rgba="0.0100 0.0100 0.0100 1"/>
@@ -592,7 +592,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link5_3.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link5_3.stl" />
       </geometry>
     </collision>	
   </link>
@@ -606,7 +606,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link5_4.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link5_4.stl" />
       </geometry>
       <material name="nbio">
         <color rgba="0.5100 0.9100 0.5100 1"/>
@@ -615,7 +615,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link5_4.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link5_4.stl" />
       </geometry>
     </collision>	
   </link>
@@ -629,7 +629,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link5_5.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link5_5.stl" />
       </geometry>
       <material name="motor">
         <color rgba="0.3922 0.3922 0.2118 1"/>
@@ -638,7 +638,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link5_5.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link5_5.stl" />
       </geometry>
     </collision>	
   </link>
@@ -654,7 +654,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link6_1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link6_1.stl" />
       </geometry>
       <material name="motor">
         <color rgba="0.3922 0.3922 0.2118 1"/>
@@ -663,7 +663,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link6_1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link6_1.stl" />
       </geometry>
     </collision>	
   </link>
@@ -677,7 +677,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link6_2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link6_2.stl" />
       </geometry>
       <material name="link">
         <color rgba="0.4706 0.5451 0.5647 1"/>
@@ -686,7 +686,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link6_2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link6_2.stl" />
       </geometry>
     </collision>	
   </link>
@@ -701,7 +701,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link6_3.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link6_3.stl" />
       </geometry>
       <material name="tapa">
         <color rgba="0.0100 0.0100 0.0100 1"/>
@@ -710,7 +710,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link6_3.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link6_3.stl" />
       </geometry>
     </collision>	
   </link>
@@ -725,7 +725,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link6_4.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link6_4.stl" />
       </geometry>
       <material name="nbio">
         <color rgba="0.5100 0.9100 0.5100 1"/>
@@ -734,7 +734,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link6_4.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link6_4.stl" />
       </geometry>
     </collision>	
   </link>
@@ -748,7 +748,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link6_5.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link6_5.stl" />
       </geometry>
       <material name="motor">
         <color rgba="0.3922 0.3922 0.2118 1"/>
@@ -757,7 +757,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link6_5.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link6_5.stl" />
       </geometry>
     </collision>	
   </link>
@@ -772,7 +772,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link7_1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link7_1.stl" />
       </geometry>
       <material name="motor">
         <color rgba="0.3922 0.3922 0.2118 1"/>
@@ -781,7 +781,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link7_1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link7_1.stl" />
       </geometry>
     </collision>	
   </link>
@@ -796,7 +796,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link7_2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link7_2.stl" />
       </geometry>
       <material name="link">
         <color rgba="0.4706 0.5451 0.5647 1"/>
@@ -805,7 +805,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link7_2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link7_2.stl" />
       </geometry>
     </collision>	
   </link>
@@ -819,7 +819,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link7_3.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link7_3.stl" />
       </geometry>
       <material name="tapa">
         <color rgba="0.01 0.01 0.01 1"/>
@@ -828,7 +828,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link7_3.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link7_3.stl" />
       </geometry>
     </collision>	
   </link>
@@ -843,7 +843,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link7_4.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link7_4.stl" />
       </geometry>
       <material name="link">
         <color rgba="0.4706 0.5451 0.5647 1"/>
@@ -852,7 +852,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link7_4.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link7_4.stl" />
       </geometry>
     </collision>
   </link>
@@ -866,7 +866,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_base1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_base1.stl" />
       </geometry>
       <material name="link">
         <color rgba="0.4706 0.5451 0.5647 1"/>
@@ -875,7 +875,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_base1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_base1.stl" />
       </geometry>
     </collision>	
   </link>
@@ -889,7 +889,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_base2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_base2.stl" />
       </geometry>
       <material name="motor">
         <color rgba="0.3922 0.3922 0.2118 1"/>
@@ -898,7 +898,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_base2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_base2.stl" />
       </geometry>
     </collision>	
   </link>
@@ -912,7 +912,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link1_1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link1_1.stl" />
       </geometry>
       <material name="motor">
         <color rgba="0.3922 0.3922 0.2118 1"/>
@@ -921,7 +921,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link1_1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link1_1.stl" />
       </geometry>
     </collision>	
   </link>
@@ -935,7 +935,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link1_2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link1_2.stl" />
       </geometry>
       <material name="link">
         <color rgba="0.4706 0.5451 0.5647 1"/>
@@ -944,7 +944,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link1_2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link1_2.stl" />
       </geometry>
     </collision>	
   </link>
@@ -959,7 +959,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link1_3.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link1_3.stl" />
       </geometry>
       <material name="tapa">
         <color rgba="0.0100 0.0100 0.0100 1"/>
@@ -968,7 +968,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link1_3.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link1_3.stl" />
       </geometry>
     </collision>	
   </link>
@@ -982,7 +982,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link1_4.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link1_4.stl" />
       </geometry>
       <material name="nbio">
         <color rgba="0.5100 0.9100 0.5100 1"/>
@@ -991,7 +991,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link1_4.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link1_4.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1006,7 +1006,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link1_5.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link1_5.stl" />
       </geometry>
       <material name="motor">
         <color rgba="0.3922 0.3922 0.2118 1"/>
@@ -1015,7 +1015,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link1_5.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link1_5.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1029,7 +1029,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link2_1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link2_1.stl" />
       </geometry>
       <material name="motor">
         <color rgba="0.3922 0.3922 0.2118 1"/>
@@ -1038,7 +1038,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link2_1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link2_1.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1052,7 +1052,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link2_2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link2_2.stl" />
       </geometry>
       <material name="link">
         <color rgba="0.4706 0.5451 0.5647 1"/>
@@ -1061,7 +1061,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link2_2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link2_2.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1075,7 +1075,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link2_3.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link2_3.stl" />
       </geometry>
       <material name="tapa">
         <color rgba="0.0100 0.0100 0.0100 1"/>
@@ -1084,7 +1084,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link2_3.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link2_3.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1098,7 +1098,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link2_4.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link2_4.stl" />
       </geometry>
       <material name="nbio">
         <color rgba="0.5100 0.9100 0.5100 1"/>
@@ -1107,7 +1107,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link2_4.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link2_4.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1121,7 +1121,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link2_5.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link2_5.stl" />
       </geometry>
       <material name="motor">
         <color rgba="0.3922 0.3922 0.2118 1"/>
@@ -1130,7 +1130,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link2_5.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link2_5.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1144,7 +1144,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link3_1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link3_1.stl" />
       </geometry>
       <material name="motor">
         <color rgba="0.3922 0.3922 0.2118 1"/>
@@ -1153,7 +1153,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link3_1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link3_1.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1167,7 +1167,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link3_2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link3_2.stl" />
       </geometry>
       <material name="link">
         <color rgba="0.4706 0.5451 0.5647 1"/>
@@ -1176,7 +1176,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link3_2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link3_2.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1190,7 +1190,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link3_3.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link3_3.stl" />
       </geometry>
       <material name="tapa">
         <color rgba="0.0100 0.0100 0.0100 1"/>
@@ -1199,7 +1199,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link3_3.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link3_3.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1213,7 +1213,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link3_4.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link3_4.stl" />
       </geometry>
       <material name="nbio">
         <color rgba="0.5100 0.9100 0.5100 1"/>
@@ -1222,7 +1222,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link3_4.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link3_4.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1236,7 +1236,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link3_5.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link3_5.stl" />
       </geometry>
       <material name="motor">
         <color rgba="0.3922 0.3922 0.2118 1"/>
@@ -1245,7 +1245,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link3_5.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link3_5.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1259,7 +1259,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link4_1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link4_1.stl" />
       </geometry>
       <material name="motor">
         <color rgba="0.3922 0.3922 0.2118 1"/>
@@ -1268,7 +1268,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link4_1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link4_1.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1282,7 +1282,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link4_2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link4_2.stl" />
       </geometry>
       <material name="link">
         <color rgba="0.4706 0.5451 0.5647 1"/>
@@ -1291,7 +1291,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link4_2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link4_2.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1305,7 +1305,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link4_3.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link4_3.stl" />
       </geometry>
       <material name="tapa">
         <color rgba="0.0100 0.0100 0.0100 1"/>
@@ -1314,7 +1314,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link4_3.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link4_3.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1328,7 +1328,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link4_4.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link4_4.stl" />
       </geometry>
       <material name="nbio">
         <color rgba="0.5100 0.9100 0.5100 1"/>
@@ -1337,7 +1337,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link4_4.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link4_4.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1351,7 +1351,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link4_5.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link4_5.stl" />
       </geometry>
       <material name="motor">
         <color rgba="0.3922 0.3922 0.2118 1"/>
@@ -1360,7 +1360,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link4_5.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link4_5.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1374,7 +1374,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link5_1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link5_1.stl" />
       </geometry>
       <material name="motor">
         <color rgba="0.3922 0.3922 0.2118 1"/>
@@ -1383,7 +1383,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link5_1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link5_1.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1397,7 +1397,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link5_2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link5_2.stl" />
       </geometry>
       <material name="link">
         <color rgba="0.4706 0.5451 0.5647 1"/>
@@ -1406,7 +1406,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link5_2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link5_2.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1420,7 +1420,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link5_3.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link5_3.stl" />
       </geometry>
       <material name="tapa">
         <color rgba="0.0100 0.0100 0.0100 1"/>
@@ -1429,7 +1429,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link5_3.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link5_3.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1443,7 +1443,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link5_4.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link5_4.stl" />
       </geometry>
       <material name="nbio">
         <color rgba="0.5100 0.9100 0.5100 1"/>
@@ -1452,7 +1452,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link5_4.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link5_4.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1466,7 +1466,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link5_5.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link5_5.stl" />
       </geometry>
       <material name="motor">
         <color rgba="0.3922 0.3922 0.2118 1"/>
@@ -1475,7 +1475,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link5_5.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link5_5.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1491,7 +1491,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link6_1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link6_1.stl" />
       </geometry>
       <material name="motor">
         <color rgba="0.3922 0.3922 0.2118 1"/>
@@ -1500,7 +1500,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link6_1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link6_1.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1514,7 +1514,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link6_2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link6_2.stl" />
       </geometry>
       <material name="link">
         <color rgba="0.4706 0.5451 0.5647 1"/>
@@ -1523,7 +1523,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link6_2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link6_2.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1538,7 +1538,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link6_3.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link6_3.stl" />
       </geometry>
       <material name="tapa">
         <color rgba="0.0100 0.0100 0.0100 1"/>
@@ -1547,7 +1547,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link6_3.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link6_3.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1562,7 +1562,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link6_4.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link6_4.stl" />
       </geometry>
       <material name="nbio">
         <color rgba="0.5100 0.9100 0.5100 1"/>
@@ -1571,7 +1571,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link6_4.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link6_4.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1585,7 +1585,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link6_5.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link6_5.stl" />
       </geometry>
       <material name="motor">
         <color rgba="0.3922 0.3922 0.2118 1"/>
@@ -1594,7 +1594,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link6_5.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link6_5.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1609,7 +1609,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link7_1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link7_1.stl" />
       </geometry>
       <material name="motor">
         <color rgba="0.3922 0.3922 0.2118 1"/>
@@ -1618,7 +1618,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link7_1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link7_1.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1633,7 +1633,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link7_2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link7_2.stl" />
       </geometry>
       <material name="link">
         <color rgba="0.4706 0.5451 0.5647 1"/>
@@ -1642,7 +1642,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link7_2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link7_2.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1656,7 +1656,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link7_3.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link7_3.stl" />
       </geometry>
       <material name="tapa">
         <color rgba="0.01 0.01 0.01 1"/>
@@ -1665,7 +1665,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link7_3.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link7_3.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1680,7 +1680,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link7_4.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link7_4.stl" />
       </geometry>
       <material name="link">
         <color rgba="0.4706 0.5451 0.5647 1"/>
@@ -1689,7 +1689,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/schunk_link7_4.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/schunk_link7_4.stl" />
       </geometry>
     </collision>
   </link>
@@ -1703,7 +1703,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/left_base_hand.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/left_base_hand.stl" />
       </geometry>
       <material name="link">
         <color rgba="0.4706 0.5451 0.5647 1"/>
@@ -1712,7 +1712,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/left_base_hand.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/left_base_hand.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1726,7 +1726,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/left_thumb_link1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/left_thumb_link1.stl" />
       </geometry>
       <material name="link">
         <color rgba="0.4706 0.5451 0.5647 1"/>
@@ -1735,7 +1735,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/left_thumb_link1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/left_thumb_link1.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1749,7 +1749,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/left_thumb_link2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/left_thumb_link2.stl" />
       </geometry>
       <material name="link2">
         <color rgba="0.03922 0.39922 0.2118 1"/>
@@ -1758,7 +1758,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/left_thumb_link2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/left_thumb_link2.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1773,7 +1773,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/left_thumb_link3.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/left_thumb_link3.stl" />
       </geometry>
       <material name="link">
         <color rgba="0.4706 0.5451 0.5647 1"/>
@@ -1782,7 +1782,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/left_thumb_link3.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/left_thumb_link3.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1799,7 +1799,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/left_index_link1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/left_index_link1.stl" />
       </geometry>
       <material name="link2">
         <color rgba="0.03922 0.39922 0.2118 1"/>
@@ -1808,7 +1808,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/left_index_link1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/left_index_link1.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1822,7 +1822,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/left_index_link2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/left_index_link2.stl" />
       </geometry>
       <material name="link">
         <color rgba="0.4706 0.5451 0.5647 1"/>
@@ -1831,7 +1831,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/left_index_link2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/left_index_link2.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1847,7 +1847,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/left_middle_link1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/left_middle_link1.stl" />
       </geometry>
       <material name="link2">
         <color rgba="0.03922 0.39922 0.2118 1"/>
@@ -1856,7 +1856,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/left_middle_link1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/left_middle_link1.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1870,7 +1870,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/left_middle_link2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/left_middle_link2.stl" />
       </geometry>
       <material name="link">
         <color rgba="0.4706 0.5451 0.5647 1"/>
@@ -1879,7 +1879,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/left_middle_link2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/left_middle_link2.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1893,7 +1893,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/left_ring_link1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/left_ring_link1.stl" />
       </geometry>
       <material name="link2">
         <color rgba="0.03922 0.39922 0.2118 1"/>
@@ -1902,7 +1902,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/left_ring_link1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/left_ring_link1.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1917,7 +1917,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/left_ring_link2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/left_ring_link2.stl" />
       </geometry>
       <material name="link">
         <color rgba="0.4706 0.5451 0.5647 1"/>
@@ -1926,7 +1926,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/left_ring_link2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/left_ring_link2.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1941,7 +1941,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/left_pinky_link1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/left_pinky_link1.stl" />
       </geometry>
       <material name="link2">
         <color rgba="0.03922 0.39922 0.2118 1"/>
@@ -1950,7 +1950,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/left_pinky_link1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/left_pinky_link1.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1964,7 +1964,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/left_pinky_link2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/left_pinky_link2.stl" />
       </geometry>
       <material name="link">
         <color rgba="0.4706 0.5451 0.5647 1"/>
@@ -1973,7 +1973,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/left_pinky_link2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/left_pinky_link2.stl" />
       </geometry>
     </collision>	
   </link>
@@ -1994,7 +1994,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/right_base_hand.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/right_base_hand.stl" />
       </geometry>
       <material name="link">
         <color rgba="0.4706 0.5451 0.5647 1"/>
@@ -2003,7 +2003,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/right_base_hand.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/right_base_hand.stl" />
       </geometry>
     </collision>	
   </link>
@@ -2017,7 +2017,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/right_thumb_link1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/right_thumb_link1.stl" />
       </geometry>
       <material name="link">
         <color rgba="0.4706 0.5451 0.5647 1"/>
@@ -2026,7 +2026,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/right_thumb_link1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/right_thumb_link1.stl" />
       </geometry>
     </collision>	
   </link>
@@ -2040,7 +2040,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/right_thumb_link2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/right_thumb_link2.stl" />
       </geometry>
       <material name="link2">
         <color rgba="0.03922 0.39922 0.2118 1"/>
@@ -2049,7 +2049,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/right_thumb_link2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/right_thumb_link2.stl" />
       </geometry>
     </collision>	
   </link>
@@ -2064,7 +2064,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/right_thumb_link3.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/right_thumb_link3.stl" />
       </geometry>
       <material name="link">
         <color rgba="0.4706 0.5451 0.5647 1"/>
@@ -2073,7 +2073,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/right_thumb_link3.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/right_thumb_link3.stl" />
       </geometry>
     </collision>	
   </link>
@@ -2090,7 +2090,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/right_index_link1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/right_index_link1.stl" />
       </geometry>
       <material name="link2">
         <color rgba="0.03922 0.39922 0.2118 1"/>
@@ -2099,7 +2099,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/right_index_link1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/right_index_link1.stl" />
       </geometry>
     </collision>	
   </link>
@@ -2113,7 +2113,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/right_index_link2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/right_index_link2.stl" />
       </geometry>
       <material name="link">
         <color rgba="0.4706 0.5451 0.5647 1"/>
@@ -2122,7 +2122,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/right_index_link2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/right_index_link2.stl" />
       </geometry>
     </collision>	
   </link>
@@ -2138,7 +2138,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/right_middle_link1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/right_middle_link1.stl" />
       </geometry>
       <material name="link2">
         <color rgba="0.03922 0.39922 0.2118 1"/>
@@ -2147,7 +2147,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/right_middle_link1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/right_middle_link1.stl" />
       </geometry>
     </collision>	
   </link>
@@ -2161,7 +2161,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/right_middle_link2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/right_middle_link2.stl" />
       </geometry>
       <material name="link">
         <color rgba="0.4706 0.5451 0.5647 1"/>
@@ -2170,7 +2170,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/right_middle_link2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/right_middle_link2.stl" />
       </geometry>
     </collision>	
   </link>
@@ -2184,7 +2184,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/right_ring_link1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/right_ring_link1.stl" />
       </geometry>
       <material name="link2">
         <color rgba="0.03922 0.39922 0.2118 1"/>
@@ -2193,7 +2193,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/right_ring_link1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/right_ring_link1.stl" />
       </geometry>
     </collision>	
   </link>
@@ -2207,7 +2207,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/right_ring_link2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/right_ring_link2.stl" />
       </geometry>
       <material name="link">
         <color rgba="0.4706 0.5451 0.5647 1"/>
@@ -2216,7 +2216,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/right_ring_link2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/right_ring_link2.stl" />
       </geometry>
     </collision>	
   </link>
@@ -2231,7 +2231,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/right_pinky_link1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/right_pinky_link1.stl" />
       </geometry>
       <material name="link2">
         <color rgba="0.03922 0.39922 0.2118 1"/>
@@ -2240,7 +2240,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/right_pinky_link1.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/right_pinky_link1.stl" />
       </geometry>
     </collision>	
   </link>
@@ -2254,7 +2254,7 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/right_pinky_link2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/right_pinky_link2.stl" />
       </geometry>
       <material name="link">
         <color rgba="0.4706 0.5451 0.5647 1"/>
@@ -2263,7 +2263,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://hermes_arm_kdl/stl/right_pinky_link2.stl" />
+        <mesh filename="package://hermes_virtual_robot/ros/stl/right_pinky_link2.stl" />
       </geometry>
     </collision>	
   </link>

@@ -9,6 +9,11 @@ include($ENV{ROS_ROOT}/core/rosbuild/rosbuild.cmake)
 #  MinSizeRel     : w/o debug symbols, w/ optimization, stripped binaries
 #set(ROS_BUILD_TYPE RelWithDebInfo)
 
+rosbuild_find_ros_package(actionlib_msgs)
+include(${actionlib_msgs_PACKAGE_PATH}/cmake/actionbuild.cmake)
+genaction()
+
+
 rosbuild_init()
 
 #set the default path for built executables to the "bin" directory
@@ -23,9 +28,9 @@ INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/ros/include
 
 
 #uncomment if you have defined messages
-#rosbuild_genmsg()
+rosbuild_genmsg()
 #uncomment if you have defined services
-#rosbuild_gensrv()
+rosbuild_gensrv()
 
 #common commands for building c++ executables and libraries
 #rosbuild_add_library(${PROJECT_NAME} src/example.cpp)
@@ -36,3 +41,5 @@ INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/ros/include
 #target_link_libraries(example ${PROJECT_NAME})
 rosbuild_add_executable(hermes_virtual_robot_main ros/src/HermesVirtualRobot.cpp
 												  ros/src/hermes_virtual_robot_main.cpp)
+												  
+target_link_libraries(hermes_virtual_robot_main robot_state_publisher_solver)

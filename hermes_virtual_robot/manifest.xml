@@ -14,6 +14,14 @@
   <depend package="urdf"/>
   <depend package="roslib"/>
   <depend package="tf"/>
+  <depend package="moveit_ros_planning"/>
+  <depend package="kdl_parser"/>
+  <depend package="control_msgs"/>
+  <depend package="trajectory_msgs"/>
+  <depend package="actionlib"/>
+  <depend package="actionlib_msgs"/>
+  <depend package="geometry_msgs"/>
+  <depend package="arm_navigation_msgs"/>
 
 </package>
 
