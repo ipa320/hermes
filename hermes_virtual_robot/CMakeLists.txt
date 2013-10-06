@@ -42,4 +42,11 @@ rosbuild_gensrv()
 rosbuild_add_executable(hermes_virtual_robot_main ros/src/HermesVirtualRobot.cpp
 												  ros/src/hermes_virtual_robot_main.cpp)
 												  
-target_link_libraries(hermes_virtual_robot_main robot_state_publisher_solver)
+rosbuild_add_executable(call_moveit_service       ros/src/call_moveit_service.cpp)
+
+rosbuild_add_executable(test_move_right_arm_action       ros/src/test_move_right_arm_action.cpp)
+												  
+
+target_link_libraries(call_moveit_service  moveit_move_group_interface)												  
+target_link_libraries(hermes_virtual_robot_main robot_state_publisher_solver moveit_move_group_interface)
+target_link_libraries(test_move_right_arm_action robot_state_publisher_solver moveit_move_group_interface)

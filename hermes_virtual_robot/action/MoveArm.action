@@ -1,4 +1,4 @@
-# Move a robot arm
+# Move a right arm
 #
 # goal message = the request
 int32 arm				# number of the arm to control (1=left, 2=right)

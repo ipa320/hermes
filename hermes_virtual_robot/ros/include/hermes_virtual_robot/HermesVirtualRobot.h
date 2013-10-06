@@ -21,37 +21,59 @@
 #include <moveit/planning_scene_monitor/planning_scene_monitor.h>
 #include <actionlib/server/action_server.h>
 #include <actionlib/server/simple_action_server.h>
-#include <hermes_virtual_robot/MoveArmAction.h>
 #include <trajectory_msgs/JointTrajectory.h>
 #include <control_msgs/FollowJointTrajectoryAction.h>
+#include <actionlib/client/simple_action_client.h>
+#include <ros/callback_queue.h>
 
 
 
 class HermesVirtualRobot
 {
+	protected:
+		ros::NodeHandle node_;
+
 	private:
 		bool hermes_correct;  //Indicates if hermes virtual robot is in correct state
 		urdf::Model hermes_model;   // model of the robot
+		bool is_publish;
 
 
 	private:
 		typedef actionlib::ActionServer<control_msgs::FollowJointTrajectoryAction> JTAS;
 		typedef JTAS::GoalHandle GoalHandle;
-		JTAS action_server_;
-		GoalHandle active_goal_;
+		JTAS action_server_right_arm_;
+		JTAS action_server_left_arm_;
+		GoalHandle active_goal_right_;
+		GoalHandle active_goal_left_;
+		trajectory_msgs::JointTrajectory current_traj_right_;
+		trajectory_msgs::JointTrajectory current_traj_left_;
+		ros::Publisher pub_controller_command_left_;
+		ros::Publisher pub_controller_command_right_;
+
+
+
 
 	public:
 		HermesVirtualRobot(ros::NodeHandle);
 		bool getHermesCorrect();
 		void publish_robot_state();
-		void executeTrajCB(GoalHandle gh);
+		void executeTrajRightArmCB(GoalHandle gh);
+		void executeTrajLeftArmCB(GoalHandle gh);
+
+	private:
+
+
+		void moveVirtualRightArm();
+		void moveVirtualLeftArm();
+
 
 	private:
 		void readUrdfFile();
 
 	protected:
 
-		ros::NodeHandle node_;
+
 		tf::TransformBroadcaster broadcaster; //tf_broadcaster for joint_states
 		ros::Publisher joint_pub; // Publish JointState
 		robot_model_loader::RobotModelLoader robot_model_loader_;
@@ -61,9 +83,15 @@ class HermesVirtualRobot
 		robot_state::JointStateGroup* joint_state_group_right_arm_;
 		robot_state::JointStateGroup* joint_state_group_left_arm_;
 		sensor_msgs::JointState joint_msg_;
+		sensor_msgs::JointState joint_msg_left;
+		sensor_msgs::JointState joint_msg_right;
 		std::map< std::string, double > joint_state_values;
 
 
+
+
+	private:
+		ros::CallbackQueue move_right_arm_queue;
 
 
 
