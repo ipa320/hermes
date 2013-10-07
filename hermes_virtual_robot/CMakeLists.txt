@@ -45,6 +45,7 @@ rosbuild_add_executable(hermes_virtual_robot_main ros/src/HermesVirtualRobot.cpp
 rosbuild_add_executable(call_moveit_service       ros/src/call_moveit_service.cpp)
 
 rosbuild_add_executable(test_move_right_arm_action       ros/src/test_move_right_arm_action.cpp)
+rosbuild_add_executable(hermes_virtual_robot_publisher       ros/src/hermes_virtual_robot_publisher.cpp)
 												  
 
 target_link_libraries(call_moveit_service  moveit_move_group_interface)												  

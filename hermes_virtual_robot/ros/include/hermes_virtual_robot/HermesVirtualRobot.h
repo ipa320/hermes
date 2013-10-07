@@ -25,6 +25,7 @@
 #include <control_msgs/FollowJointTrajectoryAction.h>
 #include <actionlib/client/simple_action_client.h>
 #include <ros/callback_queue.h>
+#include "hermes_virtual_robot/HermesJointStates.h"
 
 
 
@@ -51,6 +52,8 @@ class HermesVirtualRobot
 		ros::Publisher pub_controller_command_left_;
 		ros::Publisher pub_controller_command_right_;
 
+		ros::ServiceServer joint_states_service_;
+
 
 
 
@@ -67,6 +70,8 @@ class HermesVirtualRobot
 		void moveVirtualRightArm();
 		void moveVirtualLeftArm();
 
+		bool getJointStateServer(hermes_virtual_robot::HermesJointStates::Request  &req, hermes_virtual_robot::HermesJointStates::Response &res);
+
 
 	private:
 		void readUrdfFile();
@@ -75,7 +80,6 @@ class HermesVirtualRobot
 
 
 		tf::TransformBroadcaster broadcaster; //tf_broadcaster for joint_states
-		ros::Publisher joint_pub; // Publish JointState
 		robot_model_loader::RobotModelLoader robot_model_loader_;
 		robot_model::RobotModelPtr kinematic_model_;
 		robot_model::RobotModel *robot_model_;

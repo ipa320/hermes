@@ -13,7 +13,6 @@ int main(int argc, char** argv){
 
 	  ros::Rate loop_rate(30);
 
-	  ros::Publisher joint_pub = n.advertise<sensor_msgs::JointState>("joint_states", 1);
 
 	  HermesVirtualRobot hermes_virtual(n);
 
@@ -22,15 +21,13 @@ int main(int argc, char** argv){
 		  ROS_ERROR("Failed to load Hermes Virtual Robot");
 		  return -1;
 	  }
-
-	  hermes_virtual.publish_robot_state();
 	  spinner.spin();
-	  while (ros::ok()) {
-
+	 /* while (ros::ok()) {
+		  std::cout << "publicando" << std::endl;
 		  hermes_virtual.publish_robot_state();
 		  ros::spinOnce();
 		  loop_rate.sleep();
-	  }
+	  }*/
 
 	  return 0;
 

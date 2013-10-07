@@ -29,21 +29,22 @@ int main(int argc, char **argv)
 
 	for (int trial=0; have_plan_right==false && trial<5; ++trial)
 		have_plan_right = group_right.plan(plan_right);
-	if ( have_plan_right==true){
-		group_right.asyncExecute(plan_right);
 
-	}
-	else
-		ROS_WARN("No valid plan for right found for left arm movement.");
 
 
 	for (int trial=0; have_plan_left==false && trial<5; ++trial)
 			have_plan_left = group_left.plan(plan_left);
-		if ( have_plan_left==true){
-			group_left.asyncExecute(plan_left);
-		}
-		else
+	if ( have_plan_left==true){
+		group_left.asyncExecute(plan_left);
+	}
+	else
 			ROS_WARN("No valid plan for right found for left arm movement.");
+	if ( have_plan_right==true){
+			group_right.asyncExecute(plan_right);
+
+		}
+	else
+		ROS_WARN("No valid plan for right found for left arm movement.");
   // plan the motion and then move the group to the sampled target
 
   ros::waitForShutdown();

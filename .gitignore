@@ -10,6 +10,7 @@ hermes_virtual_robot/lib/
 hermes_virtual_robot/bin/
 hermes_virtual_robot/build/
 hermes_virtual_robot/src/
+hermes_virtual_robot/srv_gen/
 hermes_traj_action/lib/
 hermes_traj_action/bin/
 hermes_traj_action/build/

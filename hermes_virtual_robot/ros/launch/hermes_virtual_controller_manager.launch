@@ -17,7 +17,7 @@
   <!-- Flag indicating whether the controller manager should be used or not -->
   <arg name="use_pr2_controller_manager" default="false" />
   <!-- param name="use_pr2_controller_manager" value="$(arg use_pr2_controller_manager)" / -->
-  <param name="use_pr2_controller_manager" value="false" />
+  <param name="use_controller_manager" value="true" />
   
   <!-- load controller_list and controller_manager_ns -->
   <rosparam file="$(find hermes_virtual_robot)/ros/config/controllers.yaml"/>

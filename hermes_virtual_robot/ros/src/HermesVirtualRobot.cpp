@@ -59,8 +59,11 @@ action_server_left_arm_(node, "/left_arm/trajectory_execution_event",boost::bind
 	// First Read hermes urdf file
 	//readUrdfFile();  // realmente  no hace falta porque viene del param
 
-	// joint_states advertise
-	joint_pub=node_.advertise<sensor_msgs::JointState>("joint_states",1);
+
+
+
+
+    joint_states_service_ = node_.advertiseService("hermes_joint_states", &HermesVirtualRobot::getJointStateServer,this);
 
 	ROS_INFO("Model frame: %s", kinematic_model_->getModelFrame().c_str());
 
@@ -157,7 +160,6 @@ void HermesVirtualRobot::moveVirtualRightArm()
 {
 
 
-		bool start_publish=false;
 		int nPoints = current_traj_right_.points.size() - 1;
 
 
@@ -181,10 +183,7 @@ void HermesVirtualRobot::moveVirtualRightArm()
 		while (currentTime<=endTime)
 		{
 
-			if(is_publish==false){
-					is_publish=true;
-					start_publish=true;
-			}
+
 			spendTime = currentTime-oldTime;
 			kinematic_state_->getStateValues(joint_state_values_right);
 			joint_state_values_right["r_joint1"] += current_traj_right_.points[cnt].velocities[0]*spendTime.toSec();
@@ -195,8 +194,7 @@ void HermesVirtualRobot::moveVirtualRightArm()
 			joint_state_values_right["r_joint6"] += current_traj_right_.points[cnt].velocities[5]*spendTime.toSec();
 			joint_state_values_right["r_joint7"] += current_traj_right_.points[cnt].velocities[6]*spendTime.toSec();
 			joint_state_group_right_arm_->setVariableValues(joint_state_values_right);
-			if(start_publish==true)
-				publish_robot_state();
+
 
 			oldTime=currentTime;
 			currentTime = ros::Time::now();
@@ -207,15 +205,16 @@ void HermesVirtualRobot::moveVirtualRightArm()
 			}
 
 		}
-		if(start_publish==true)
-			is_publish=false;
+
+		ROS_INFO("TRAJECTORY RIGHT ARM FINISHED");
+
 
 }
 
 void HermesVirtualRobot::moveVirtualLeftArm()
 {
 
-			bool start_publish =false;
+
 			int nPoints = current_traj_left_.points.size() - 1;
 
 
@@ -240,10 +239,7 @@ void HermesVirtualRobot::moveVirtualLeftArm()
 
 			while (currentTime<=endTime)
 			{
-				if(is_publish==false){
-						is_publish=true;
-						start_publish=true;
-				}
+
 				spendTime = currentTime-oldTime;
 				kinematic_state_->getStateValues(joint_state_values_left);
 				joint_state_values_left["l_joint1"] += current_traj_left_.points[cnt].velocities[0]*spendTime.toSec();
@@ -254,8 +250,7 @@ void HermesVirtualRobot::moveVirtualLeftArm()
 				joint_state_values_left["l_joint6"] += current_traj_left_.points[cnt].velocities[5]*spendTime.toSec();
 				joint_state_values_left["l_joint7"] += current_traj_left_.points[cnt].velocities[6]*spendTime.toSec();
 				joint_state_group_left_arm_->setVariableValues(joint_state_values_left);
-				if(start_publish==true)
-					publish_robot_state();
+
 
 				oldTime=currentTime;
 				currentTime = ros::Time::now();
@@ -266,8 +261,8 @@ void HermesVirtualRobot::moveVirtualLeftArm()
 				}
 
 			}
-			if(start_publish==true)
-						is_publish=false;
+
+			ROS_INFO("TRAJECTORY LEFT ARM FINISHED");
 
 
 }
@@ -279,16 +274,7 @@ bool HermesVirtualRobot::getHermesCorrect()
 	return hermes_correct;
 }
 
-void HermesVirtualRobot::publish_robot_state()
-{
 
-
-	//joint_state_group_right_arm_->setToRandomValues();
-	kinematic_state_->getStateValues(joint_msg_);
-	joint_msg_.header.stamp=ros::Time::now();
-	joint_pub.publish(joint_msg_);
-
-}
 
 // Execute Moveit Trajectories Callback
 void HermesVirtualRobot::executeTrajRightArmCB(GoalHandle gh)
@@ -306,6 +292,7 @@ void HermesVirtualRobot::executeTrajRightArmCB(GoalHandle gh)
 	result.error_code = JTAS::Result::SUCCESSFUL;
 	gh.setSucceeded(result);
 	moveVirtualRightArm();
+
 
 
 
@@ -329,8 +316,18 @@ void HermesVirtualRobot::executeTrajLeftArmCB(GoalHandle gh)
 	moveVirtualLeftArm();
 
 
+}
 
+bool HermesVirtualRobot::getJointStateServer(hermes_virtual_robot::HermesJointStates::Request  &req, hermes_virtual_robot::HermesJointStates::Response &res)
+{
 
+	sensor_msgs::JointState joint_msg;
 
+	kinematic_state_->getStateValues(joint_msg);
+	joint_msg.header.stamp=ros::Time::now();
+
+	res.hermes_joint_states = joint_msg;
+	return true;
 
 }
+
