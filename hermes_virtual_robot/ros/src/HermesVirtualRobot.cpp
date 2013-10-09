@@ -65,6 +65,8 @@ action_server_left_arm_(node, "/left_arm/trajectory_execution_event",boost::bind
 
     joint_states_service_ = node_.advertiseService("hermes_joint_states", &HermesVirtualRobot::getJointStateServer,this);
 
+    grasp_hand_ = node_.advertiseService("grasp_hand", &HermesVirtualRobot::graspCB,this);
+
 	ROS_INFO("Model frame: %s", kinematic_model_->getModelFrame().c_str());
 
 
@@ -86,6 +88,7 @@ action_server_left_arm_(node, "/left_arm/trajectory_execution_event",boost::bind
 	joint_state_values["r_joint6"] = 1.1587;
 	joint_state_values["r_joint7"] = 2.1482;
 
+
 	joint_state_values["l_joint1"] = -0.2618;
 	joint_state_values["l_joint2"] = 0.3491;
 	joint_state_values["l_joint3"] = 2.7925;
@@ -94,9 +97,12 @@ action_server_left_arm_(node, "/left_arm/trajectory_execution_event",boost::bind
 	joint_state_values["l_joint6"] = -0.7854;
 	joint_state_values["l_joint7"] = -1.8326;
 
-	joint_state_group_right_arm_->setVariableValues(joint_state_values);
-	joint_state_group_left_arm_->setVariableValues(joint_state_values);
 
+	// Thumb in correct Position
+	joint_state_values["r_thumb_joint1"] = 1.5708;
+	joint_state_values["l_thumb_joint1"] = 1.5708;
+
+	kinematic_state_->setStateValues(joint_state_values);
 
 
 
@@ -176,7 +182,7 @@ void HermesVirtualRobot::moveVirtualRightArm()
 
 		endTime = beginTime+trajTime;
 
-		int cnt = 0;
+		int cnt = 1;
 		oldTime =beginTime;
 
 		std::map< std::string, double > joint_state_values_right;
@@ -231,7 +237,7 @@ void HermesVirtualRobot::moveVirtualLeftArm()
 
 			endTime = beginTime+trajTime;
 
-			int cnt = 0;
+			int cnt = 1;
 			oldTime =beginTime;
 			std::map< std::string, double > joint_state_values_left;
 
@@ -287,11 +293,11 @@ void HermesVirtualRobot::executeTrajRightArmCB(GoalHandle gh)
 
 	current_traj_right_ = active_goal_right_.getGoal()->trajectory;
 	pub_controller_command_right_.publish(current_traj_right_);
-
+	moveVirtualRightArm();
 	JTAS::Result result;
 	result.error_code = JTAS::Result::SUCCESSFUL;
 	gh.setSucceeded(result);
-	moveVirtualRightArm();
+
 
 
 
@@ -309,11 +315,11 @@ void HermesVirtualRobot::executeTrajLeftArmCB(GoalHandle gh)
 	current_traj_left_ = active_goal_left_.getGoal()->trajectory;
 
 	pub_controller_command_left_.publish(current_traj_left_);
-
+	moveVirtualLeftArm();
 	JTAS::Result result;
 	result.error_code = JTAS::Result::SUCCESSFUL;
 	gh.setSucceeded(result);
-	moveVirtualLeftArm();
+
 
 
 }
@@ -331,3 +337,115 @@ bool HermesVirtualRobot::getJointStateServer(hermes_virtual_robot::HermesJointSt
 
 }
 
+
+bool HermesVirtualRobot::graspCB(hermes_virtual_robot::GraspHand::Request  &req, hermes_virtual_robot::GraspHand::Response &res)
+{
+	kinematic_state_->getStateValues(joint_state_values);
+
+	double ang=1.5708/2;
+
+	if(req.hand == 2){ //Left Hand
+		if(req.grasp_type==1){
+			joint_state_values["r_thumb_joint1"] = 1.5708;
+			joint_state_values["r_thumb_joint2"] = 0;
+			joint_state_values["r_thumb_joint3"] = 0;
+			joint_state_values["r_index_joint1"] = 0;
+			joint_state_values["r_index_joint2"] = 0;
+			joint_state_values["r_middle_joint1"] = 0;
+			joint_state_values["r_middle_joint2"] = 0;
+			joint_state_values["r_ring_joint1"] = 0;
+			joint_state_values["r_ring_joint2"] = 0;
+			joint_state_values["r_pinky_joint1"] = 0;
+			joint_state_values["r_pinky_joint2"] = 0;
+		}
+		else if(req.grasp_type==2){
+			joint_state_values["r_thumb_joint1"]  = ang;
+			joint_state_values["r_thumb_joint2"]  = ang;
+			joint_state_values["r_thumb_joint3"]  = ang;
+			joint_state_values["r_index_joint1"]  = ang;
+			joint_state_values["r_index_joint2"]  = ang;
+			joint_state_values["r_middle_joint1"] = ang;
+			joint_state_values["r_middle_joint2"] = ang;
+			joint_state_values["r_ring_joint1"]   = ang;
+			joint_state_values["r_ring_joint2"]   = ang;
+			joint_state_values["r_pinky_joint1"]  = ang;
+			joint_state_values["r_pinky_joint2"]  = ang;
+			}
+		else if(req.grasp_type==3){
+			joint_state_values["r_thumb_joint1"]  = 0;
+			joint_state_values["r_thumb_joint2"]  = 0;
+			joint_state_values["r_thumb_joint3"]  = 0;
+			joint_state_values["r_index_joint1"]  = 0;
+			joint_state_values["r_index_joint2"]  = 0;
+			joint_state_values["r_middle_joint1"] = 0;
+			joint_state_values["r_middle_joint2"] = 0;
+			joint_state_values["r_ring_joint1"]   = 0;
+			joint_state_values["r_ring_joint2"]   = 0;
+			joint_state_values["r_pinky_joint1"]  = 0;
+			joint_state_values["r_pinky_joint2"]  = 0;
+		}
+		else{
+				res.message = "Wrong Type Specified";
+				return -1;
+		}
+
+	}
+	else if (req.hand == 1){
+		if(req.grasp_type==1){
+			joint_state_values["l_thumb_joint1"] = 1.5708;
+			joint_state_values["l_thumb_joint2"] = 0;
+			joint_state_values["l_thumb_joint3"] = 0;
+			joint_state_values["l_index_joint1"] = 0;
+			joint_state_values["l_index_joint2"] = 0;
+			joint_state_values["l_middle_joint1"] = 0;
+			joint_state_values["l_middle_joint2"] = 0;
+			joint_state_values["l_ring_joint1"] = 0;
+			joint_state_values["l_ring_joint2"] = 0;
+			joint_state_values["l_pinky_joint1"] = 0;
+			joint_state_values["l_pinky_joint2"] = 0;
+		}
+		else if(req.grasp_type==2){
+			joint_state_values["l_thumb_joint1"]  = ang;
+			joint_state_values["l_thumb_joint2"]  = ang;
+			joint_state_values["l_thumb_joint3"]  = ang;
+			joint_state_values["l_index_joint1"]  = ang;
+			joint_state_values["l_index_joint2"]  = ang;
+			joint_state_values["l_middle_joint1"] = ang;
+			joint_state_values["l_middle_joint2"] = ang;
+			joint_state_values["l_ring_joint1"]   = ang;
+			joint_state_values["l_ring_joint2"]   = ang;
+			joint_state_values["l_pinky_joint1"]  = ang;
+			joint_state_values["l_pinky_joint2"]  = ang;
+			}
+		else if(req.grasp_type==3){
+			joint_state_values["l_thumb_joint1"]  = 0;
+			joint_state_values["l_thumb_joint2"]  = 0;
+			joint_state_values["l_thumb_joint3"]  = 0;
+			joint_state_values["l_index_joint1"]  = 0;
+			joint_state_values["l_index_joint2"]  = 0;
+			joint_state_values["l_middle_joint1"] = 0;
+			joint_state_values["l_middle_joint2"] = 0;
+			joint_state_values["l_ring_joint1"]   = 0;
+			joint_state_values["l_ring_joint2"]   = 0;
+			joint_state_values["l_pinky_joint1"]  = 0;
+			joint_state_values["l_pinky_joint2"]  = 0;
+		}
+		else{
+				res.message = "Wrong Type Specified";
+				return -1;
+		}
+
+	}
+	else{
+		res.message = "Wrong Hand Specified";
+		return -1;
+	}
+
+
+
+
+	kinematic_state_->setStateValues(joint_state_values);
+
+
+	res.message = "OK";
+}

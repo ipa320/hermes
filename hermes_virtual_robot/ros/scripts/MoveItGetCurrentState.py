@@ -26,6 +26,8 @@ if __name__ == '__main__':
     #Print Current State
     state = robot.get_current_variable_values()
     
+    print state
+    
     print "---------------------------------------"
     print "CURRENT STATE RIGHT ARM"
     print "---------------------------------------"
@@ -36,5 +38,16 @@ if __name__ == '__main__':
     print "state['r_joint5']: ", state['r_joint5'];
     print "state['r_joint6']: ", state['r_joint6'];
     print "state['r_joint7']: ", state['r_joint7'];
+    
+    print "---------------------------------------"
+    print "CURRENT STATE LEFT ARM"
+    print "---------------------------------------"
+    print "state['l_joint1']: ", state['l_joint1'];
+    print "state['l_joint2']: ", state['l_joint2'];
+    print "state['l_joint3']: ", state['l_joint3'];
+    print "state['l_joint4']: ", state['l_joint4'];
+    print "state['l_joint5']: ", state['l_joint5'];
+    print "state['l_joint6']: ", state['l_joint6'];
+    print "state['l_joint7']: ", state['l_joint7'];
    
    
