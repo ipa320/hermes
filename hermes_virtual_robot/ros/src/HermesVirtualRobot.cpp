@@ -78,21 +78,21 @@ action_server_left_arm_(node, "/left_arm/trajectory_execution_event",boost::bind
 
 
 	kinematic_state_->getStateValues(joint_state_values);
-	joint_state_values["r_joint1"] = 0.7291;
-	joint_state_values["r_joint2"] = -0.0979;
-	joint_state_values["r_joint3"] = -0.9321;
-	joint_state_values["r_joint4"] = 1.2126;
-	joint_state_values["r_joint5"] = 0.5357;
-	joint_state_values["r_joint6"] = 0.1822;
-	joint_state_values["r_joint7"] = 2.6213;
+	joint_state_values["r_joint1"] = 0.8339;
+	joint_state_values["r_joint2"] = 0.2457;
+	joint_state_values["r_joint3"] = -0.3084;
+	joint_state_values["r_joint4"] = 0.9955;
+	joint_state_values["r_joint5"] = -0.4427;
+	joint_state_values["r_joint6"] = 1.1587;
+	joint_state_values["r_joint7"] = 2.1482;
 
-	joint_state_values["l_joint1"] = 0.1935;
-	joint_state_values["l_joint2"] = 1.0232;
-	joint_state_values["l_joint3"] = 2.7270;
-	joint_state_values["l_joint4"] = -1.3565;
-	joint_state_values["l_joint5"] = 0.4324;
-	joint_state_values["l_joint6"] = -0.1122;
-	joint_state_values["l_joint7"] = -3.0668;
+	joint_state_values["l_joint1"] = -0.2618;
+	joint_state_values["l_joint2"] = 0.3491;
+	joint_state_values["l_joint3"] = 2.7925;
+	joint_state_values["l_joint4"] = -1.0472;
+	joint_state_values["l_joint5"] = -0.0873;
+	joint_state_values["l_joint6"] = -0.7854;
+	joint_state_values["l_joint7"] = -1.8326;
 
 	joint_state_group_right_arm_->setVariableValues(joint_state_values);
 	joint_state_group_left_arm_->setVariableValues(joint_state_values);

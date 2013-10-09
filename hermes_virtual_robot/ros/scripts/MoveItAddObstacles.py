@@ -1,6 +1,6 @@
 #!/usr/bin/python
 import roslib
-roslib.load_manifest('hermes_scenario')
+roslib.load_manifest('hermes_virtual_robot')
 import rospy
 import smach
 import smach_ros
@@ -13,7 +13,7 @@ from moveit_commander import *
 if __name__ == '__main__':
 	rospy.init_node("hermes_scenario")
 	psi = PlanningSceneInterface()
-	rospy.sleep(20)
+	rospy.sleep(2)
 	pose = PoseStamped()
 	pose.pose.position.x = 0.525
 	pose.pose.position.y = 0.0
