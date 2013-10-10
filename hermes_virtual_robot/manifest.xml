@@ -15,6 +15,9 @@
   <depend package="roslib"/>
   <depend package="tf"/>
   <depend package="moveit_ros_planning"/>
+  <depend package="moveit_ros_planning_interface"/>
+  <depend package="moveit_ros_warehouse"/>
+  <depend package="moveit_ros_manipulation"/>
   <depend package="kdl_parser"/>
   <depend package="control_msgs"/>
   <depend package="trajectory_msgs"/>
@@ -22,6 +25,8 @@
   <depend package="actionlib_msgs"/>
   <depend package="geometry_msgs"/>
   <depend package="arm_navigation_msgs"/>
+  <depend package="smach"/>
+  <depend package="smach_ros"/>
 
 </package>
 

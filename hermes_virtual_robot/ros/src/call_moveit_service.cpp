@@ -18,8 +18,25 @@ int main(int argc, char **argv)
 	group_right.setRandomTarget();
 	group_left.setRandomTarget();
 
+
+	// Para  definir la posición obetivo en cartesianas desde world
+	// tengo que calcular de cinematica inversa de movit
+	// para obtener las articulares y definir el objetivo
+
+	std::map< std::string, double > joint_state_values;
+
+
+	group_right.setJointValueTarget(joint_state_values);
+
+
+
+
+
 	bool have_plan_right = false;
 	bool have_plan_left = false;
+
+
+
 
 
 	moveit::planning_interface::MoveGroup::Plan plan_right;
@@ -34,6 +51,9 @@ int main(int argc, char **argv)
 
 	for (int trial=0; have_plan_left==false && trial<5; ++trial)
 			have_plan_left = group_left.plan(plan_left);
+
+
+	/* TRAJECTORY EXECUTION
 	if ( have_plan_left==true){
 		group_left.asyncExecute(plan_left);
 	}
@@ -44,8 +64,8 @@ int main(int argc, char **argv)
 
 		}
 	else
-		ROS_WARN("No valid plan for right found for left arm movement.");
-  // plan the motion and then move the group to the sampled target
+		ROS_WARN("No valid plan for right found for left arm movement.");*/
+
 
   ros::waitForShutdown();
 }

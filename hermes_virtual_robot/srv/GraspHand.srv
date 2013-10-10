@@ -1,0 +1,11 @@
+int32 hand			# 1 ->Left Hand 2 ->Right Hand
+int32 LEFTHAND=1
+int32 RIGHTHAND=2
+
+int32 grasp_type		# type of grasp: 'CYLINDER', 'TRIFINGER', 'BIFINGER', 'LATERAL', 'OPENALL', 'STOPALL', 'FIRSTCALIBRATION', 'FASTCALIBRATION'
+int32 PREGRASP=1
+int32 GRASP = 2
+int32 OPEN =3
+
+---
+string message

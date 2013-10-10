@@ -26,6 +26,7 @@
 #include <actionlib/client/simple_action_client.h>
 #include <ros/callback_queue.h>
 #include "hermes_virtual_robot/HermesJointStates.h"
+#include "hermes_virtual_robot/GraspHand.h"
 
 
 
@@ -53,6 +54,7 @@ class HermesVirtualRobot
 		ros::Publisher pub_controller_command_right_;
 
 		ros::ServiceServer joint_states_service_;
+		ros::ServiceServer grasp_hand_;
 
 
 
@@ -71,6 +73,7 @@ class HermesVirtualRobot
 		void moveVirtualLeftArm();
 
 		bool getJointStateServer(hermes_virtual_robot::HermesJointStates::Request  &req, hermes_virtual_robot::HermesJointStates::Response &res);
+		bool graspCB(hermes_virtual_robot::GraspHand::Request  &req, hermes_virtual_robot::GraspHand::Response &res);
 
 
 	private:
