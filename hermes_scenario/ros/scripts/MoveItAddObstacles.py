@@ -34,12 +34,12 @@ if __name__ == '__main__':
 	#psi.remove_world_object("table")
 
 	pose.pose.position.x = 0.425
-	pose.pose.position.y = 0.0
+	pose.pose.position.y = -0.2
 	pose.pose.position.z = 0.78+0.125
 	pose.pose.orientation.w = 1
 	pose.pose.orientation.x = 0
 	pose.pose.orientation.y = 0
 	pose.pose.orientation.z = 0
 	#psi.add_box("table_box", pose, size = (0.6, 0.8, 0.25))
-	psi.add_box("table_box", pose, size = (1.2, 0.8, 0.75))
+	psi.add_box("table_box", pose, size = (1.2, 0.2, 0.75))
 

@@ -55,7 +55,7 @@ int main(int argc,char* argv[]) {
     geometry_msgs::Pose pose_robot_object;
     pose_robot_object.orientation.w = 1.0;
     pose_robot_object.position.x = 0.0;
-    pose_robot_object.position.y = 0.15;
+    pose_robot_object.position.y = 0.25;
     pose_robot_object.position.z = 0.0;
     shape_msgs::SolidPrimitive primitive_robot;
     primitive_robot.type = primitive_robot.BOX;
