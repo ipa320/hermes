@@ -1,6 +1,9 @@
 <launch>
 
+ <!-- static transforms -->
+  <node pkg="tf" type="static_transform_publisher" name="link_world2marker_broadcaster" args="0.125 -0.0505 1.596 1.57079632679 0.0 1.57079632679 world marker_robot 10" />
 
+  <node pkg="tf" type="static_transform_publisher" name="link_world2pillar_broadcaster" args="0 0 0 0 0 0 world pillar 10" />
 
   <node name="hermes_robot_interface" pkg="hermes_robot_interface" type="hermes_robot_interface_node" respawn="true" output="screen" />
 

@@ -64,6 +64,10 @@ void HermesRobotInterface::init()
 	jointState.name[33] ="l_ring_joint2";
 	jointState.name[34] ="l_pinky_joint1";
 	jointState.name[35] ="l_pinky_joint2";
+
+	// Thumb in correct Position
+	jointState.position[14] = 1.5708;
+	jointState.position[25] = 1.5708;
 }
 
 
@@ -89,7 +93,8 @@ void HermesRobotInterface::getJointState(sensor_msgs::JointState &jointState)
 		jointState.position[i] = q_right[i];
 		jointState.position[7+i] = q_left[i];
 	}
-
+	jointState.position[14] = 1.5708;
+	jointState.position[25] = 1.5708;
 
 }
 

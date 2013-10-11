@@ -29,6 +29,6 @@
   <include file="$(find hermes_moveit_generated)/launch/hermes.launch"/>
 
   <!-- upload obstacles -->
-  <node pkg="hermes_scenario" name="add_obstacles" type="MoveItAddObstacles.py"/>
+  <node pkg="hermes_scenario" name="add_obstacles" type="MoveItAddObstacle.py"/>
   
 </launch>

@@ -18,6 +18,7 @@ int32 FIRSTCALIBRATION=9
 int32 FASTCALIBRATION=10
 int32 STRONGGRIP=11
 int32 PEINETA=12
+int32 PREGRASP = 20 #Thumb down
 
 int32 grasp_force			# grasping force [0..100] (not applicable for OPENALL, STOPALL, FIRSTCALIBRATION, FASTCALIBRATION)
 ---

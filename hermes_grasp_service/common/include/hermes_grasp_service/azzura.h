@@ -46,6 +46,7 @@
 #define FASTCALIBRATION 10
 #define STRONGGRIP      11 
 #define PEINETA         12
+#define PREGRASP        20
 
 
 

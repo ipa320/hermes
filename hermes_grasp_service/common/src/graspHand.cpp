@@ -83,25 +83,26 @@ int GraspHand::sendByte(int fd, char data)   // query modem with an AT command
 
 void GraspHand::strongGrip(int fd)
 {
-	
+	ros::Rate loop_rate(4);
 	char data[2];
 
 	data[0]=195;
 	data[1]=255;
 	write(fd, &data, 2);
-
+	loop_rate.sleep();
+	loop_rate.sleep();
 	data[0]=199;
 	data[1]=255;
 	write(fd, &data, 2);
-	
+	loop_rate.sleep();
 	data[0]=203;
 	data[1]=255;
 	write(fd, &data, 2);
-
+	loop_rate.sleep();
 	data[0]=207;
 	data[1]=255;
 	write(fd, &data, 2);
-
+	loop_rate.sleep();
 	data[0]=211;
 	data[1]=255;
 	write(fd, &data, 2);
@@ -190,6 +191,14 @@ void GraspHand::executeGrasp(int type, int force)
 	doPeineta(file_description);
   }
   
+  else if(type==PREGRASP)
+  {
+	char data[2];
+	data[0]=195;
+	data[1]=255;
+	write(file_description, &data, 2);
+  }
+
  
  
 }

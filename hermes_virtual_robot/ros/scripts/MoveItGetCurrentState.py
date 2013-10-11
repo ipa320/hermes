@@ -31,23 +31,13 @@ if __name__ == '__main__':
     print "---------------------------------------"
     print "CURRENT STATE RIGHT ARM"
     print "---------------------------------------"
-    print "state['r_joint1']: ", state['r_joint1'];
-    print "state['r_joint2']: ", state['r_joint2'];
-    print "state['r_joint3']: ", state['r_joint3'];
-    print "state['r_joint4']: ", state['r_joint4'];
-    print "state['r_joint5']: ", state['r_joint5'];
-    print "state['r_joint6']: ", state['r_joint6'];
-    print "state['r_joint7']: ", state['r_joint7'];
+    print state['r_joint1'], "  ", state['r_joint2'], "  " ,state['r_joint3'], "  " ,state['r_joint4'], "  " ,state['r_joint5'], "  " ,state['r_joint6'], "  " ,state['r_joint7'] 
+
     
     print "---------------------------------------"
     print "CURRENT STATE LEFT ARM"
     print "---------------------------------------"
-    print "state['l_joint1']: ", state['l_joint1'];
-    print "state['l_joint2']: ", state['l_joint2'];
-    print "state['l_joint3']: ", state['l_joint3'];
-    print "state['l_joint4']: ", state['l_joint4'];
-    print "state['l_joint5']: ", state['l_joint5'];
-    print "state['l_joint6']: ", state['l_joint6'];
-    print "state['l_joint7']: ", state['l_joint7'];
+    print state['l_joint1'], "  ", state['l_joint2'], "  " ,state['l_joint3'], "  " ,state['l_joint4'], "  " ,state['l_joint5'], "  " ,state['l_joint6'], "  " ,state['l_joint7']
+
    
    
