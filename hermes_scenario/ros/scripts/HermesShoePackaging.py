@@ -18,9 +18,9 @@ class HermesShoePackaging(smach.StateMachine):
 			output_keys=[])
 		with self:
 
-			self.userdata.arm = 2;		# 1=left. 2=right
-			self.userdata.hand = 2;
-			self.userdata.object_label='tag_1'
+			self.userdata.arm = 1;
+			self.userdata.hand = 1;
+			self.userdata.object_label='1'
 			
 			# grasping
 			sm_grasp_shoe = HermesGraspShoe()
@@ -33,24 +33,19 @@ class HermesShoePackaging(smach.StateMachine):
 			
 
 if __name__ == '__main__':
-	try:
-		rospy.init_node("hermes_shoe_packaging")
-		sm = HermesShoePackaging()
-		
-		# userdata
-	# 	sm.userdata.arm = 1;
-	# 	sm.userdata.hand = 1;
-	# 	sm.userdata.object_label='1'
-		
-		# introspection -> smach_viewer
-		sis = smach_ros.IntrospectionServer('hermes_shoe_packaging_introspection', sm, '/HERMES_SHOE_PACKAGING')
-		sis.start()
-		
-		# start
-		sm.execute()
-		rospy.spin()
-		sis.stop()
-	except:
-		print('EXCEPTION THROWN')
-		print('Aborting cleanly')
-		os._exit(1)
+	rospy.init_node("hermes_shoe_packaging")
+	sm = HermesShoePackaging()
+	
+	# userdata
+# 	sm.userdata.arm = 1;
+# 	sm.userdata.hand = 1;
+# 	sm.userdata.object_label='1'
+	
+	# introspection -> smach_viewer
+	sis = smach_ros.IntrospectionServer('hermes_shoe_packaging_introspection', sm, '/HERMES_SHOE_PACKAGING')
+	sis.start()
+	
+	# start
+	sm.execute()
+	rospy.spin()
+	sis.stop()

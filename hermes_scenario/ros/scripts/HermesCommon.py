@@ -2,7 +2,6 @@
 import roslib
 roslib.load_manifest('hermes_scenario')
 import rospy
-import os
 
 class ScreenFormat:
     # Convenient functions, which should be called when entering and leaving a state

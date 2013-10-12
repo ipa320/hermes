@@ -6,7 +6,7 @@
 #include <fstream>
 
 
-HermesGraspDatabase::HermesGraspDatabase(ros::NodeHandle nh) : transform_listener_(ros::Duration(40))
+HermesGraspDatabase::HermesGraspDatabase(ros::NodeHandle nh)
 {
 	node_ = nh;
 	target_frame_id_ = "/camera_link";
@@ -166,31 +166,7 @@ bool HermesGraspDatabase::computeGraspForDetection(hermes_grasp_database::GetGra
 
 			// respond with a list of suitable wrist poses in the desired target frame for grasping the requested object
 			hermes_grasp_database::GraspConfiguration gc;
-			std::cout << "target_frame_id_=" << target_frame_id_ << "   req.detection.pose.header.frame_id=" << req.detection.pose.header.frame_id << std::endl;
-			std::cout << "transform_targetframe_to_captureframe:\n";
-			for (int r=0; r<3; ++r)
-			{
-				for (int c=0; c<3; ++c)
-					std::cout << transform_targetframe_to_captureframe.getBasis()[r][c] << "\t";
-				std::cout << transform_targetframe_to_captureframe.getOrigin()[r] << "\n";
-			}
-			std::cout << "object_pose:\n";
-			for (int r=0; r<3; ++r)
-			{
-				for (int c=0; c<3; ++c)
-					std::cout << object_pose.getBasis()[r][c] << "\t";
-				std::cout << object_pose.getOrigin()[r] << "\n";
-			}
-			std::cout << "offset:\n";
-			for (int r=0; r<3; ++r)
-			{
-				for (int c=0; c<3; ++c)
-					std::cout << offset.getBasis()[r][c] << "\t";
-				std::cout << offset.getOrigin()[r] << "\n";
-			}
-			tf::Transform goalPose = transform_targetframe_to_captureframe*object_pose*offset;
-			transform_broadcaster_.sendTransform(tf::StampedTransform(goalPose, ros::Time::now(), target_frame_id_, "grasp_goal"));
-			tf::poseTFToMsg(goalPose, gc.goal_position.pose);
+			tf::poseTFToMsg(transform_targetframe_to_captureframe*object_pose*offset, gc.goal_position.pose);
 			gc.goal_position.header = req.detection.pose.header;
 			gc.goal_position.header.frame_id = target_frame_id_;
 			gc.grasp_type = grasp_database_[object_label][i].grasp_type;
