@@ -1,0 +1,181 @@
+joint_limits:
+  l_joint7:
+    has_velocity_limits: true
+    max_velocity: 0.14
+    has_acceleration_limits: true
+    max_acceleration: 1.12
+  l_ring_joint2:
+    has_velocity_limits: true
+    max_velocity: 0.14
+    has_acceleration_limits: true
+    max_acceleration: 1.12
+  l_joint1:
+    has_velocity_limits: true
+    max_velocity: 0.14
+    has_acceleration_limits: true
+    max_acceleration: 1.12
+  l_joint4:
+    has_velocity_limits: true
+    max_velocity: 0.14
+    has_acceleration_limits: true
+    max_acceleration: 1.12
+  l_thumb_joint1:
+    has_velocity_limits: true
+    max_velocity: 0.14
+    has_acceleration_limits: true
+    max_acceleration: 1.12
+  r_pinky_joint1:
+    has_velocity_limits: true
+    max_velocity: 0.14
+    has_acceleration_limits: true
+    max_acceleration: 1.12
+  l_middle_joint1:
+    has_velocity_limits: true
+    max_velocity: 0.14
+    has_acceleration_limits: true
+    max_acceleration: 1.12
+  l_ring_joint1:
+    has_velocity_limits: true
+    max_velocity: 0.14
+    has_acceleration_limits: true
+    max_acceleration: 1.12
+  r_ring_joint1:
+    has_velocity_limits: true
+    max_velocity: 0.14
+    has_acceleration_limits: true
+    max_acceleration: 1.12
+  r_ring_joint2:
+    has_velocity_limits: true
+    max_velocity: 0.14
+    has_acceleration_limits: true
+    max_acceleration: 1.12
+  l_middle_joint2:
+    has_velocity_limits: true
+    max_velocity: 0.14
+    has_acceleration_limits: true
+    max_acceleration: 1.12
+  r_thumb_joint1:
+    has_velocity_limits: true
+    max_velocity: 0.14
+    has_acceleration_limits: true
+    max_acceleration: 1.12
+  r_joint4:
+    has_velocity_limits: true
+    max_velocity: 0.14
+    has_acceleration_limits: true
+    max_acceleration: 1.12
+  l_pinky_joint2:
+    has_velocity_limits: true
+    max_velocity: 0.14
+    has_acceleration_limits: true
+    max_acceleration: 1.12
+  r_joint2:
+    has_velocity_limits: true
+    max_velocity: 0.14
+    has_acceleration_limits: true
+    max_acceleration: 1.12
+  r_middle_joint2:
+    has_velocity_limits: true
+    max_velocity: 0.14
+    has_acceleration_limits: true
+    max_acceleration: 1.12
+  l_thumb_joint3:
+    has_velocity_limits: true
+    max_velocity: 0.14
+    has_acceleration_limits: true
+    max_acceleration: 1.12
+  r_middle_joint1:
+    has_velocity_limits: true
+    max_velocity: 0.14
+    has_acceleration_limits: true
+    max_acceleration: 1.12
+  l_index_joint2:
+    has_velocity_limits: true
+    max_velocity: 0.14
+    has_acceleration_limits: true
+    max_acceleration: 1.12
+  r_index_joint2:
+    has_velocity_limits: true
+    max_velocity: 0.14
+    has_acceleration_limits: true
+    max_acceleration: 1.12
+  r_joint5:
+    has_velocity_limits: true
+    max_velocity: 0.14
+    has_acceleration_limits: true
+    max_acceleration: 1.12
+  r_pinky_joint2:
+    has_velocity_limits: true
+    max_velocity: 0.14
+    has_acceleration_limits: true
+    max_acceleration: 1.12
+  l_joint6:
+    has_velocity_limits: true
+    max_velocity: 0.14
+    has_acceleration_limits: true
+    max_acceleration: 1.12
+  l_thumb_joint2:
+    has_velocity_limits: true
+    max_velocity: 0.14
+    has_acceleration_limits: true
+    max_acceleration: 1.12
+  r_joint3:
+    has_velocity_limits: true
+    max_velocity: 0.14
+    has_acceleration_limits: true
+    max_acceleration: 1.12
+  r_thumb_joint2:
+    has_velocity_limits: true
+    max_velocity: 0.14
+    has_acceleration_limits: true
+    max_acceleration: 1.12
+  r_thumb_joint3:
+    has_velocity_limits: true
+    max_velocity: 0.14
+    has_acceleration_limits: true
+    max_acceleration: 1.12
+  r_joint1:
+    has_velocity_limits: true
+    max_velocity: 0.14
+    has_acceleration_limits: true
+    max_acceleration: 1.12
+  l_index_joint1:
+    has_velocity_limits: true
+    max_velocity: 0.14
+    has_acceleration_limits: true
+    max_acceleration: 1.12
+  l_joint2:
+    has_velocity_limits: true
+    max_velocity: 0.14
+    has_acceleration_limits: true
+    max_acceleration: 1.12
+  l_joint3:
+    has_velocity_limits: true
+    max_velocity: 0.14
+    has_acceleration_limits: true
+    max_acceleration: 1.12
+  r_joint7:
+    has_velocity_limits: true
+    max_velocity: 0.14
+    has_acceleration_limits: true
+    max_acceleration: 1.12
+  r_joint6:
+    has_velocity_limits: true
+    max_velocity: 0.14
+    has_acceleration_limits: true
+    max_acceleration: 1.12
+  r_index_joint1:
+    has_velocity_limits: true
+    max_velocity: 0.14
+    has_acceleration_limits: true
+    max_acceleration: 1.12
+  l_pinky_joint1:
+    has_velocity_limits: true
+    max_velocity: 0.14
+    has_acceleration_limits: true
+    max_acceleration: 1.12
+  l_joint5:
+    has_velocity_limits: true
+    max_velocity: 0.14
+    has_acceleration_limits: true
+    max_acceleration: 1.12

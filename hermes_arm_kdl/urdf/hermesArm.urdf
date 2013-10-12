@@ -1,0 +1,1044 @@
+<?xml version="1.0"?>
+<robot name="hermesArm">
+
+ <!-- **************************** LINKS ***************************** -->
+  <link name="base1"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/BaseSchunk1.stl" />
+      </geometry>
+      <material name="link">
+        <color rgba="0.4706 0.5451 0.5647 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/BaseSchunk1.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+  <link name="base2"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/BaseSchunk2.stl" />
+      </geometry>
+      <material name="motor">
+        <color rgba="0.3922 0.3922 0.2118 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/BaseSchunk2.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+  <link name="link1_1"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink1_1.stl" />
+      </geometry>
+      <material name="motor">
+        <color rgba="0.3922 0.3922 0.2118 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink1_1.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+  <link name="link1_2"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink1_2.stl" />
+      </geometry>
+      <material name="link">
+        <color rgba="0.4706 0.5451 0.5647 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink1_2.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+  <link name="link1_3"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink1_3.stl" />
+      </geometry>
+      <material name="tapa">
+        <color rgba="0.0100 0.0100 0.0100 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink1_3.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+  <link name="link1_4"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink1_4.stl" />
+      </geometry>
+      <material name="nbio">
+        <color rgba="0.5100 0.9100 0.5100 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink1_4.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+
+  <link name="link1_5"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink1_5.stl" />
+      </geometry>
+      <material name="motor">
+        <color rgba="0.3922 0.3922 0.2118 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink1_5.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+
+  <link name="link2_1"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink2_1.stl" />
+      </geometry>
+      <material name="motor">
+        <color rgba="0.3922 0.3922 0.2118 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink2_1.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+  <link name="link2_2"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink2_2.stl" />
+      </geometry>
+      <material name="link">
+        <color rgba="0.4706 0.5451 0.5647 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink2_2.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+  <link name="link2_3"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink2_3.stl" />
+      </geometry>
+      <material name="tapa">
+        <color rgba="0.0100 0.0100 0.0100 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink2_3.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+  <link name="link2_4"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink2_4.stl" />
+      </geometry>
+      <material name="nbio">
+        <color rgba="0.5100 0.9100 0.5100 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink2_4.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+  <link name="link2_5"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink2_5.stl" />
+      </geometry>
+      <material name="motor">
+        <color rgba="0.3922 0.3922 0.2118 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink2_5.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+  <link name="link3_1"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink3_1.stl" />
+      </geometry>
+      <material name="motor">
+        <color rgba="0.3922 0.3922 0.2118 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink3_1.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+  <link name="link3_2"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink3_2.stl" />
+      </geometry>
+      <material name="link">
+        <color rgba="0.4706 0.5451 0.5647 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink3_2.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+  <link name="link3_3"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink3_3.stl" />
+      </geometry>
+      <material name="tapa">
+        <color rgba="0.0100 0.0100 0.0100 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink3_3.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+  <link name="link3_4"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink3_4.stl" />
+      </geometry>
+      <material name="nbio">
+        <color rgba="0.5100 0.9100 0.5100 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink3_4.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+  <link name="link3_5"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink3_5.stl" />
+      </geometry>
+      <material name="motor">
+        <color rgba="0.3922 0.3922 0.2118 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink3_5.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+  <link name="link4_1"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink4_1.stl" />
+      </geometry>
+      <material name="motor">
+        <color rgba="0.3922 0.3922 0.2118 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink4_1.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+  <link name="link4_2"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink4_2.stl" />
+      </geometry>
+      <material name="link">
+        <color rgba="0.4706 0.5451 0.5647 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink4_2.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+  <link name="link4_3"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink4_3.stl" />
+      </geometry>
+      <material name="tapa">
+        <color rgba="0.0100 0.0100 0.0100 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink4_3.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+  <link name="link4_4"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink4_4.stl" />
+      </geometry>
+      <material name="nbio">
+        <color rgba="0.5100 0.9100 0.5100 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink4_4.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+  <link name="link4_5"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink4_5.stl" />
+      </geometry>
+      <material name="motor">
+        <color rgba="0.3922 0.3922 0.2118 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink4_5.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+  <link name="link5_1"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink5_1.stl" />
+      </geometry>
+      <material name="motor">
+        <color rgba="0.3922 0.3922 0.2118 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink5_1.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+  <link name="link5_2"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink5_2.stl" />
+      </geometry>
+      <material name="link">
+        <color rgba="0.4706 0.5451 0.5647 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink5_2.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+  <link name="link5_3"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink5_3.stl" />
+      </geometry>
+      <material name="tapa">
+        <color rgba="0.0100 0.0100 0.0100 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink5_3.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+  <link name="link5_4"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink5_4.stl" />
+      </geometry>
+      <material name="nbio">
+        <color rgba="0.5100 0.9100 0.5100 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink5_4.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+ <link name="link5_5"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink5_5.stl" />
+      </geometry>
+      <material name="motor">
+        <color rgba="0.3922 0.3922 0.2118 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink5_5.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+
+
+  <link name="link6_1"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink6_1.stl" />
+      </geometry>
+      <material name="motor">
+        <color rgba="0.3922 0.3922 0.2118 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink6_1.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+  <link name="link6_2"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink6_2.stl" />
+      </geometry>
+      <material name="link">
+        <color rgba="0.4706 0.5451 0.5647 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink6_2.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+
+  <link name="link6_3"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink6_3.stl" />
+      </geometry>
+      <material name="tapa">
+        <color rgba="0.0100 0.0100 0.0100 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink6_3.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+
+  <link name="link6_4"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink6_4.stl" />
+      </geometry>
+      <material name="nbio">
+        <color rgba="0.5100 0.9100 0.5100 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink6_4.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+  <link name="link6_5"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink6_5.stl" />
+      </geometry>
+      <material name="motor">
+        <color rgba="0.3922 0.3922 0.2118 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink6_5.stl" />
+      </geometry>
+    </collision>	
+  </link>
+  
+ 
+  <link name="link7_1"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink7_1.stl" />
+      </geometry>
+      <material name="motor">
+        <color rgba="0.3922 0.3922 0.2118 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink7_1.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+
+  <link name="link7_2"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink7_2.stl" />
+      </geometry>
+      <material name="link">
+        <color rgba="0.4706 0.5451 0.5647 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink7_2.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+  <link name="link7_3"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink7_3.stl" />
+      </geometry>
+      <material name="tapa">
+        <color rgba="0.01 0.01 0.01 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink7_3.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+
+  <link name="link7_4"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink7_4.stl" />
+      </geometry>
+      <material name="link">
+        <color rgba="0.4706 0.5451 0.5647 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/SchunkLink7_4.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+ <!-- **************************** JOINTS ***************************** -->
+  <joint name="base_fixed" type="fixed">
+    <parent link="base1"/>
+    <child link="base2"/>
+  </joint>
+
+
+  <joint name="joint1" type="revolute">
+    <parent link="base2"/>
+    <child link="link1_1"/>
+    <origin xyz="0 0 -0.3060" rpy="1.5707963267949 0 0" />
+    <limit effort="100" velocity="100" lower="-3.14" upper="3.14" />
+    <axis xyz="0 1 0" />
+  </joint>
+
+  <joint name="joint1_1" type="fixed">
+    <parent link="link1_1"/>
+    <child link="link1_2"/>
+  </joint>
+
+  <joint name="joint1_2" type="fixed">
+    <parent link="link1_2"/>
+    <child link="link1_3"/>
+  </joint>
+
+  <joint name="joint1_3" type="fixed">
+    <parent link="link1_3"/>
+    <child link="link1_4"/>
+  </joint>
+
+  <joint name="joint1_4" type="fixed">
+    <parent link="link1_4"/>
+    <child link="link1_5"/>
+  </joint>
+
+  <joint name="joint2" type="revolute">
+    <parent link="link1_5"/>
+    <child link="link2_1"/>
+    <origin xyz="0 0 0" rpy="-1.5707963267949 0 0" />
+    <axis xyz="0 -1 0" />
+    <limit effort="100" velocity="100" lower="-1.83" upper="1.83" />
+  </joint>
+
+  <joint name="joint2_1" type="fixed">
+    <parent link="link2_1"/>
+    <child link="link2_2"/>
+  </joint>
+
+  <joint name="joint2_2" type="fixed">
+    <parent link="link2_2"/>
+    <child link="link2_3"/>
+  </joint>
+
+  <joint name="joint2_3" type="fixed">
+    <parent link="link2_3"/>
+    <child link="link2_4"/>
+  </joint>
+
+  <joint name="joint2_4" type="fixed">
+    <parent link="link2_4"/>
+    <child link="link2_5"/>
+  </joint>
+
+  <joint name="joint3" type="revolute">
+    <parent link="link2_5"/>
+    <child link="link3_1"/>
+    <origin xyz="0 0 -0.391" rpy="1.5707963267949 0 0" />
+    <axis xyz="0 1 0" />
+    <limit effort="100" velocity="100" lower="-3.14" upper="3.14" />
+  </joint>
+
+  <joint name="joint3_1" type="fixed">
+    <parent link="link3_1"/>
+    <child link="link3_2"/>
+  </joint>
+
+  <joint name="joint3_2" type="fixed">
+    <parent link="link3_2"/>
+    <child link="link3_3"/>
+  </joint>
+
+  <joint name="joint3_3" type="fixed">
+    <parent link="link3_3"/>
+    <child link="link3_4"/>
+  </joint>
+
+  <joint name="joint3_4" type="fixed">
+    <parent link="link3_4"/>
+    <child link="link3_5"/>
+  </joint>
+
+  <joint name="joint4" type="revolute">
+    <parent link="link3_5"/>
+    <child link="link4_1"/>
+    <origin xyz="0 0 0" rpy="-1.5707963267949 0 0" />
+    <axis xyz="0 -1 0" />
+    <limit effort="100" velocity="100" lower="-1.83" upper="1.83" />
+  </joint>
+
+  <joint name="joint4_1" type="fixed">
+    <parent link="link4_1"/>
+    <child link="link4_2"/>
+  </joint>
+
+  <joint name="joint4_2" type="fixed">
+    <parent link="link4_2"/>
+    <child link="link4_3"/>
+  </joint>
+
+  <joint name="joint4_3" type="fixed">
+    <parent link="link4_3"/>
+    <child link="link4_4"/>
+  </joint>
+
+  <joint name="joint4_4" type="fixed">
+    <parent link="link4_4"/>
+    <child link="link4_5"/>
+  </joint>
+
+  <joint name="joint5" type="revolute">
+    <parent link="link4_5"/>
+    <child link="link5_1"/>
+    <origin xyz="0 0 -0.2975" rpy="1.5707963267949 0 0" />
+    <axis xyz="0 1 0" /> 
+    <limit effort="100" velocity="100" lower="-3.14" upper="3.14" />
+  </joint>
+
+  <joint name="joint5_1" type="fixed">
+    <parent link="link5_1"/>
+    <child link="link5_2"/>
+  </joint>
+
+  <joint name="joint5_2" type="fixed">
+    <parent link="link5_2"/>
+    <child link="link5_3"/>
+  </joint>
+
+  <joint name="joint5_3" type="fixed">
+    <parent link="link5_3"/>
+    <child link="link5_4"/>
+  </joint>
+
+  <joint name="joint5_4" type="fixed">
+    <parent link="link5_4"/>
+    <child link="link5_5"/>
+  </joint>
+
+  <joint name="joint6" type="revolute">
+    <parent link="link5_5"/>
+    <child link="link6_1"/>
+    <origin xyz="0 0 0" rpy="-1.5707963267949 0 0" />
+    <axis xyz="0 -1 0" /> 
+    <limit effort="100" velocity="100" lower="-1.83" upper="1.83" />
+  </joint>
+
+  <joint name="joint6_1" type="fixed">
+    <parent link="link6_1"/>
+    <child link="link6_2"/>
+  </joint>
+
+  <joint name="joint6_2" type="fixed">
+    <parent link="link6_2"/>
+    <child link="link6_3"/>
+  </joint>
+
+  <joint name="joint6_3" type="fixed">
+    <parent link="link6_3"/>
+    <child link="link6_4"/>
+  </joint>
+
+  <joint name="joint6_4" type="fixed">
+    <parent link="link6_4"/>
+    <child link="link6_5"/>
+  </joint>
+
+
+  <joint name="joint7" type="revolute">
+    <parent link="link6_5"/>
+    <child link="link7_1"/>
+    <origin xyz="0 0 -0.3045" rpy="3.1416 0 0" />
+    <axis xyz="0 0 -1" />
+    <limit effort="100" velocity="100" lower="-3.14" upper="3.14" />
+  </joint>
+
+  <joint name="joint7_1" type="fixed">
+    <parent link="link7_1"/>
+    <child link="link7_2"/>
+  </joint>
+
+  <joint name="joint7_2" type="fixed">
+    <parent link="link7_2"/>
+    <child link="link7_3"/>
+  </joint>
+
+  <joint name="joint7_3" type="fixed">
+    <parent link="link7_3"/>
+    <child link="link7_4"/>
+  </joint>
+  
+
+</robot>
+
+

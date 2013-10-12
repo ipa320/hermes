@@ -1,0 +1,40 @@
+<launch>
+    <param name="robot_description" command="cat $(find hermes_arm_kdl)/urdf/hermesArm.urdf" />
+    <node pkg="tf" type="static_transform_publisher" name="world" args="0 0 0 0 0 0 map world 100" />
+    <node pkg="tf" type="static_transform_publisher" name="base1" args="0 0 0 0 0 0 base1 map 100" />
+    <node pkg="tf" type="static_transform_publisher" name="base2" args="0 0 0 0 0 0 base2 base1 100" />
+    <node pkg="tf" type="static_transform_publisher" name="link1_1" args="0 0 0 0 0 0 link1_1 base2 100" />
+    <node pkg="tf" type="static_transform_publisher" name="link1_2" args="0 0 0 0 0 0 link1_2 link1_1 100" />
+    <node pkg="tf" type="static_transform_publisher" name="link1_3" args="0 0 0 0 0 0 link1_3 link1_2 100" />
+    <node pkg="tf" type="static_transform_publisher" name="link1_4" args="0 0 0 0 0 0 link1_4 link1_3 100" />
+    <node pkg="tf" type="static_transform_publisher" name="link1_5" args="0 0 0 0 0 0 link1_5 link1_4 100" />
+    <node pkg="tf" type="static_transform_publisher" name="link2_1" args="0 0 0 0 0 0 link2_1 link1_5 100" />
+    <node pkg="tf" type="static_transform_publisher" name="link2_2" args="0 0 0 0 0 0 link2_2 link2_1 100" />
+    <node pkg="tf" type="static_transform_publisher" name="link2_3" args="0 0 0 0 0 0 link2_3 link2_2 100" />
+    <node pkg="tf" type="static_transform_publisher" name="link2_4" args="0 0 0 0 0 0 link2_4 link2_3 100" />
+    <node pkg="tf" type="static_transform_publisher" name="link2_5" args="0 0 0 0 0 0 link2_5 link2_4 100" />
+    <node pkg="tf" type="static_transform_publisher" name="link3_1" args="0 0 0 0 0 0 link3_1 link2_5 100" />
+    <node pkg="tf" type="static_transform_publisher" name="link3_2" args="0 0 0 0 0 0 link3_2 link3_1 100" />
+    <node pkg="tf" type="static_transform_publisher" name="link3_3" args="0 0 0 0 0 0 link3_3 link3_2 100" />
+    <node pkg="tf" type="static_transform_publisher" name="link3_4" args="0 0 0 0 0 0 link3_4 link3_3 100" />
+    <node pkg="tf" type="static_transform_publisher" name="link3_5" args="0 0 0 0 0 0 link3_5 link3_4 100" />
+    <node pkg="tf" type="static_transform_publisher" name="link4_1" args="0 0 0 0 0 0 link4_1 link3_5 100" />
+    <node pkg="tf" type="static_transform_publisher" name="link4_2" args="0 0 0 0 0 0 link4_2 link4_1 100" />
+    <node pkg="tf" type="static_transform_publisher" name="link4_3" args="0 0 0 0 0 0 link4_3 link4_2 100" />
+    <node pkg="tf" type="static_transform_publisher" name="link4_4" args="0 0 0 0 0 0 link4_4 link4_3 100" />
+    <node pkg="tf" type="static_transform_publisher" name="link4_5" args="0 0 0 0 0 0 link4_5 link4_4 100" />
+    <node pkg="tf" type="static_transform_publisher" name="link5_1" args="0 0 0 0 0 0 link5_1 link4_5 100" />
+    <node pkg="tf" type="static_transform_publisher" name="link5_2" args="0 0 0 0 0 0 link5_2 link5_1 100" />
+    <node pkg="tf" type="static_transform_publisher" name="link5_3" args="0 0 0 0 0 0 link5_3 link5_2 100" />
+    <node pkg="tf" type="static_transform_publisher" name="link5_4" args="0 0 0 0 0 0 link5_4 link5_3 100" />
+    <node pkg="tf" type="static_transform_publisher" name="link5_5" args="0 0 0 0 0 0 link5_5 link5_4 100" />
+    <node pkg="tf" type="static_transform_publisher" name="link6_1" args="0 0 0 0 0 0 link6_1 link5_5 100" />
+    <node pkg="tf" type="static_transform_publisher" name="link6_2" args="0 0 0 0 0 0 link6_2 link6_1 100" />
+    <node pkg="tf" type="static_transform_publisher" name="link6_3" args="0 0 0 0 0 0 link6_3 link6_2 100" />
+    <node pkg="tf" type="static_transform_publisher" name="link6_4" args="0 0 0 0 0 0 link6_4 link6_3 100" />
+    <node pkg="tf" type="static_transform_publisher" name="link6_5" args="0 0 0 0 0 0 link6_5 link6_4 100" />
+    <node pkg="tf" type="static_transform_publisher" name="link7_1" args="0 0 0 0 0 0 link7_1 link6_5 100" />
+    <node pkg="tf" type="static_transform_publisher" name="link7_2" args="0 0 0 0 0 0 link7_1 link7_2 100" />
+    <node pkg="tf" type="static_transform_publisher" name="link7_3" args="0 0 0 0 0 0 link7_2 link7_3 100" />
+    <node pkg="tf" type="static_transform_publisher" name="link7_4" args="0 0 0 0 0 0 link7_3 link7_4 100" />
+</launch>

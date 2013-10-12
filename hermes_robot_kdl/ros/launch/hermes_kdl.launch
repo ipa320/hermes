@@ -1,0 +1,8 @@
+<launch>
+  <!-- Localizacion del fichero urdf del hermes que esta en hermes_moveit -->
+  <arg name="urdf_file" value="$(find hermes_moveit_generated)/../ros/urdf/hermes.urdf" />
+ 
+
+  <!-- Ejemplo del KDL parser -->
+  <node name="hermes_robot_kdl" pkg="hermes_robot_kdl" type="parser" args= "$(arg urdf_file)" respawn="false" output ="screen"/>
+</launch>

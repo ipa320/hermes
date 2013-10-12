@@ -1,0 +1,16 @@
+# Move a right arm
+#
+# goal message = the request
+int32 arm				# number of the arm to control (1=left, 2=right)
+int32 LEFTARM=1
+int32 RIGHTARM=2
+
+geometry_msgs/PoseStamped goal_position		# the target position of the wrist of the robot arm
+
+---
+# result message
+arm_navigation_msgs/ArmNavigationErrorCodes return_value	# success or error code
+---
+# feedback message
+# here you might define some intermediate feedback message that reports about the current status of computation -> useful if the handling of the request might take several seconds or longer
+

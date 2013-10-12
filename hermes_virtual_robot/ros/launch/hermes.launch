@@ -1,0 +1,33 @@
+<launch>
+
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="rob_st_pub"/>
+
+
+  <node name="hermes_virtual_robot" pkg="hermes_virtual_robot" type="hermes_virtual_robot_main" respawn="false" output="screen" />
+  <node name="hermes_virtual_robot_publisher" pkg="hermes_virtual_robot" type="hermes_virtual_robot_publisher" respawn="false" output="screen" />
+
+
+  <include file="$(find hermes_virtual_robot)/ros/launch/planning_context.launch">
+    <arg name="load_robot_description" value="true"/>
+  </include>
+
+
+
+  <!-- node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="/use_gui" value="true"/>
+  </node -->
+
+
+
+  <include file="$(find hermes_virtual_robot)/ros/launch/hermes_move_group.launch">
+    <arg name="allow_trajectory_execution" value="true"/>
+  </include>
+
+
+  <include file="$(find hermes_virtual_robot)/ros/launch/moveit_rviz.launch">
+    <arg name="config" value="true"/>
+  </include>
+
+  <include file="$(find hermes_moveit_generated)/launch/default_warehouse_db.launch" />
+ 
+</launch>

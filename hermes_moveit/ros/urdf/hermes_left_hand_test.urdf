@@ -1,0 +1,423 @@
+<?xml version="1.0"?>
+<robot name="hermes_left_hand">
+
+ <!-- **************************** LINKS ***************************** -->
+  <link name="l_base_hand"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/left_base_hand.stl" />
+      </geometry>
+      <material name="link">
+        <color rgba="0.4706 0.5451 0.5647 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/left_base_hand.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+  <link name="l_thumb1"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/left_thumb_link1.stl" />
+      </geometry>
+      <material name="link">
+        <color rgba="0.4706 0.5451 0.5647 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/left_thumb_link1.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+  <link name="l_thumb2"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/left_thumb_link2.stl" />
+      </geometry>
+      <material name="link2">
+        <color rgba="0.03922 0.39922 0.2118 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/left_thumb_link2.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+
+  <link name="l_thumb3"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/left_thumb_link3.stl" />
+      </geometry>
+      <material name="link">
+        <color rgba="0.4706 0.5451 0.5647 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/left_thumb_link3.stl" />
+      </geometry>
+    </collision>	
+  </link>
+  
+  
+
+
+  <link name="l_index1"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/left_index_link1.stl" />
+      </geometry>
+      <material name="link2">
+        <color rgba="0.03922 0.39922 0.2118 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/left_index_link1.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+  <link name="l_index2"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/left_index_link2.stl" />
+      </geometry>
+      <material name="link">
+        <color rgba="0.4706 0.5451 0.5647 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/left_index_link2.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+
+
+  <link name="l_middle1"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/left_middle_link1.stl" />
+      </geometry>
+      <material name="link2">
+        <color rgba="0.03922 0.39922 0.2118 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/left_middle_link1.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+  <link name="l_middle2"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/left_middle_link2.stl" />
+      </geometry>
+      <material name="link">
+        <color rgba="0.4706 0.5451 0.5647 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/left_middle_link2.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+ <link name="l_ring1"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/left_ring_link1.stl" />
+      </geometry>
+      <material name="link2">
+        <color rgba="0.03922 0.39922 0.2118 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/left_ring_link1.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+  <link name="l_ring2"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/left_ring_link2.stl" />
+      </geometry>
+      <material name="link">
+        <color rgba="0.4706 0.5451 0.5647 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/left_ring_link2.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+
+ <link name="l_pinky1"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/left_pinky_link1.stl" />
+      </geometry>
+      <material name="link2">
+        <color rgba="0.03922 0.39922 0.2118 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/left_pinky_link1.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+  <link name="l_pinky2"> 
+    <inertial>
+      <origin xyz="0 0 0" /> 
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/left_pinky_link2.stl" />
+      </geometry>
+      <material name="link">
+        <color rgba="0.4706 0.5451 0.5647 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://hermes_arm_kdl/stl/left_pinky_link2.stl" />
+      </geometry>
+    </collision>	
+  </link>
+
+ <link name="l_thumb_eef" /> 
+ <link name="l_index_eef" />
+ <link name="l_middle_eef" />
+ <link name="l_ring_eef" />
+ <link name="l_pinky_eef" />
+    
+
+
+
+  
+
+ <!-- **************************** JOINTS ***************************** -->
+
+  <joint name="l_thumb_joint1" type="revolute">
+    <parent link="l_base_hand"/>
+    <child link="l_thumb1"/>
+    <origin xyz="0.0403  0.0095 0.0593" rpy="0 -0.8149 0" />
+    <limit effort="100" velocity="100" lower="-3.14" upper="3.14" />
+    <axis xyz="0 0 1" />
+  </joint>
+
+  <joint name="l_thumb_joint2" type="revolute">
+    <parent link="l_thumb1"/>
+    <child link="l_thumb2"/>
+    <origin xyz="0.033 0 0" rpy="1.5708 0 0" />
+    <limit effort="100" velocity="100" lower="-3.14" upper="3.14" />
+    <axis xyz="0 0 1" />
+  </joint>
+
+  <joint name="l_thumb_joint3" type="revolute">
+    <parent link="l_thumb2"/>
+    <child link="l_thumb3"/>
+    <origin xyz="0.035 0 0" rpy="0 0 0" />
+    <limit effort="100" velocity="100" lower="-3.14" upper="3.14" />
+    <axis xyz="0 0 1" />
+  </joint>
+
+  <joint name="l_thumb_joint_eef" type="fixed">
+    <parent link="l_thumb3"/>
+    <child link="l_thumb_eef"/>
+    <origin xyz="0.055425 0 0" rpy="0 0 0" />
+  </joint>
+
+
+  <joint name="l_index_joint1" type="revolute">
+    <parent link="l_base_hand"/>
+    <child link="l_index1"/>
+    <origin xyz="0.03 0.0145 0.1240" rpy="0 -1.4331 0" />
+    <limit effort="100" velocity="100" lower="-3.14" upper="3.14" />
+    <axis xyz="0 0 1" />
+  </joint>
+
+  <joint name="l_index_joint2" type="revolute">
+    <parent link="l_index1"/>
+    <child link="l_index2"/>
+    <origin xyz="0.035 0 0" rpy="0 0 0" />
+    <limit effort="100" velocity="100" lower="-3.14" upper="3.14" />
+    <axis xyz="0 0 1" />
+  </joint>
+
+  <joint name="l_index_joint_eff" type="fixed">
+    <parent link="l_index2"/>
+    <child link="l_index_eef"/>
+    <origin xyz="0.055425 0 0" rpy="0 0 0" />
+  </joint>
+
+  <joint name="l_middle_joint1" type="revolute">
+    <parent link="l_base_hand"/>
+    <child link="l_middle1"/>
+    <origin xyz="0.0066 0.0145 0.1304" rpy="0 -1.5645 0" />
+    <limit effort="100" velocity="100" lower="-3.14" upper="3.14" />
+    <axis xyz="0 0 1" />
+  </joint>
+
+  <joint name="l_middle_joint2" type="revolute">
+    <parent link="l_middle1"/>
+    <child link="l_middle2"/>
+    <origin xyz="0.035 0 0" rpy="0 0 0" />
+    <limit effort="100" velocity="100" lower="-3.14" upper="3.14" />
+    <axis xyz="0 0 1" />
+  </joint>
+
+  <joint name="l_middle_joint_eff" type="fixed">
+    <parent link="l_middle2"/>
+    <child link="l_middle_eef"/>
+    <origin xyz="0.055425 0 0" rpy="0 0 0" />
+  </joint>
+
+  <joint name="l_ring_joint1" type="revolute">
+    <parent link="l_base_hand"/>
+    <child link="l_ring1"/>
+    <origin xyz="-0.0168 0.0145 0.1246" rpy="-3.1416 -1.4081 -3.1416" />
+    <limit effort="100" velocity="100" lower="-3.14" upper="3.14" />
+    <axis xyz="0 0 1" />
+  </joint>
+
+  <joint name="l_ring_joint2" type="revolute">
+    <parent link="l_ring1"/>
+    <child link="l_ring2"/>
+    <origin xyz="0.035 0 0" rpy="0 0 0" />
+    <limit effort="100" velocity="100" lower="-3.14" upper="3.14" />
+    <axis xyz="0 0 1" />
+  </joint>
+
+  <joint name="l_ring_joint_eff" type="fixed">
+    <parent link="l_ring2"/>
+    <child link="l_ring_eef"/>
+    <origin xyz="0.055425 0 0" rpy="0 0 0" />
+  </joint>
+
+  <joint name="l_pinky_joint1" type="revolute">
+    <parent link="l_base_hand"/>
+    <child link="l_pinky1"/>
+    <origin xyz="-0.0370 0.0145 0.1157" rpy="-3.1416 -1.3298 -3.1416" />
+    <limit effort="100" velocity="100" lower="-3.14" upper="3.14" />
+    <axis xyz="0 0 1" />
+  </joint>
+
+  <joint name="l_pinky_joint2" type="revolute">
+    <parent link="l_pinky1"/>
+    <child link="l_pinky2"/>
+    <origin xyz="0.035 0 0" rpy="0 0 0" />
+    <limit effort="100" velocity="100" lower="-3.14" upper="3.14" />
+    <axis xyz="0 0 1" />
+  </joint >
+
+  <joint name="l_pinky_joint_eff" type="fixed">
+    <parent link="l_pinky2"/>
+    <child link="l_pinky_eef"/>
+    <origin xyz="0.055425 0 0" rpy="0 0 0" />
+  </joint>
+
+
+</robot>
+
+

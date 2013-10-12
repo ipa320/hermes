@@ -1,0 +1,28 @@
+<package>
+  <description brief="hermes_traj_action">
+
+     hermes_traj_action
+
+  </description>
+  <author>vr2user</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/hermes_traj_action</url>
+  <depend package="std_msgs"/>
+  <depend package="rospy"/>
+  <depend package="roscpp"/>
+  <depend package="actionlib"/>
+  <depend package="control_msgs"/>
+  <depend package="trajectory_msgs"/>
+  <depend package="arm_navigation_msgs"/>
+  <depend package="control_msgs"/>
+  <depend package="moveit_ros_move_group"/>
+  <depend package="kdl"/>
+
+   
+  
+  
+
+</package>
+
+

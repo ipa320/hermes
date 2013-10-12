@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <node ns="hermes_arm_kdl" name="arm_kdl" pkg="hermes_arm_kdl" type="arm_kdl_service_server" output="screen">
+  </node>
+
+</launch>
