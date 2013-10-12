@@ -12,7 +12,7 @@
 
 // Constructor of the class
 HermesVirtualRobot::HermesVirtualRobot(ros::NodeHandle node): node_(node), hermes_correct(true),is_publish(false),
-action_server_right_arm_(node, "/right_arm/trajectory_execution_event",boost::bind(&HermesVirtualRobot::executeTrajRightArmCB, this, _1),false),
+action_server_right_arm_(node, "/traj_action_",boost::bind(&HermesVirtualRobot::executeTrajRightArmCB, this, _1),false),
 action_server_left_arm_(node, "/left_arm/trajectory_execution_event",boost::bind(&HermesVirtualRobot::executeTrajLeftArmCB, this, _1),false)
 {
 
@@ -103,11 +103,6 @@ action_server_left_arm_(node, "/left_arm/trajectory_execution_event",boost::bind
 	joint_state_values["l_thumb_joint1"] = 1.5708;
 
 	kinematic_state_->setStateValues(joint_state_values);
-
-
-
-
-
 
 
 	/*const Eigen::Affine3d &end_effector_state = joint_state_group_right_arm_->getRobotState()->getLinkState("r_eef")->getGlobalLinkTransform();

@@ -48,7 +48,7 @@ if __name__ == '__main__':
 
     ####################### INIT POSITION RIGHT ARM ###############################
     move_group_right.set_random_target()
-    result = move_group_right.go()
+    result = move_group_right.go(None,0)
      
  
         
@@ -56,7 +56,7 @@ if __name__ == '__main__':
     move_group_left.set_random_target()
      
  
-    result = move_group_left.go()
+    result = move_group_left.go(None,0)
     
     if result == 0:
         print "ERROR Moving"

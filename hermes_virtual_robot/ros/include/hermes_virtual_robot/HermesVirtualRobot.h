@@ -59,6 +59,8 @@ class HermesVirtualRobot
 
 
 
+
+
 	public:
 		HermesVirtualRobot(ros::NodeHandle);
 		bool getHermesCorrect();
